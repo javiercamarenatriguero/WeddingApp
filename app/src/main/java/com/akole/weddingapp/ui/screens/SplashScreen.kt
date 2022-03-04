@@ -1,5 +1,6 @@
 package com.akole.weddingapp.ui.screens
 
+import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.ui.Modifier
@@ -7,10 +8,10 @@ import kotlinx.coroutines.delay
 
 @Composable
 fun SplashScreen (
-    modifier: Modifier = Modifier,
+    modifier: Modifier = Modifier.fillMaxSize(),
     onDelayed: () -> Unit
 ) {
-    SplashScreenContent()
+    SplashScreenContent(modifier)
 
     LaunchedEffect(key1 = true) {
         delay(timeMillis = 3000)
