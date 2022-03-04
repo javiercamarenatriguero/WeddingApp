@@ -8,34 +8,17 @@ import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import com.akole.weddingapp.ui.screens.MapScreen
 import com.akole.weddingapp.ui.screens.SongsScreen
-import com.akole.weddingapp.ui.screens.SplashScreen
 
 @Composable
 fun Navigation(navController: NavHostController) {
 
     NavHost(
         navController = navController,
-        startDestination = Feature.SPLASH.route
+        startDestination = Feature.HOME.route
     ) {
-        splashNav(navController)
         homeNav(navController)
         mapNav(navController)
         songsNav(navController)
-    }
-}
-
-private fun NavGraphBuilder.splashNav(navController: NavController) {
-    navigation(
-        startDestination = NavCommand.ContentType(Feature.SPLASH).route,
-        route = Feature.SPLASH.route
-    ) {
-        composable(NavCommand.ContentType(Feature.SPLASH)) {
-            SplashScreen(
-                onDelayed = {
-                    navController.navigate(NavCommand.ContentType(Feature.HOME).route)
-                }
-            )
-        }
     }
 }
 
