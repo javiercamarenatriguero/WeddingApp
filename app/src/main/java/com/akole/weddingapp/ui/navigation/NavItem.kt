@@ -13,6 +13,7 @@ enum class NavItem(
     val icon: ImageVector,
     @StringRes val title: Int
 ) {
+    SPLASH(NavCommand.ContentType(Feature.SPLASH), Icons.Default.Star, R.string.nav_splash_title),
     HOME(NavCommand.ContentType(Feature.HOME), Icons.Default.Home, R.string.nav_home_title),
     MAP(NavCommand.ContentType(Feature.MAP), Icons.Default.LocationOn, R.string.nav_map_title),
     SONGS(NavCommand.ContentType(Feature.SONGS), Icons.Default.Star, R.string.nav_songs_title)

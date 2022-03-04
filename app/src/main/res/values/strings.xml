@@ -3,4 +3,5 @@
     <string name="nav_home_title">Home</string>
     <string name="nav_map_title">Map</string>
     <string name="nav_songs_title">Songs</string>
+    <string name="nav_splash_title">Splash</string>
 </resources>
