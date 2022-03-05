@@ -1,25 +1,18 @@
-package com.akole.weddingapp.ui.screens
+package com.akole.weddingapp.ui.screens.home
 
 import androidx.annotation.DrawableRes
 import androidx.compose.foundation.Image
-import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.*
 import androidx.compose.material.Card
-import androidx.compose.material.Divider
-import androidx.compose.material.Text
-import androidx.compose.runtime.*
+import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.drawWithContent
 import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.graphics.Color.Companion.Black
 import androidx.compose.ui.graphics.graphicsLayer
 import androidx.compose.ui.layout.ContentScale
-import androidx.compose.ui.text.font.FontFamily
-import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
-import androidx.compose.ui.unit.sp
 import androidx.compose.ui.util.lerp
 import coil.compose.rememberAsyncImagePainter
 import com.akole.weddingapp.R
@@ -28,41 +21,7 @@ import kotlin.math.absoluteValue
 
 @OptIn(ExperimentalPagerApi::class)
 @Composable
-fun HomeScreenContent(modifier: Modifier = Modifier) {
-    Column(
-        modifier
-    ) {
-        Header()
-        Carousel()
-    }
-}
-
-@Composable
-private fun Header() {
-    Box (
-        modifier = Modifier
-            .fillMaxWidth()
-            .padding(30.dp),
-        contentAlignment = Alignment.Center
-    ) {
-        Column (
-            horizontalAlignment = Alignment.CenterHorizontally
-        ){
-            Text(
-                text = "Leyre & Javier",
-                modifier = Modifier.padding(8.dp),
-                textAlign = TextAlign.Center,
-                fontSize = 28.sp,
-                fontFamily = FontFamily.Cursive
-            )
-            Divider(color = Black, thickness = 1.dp)
-        }
-    }
-}
-
-@OptIn(ExperimentalPagerApi::class)
-@Composable
-private fun Carousel() {
+fun Carousel() {
     val imageList = listOf(
         CarouselItem("Image1", R.drawable.image1),
         CarouselItem("Image2",  R.drawable.image2),
@@ -139,7 +98,7 @@ private fun CarouselItemCard(
                             endY = size.height,
                             colors = listOf(
                                 Color.Transparent,
-                                Black,
+                                Color.Black,
                             )
                         )
                     )

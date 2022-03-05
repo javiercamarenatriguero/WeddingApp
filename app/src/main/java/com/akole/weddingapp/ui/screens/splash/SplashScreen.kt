@@ -1,9 +1,10 @@
-package com.akole.weddingapp.ui.screens
+package com.akole.weddingapp.ui.screens.splash
 
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.ui.Modifier
+import com.akole.weddingapp.ui.screens.SplashScreenContent
 import kotlinx.coroutines.delay
 
 @Composable

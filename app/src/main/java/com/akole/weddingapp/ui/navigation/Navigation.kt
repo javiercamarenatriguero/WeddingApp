@@ -1,6 +1,6 @@
 package com.akole.weddingapp.ui.navigation
 
-import com.akole.weddingapp.ui.screens.HomeScreen
+import com.akole.weddingapp.ui.screens.home.HomeScreen
 
 import androidx.compose.runtime.Composable
 import androidx.navigation.*

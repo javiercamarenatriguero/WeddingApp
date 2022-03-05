@@ -11,6 +11,8 @@
         android:theme="@style/Theme.WeddingApp">
         <activity
             android:name=".SplashActivity"
+            android:configChanges="orientation"
+            android:screenOrientation="portrait"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -20,6 +22,8 @@
         </activity>
         <activity
             android:name=".MainActivity"
+            android:configChanges="orientation"
+            android:screenOrientation="portrait"
             android:exported="true"
             android:theme="@style/Theme.WeddingApp">
         </activity>
