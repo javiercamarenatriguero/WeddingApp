@@ -25,8 +25,6 @@ import androidx.constraintlayout.compose.ConstraintLayout
 import androidx.constraintlayout.compose.Dimension
 import coil.compose.rememberAsyncImagePainter
 import com.akole.weddingapp.R
-import com.akole.weddingapp.ui.theme.Purple200
-import com.akole.weddingapp.ui.theme.Purple700
 
 @Composable
 fun Header(
@@ -106,9 +104,9 @@ private fun Title() {
         fontFamily = FontFamily.Cursive
     )
     Text(
-        text = stringResource(id = R.string.date_title),
+        text = stringResource(id = R.string.left_title),
         modifier = Modifier.padding(4.dp),
-        textAlign = TextAlign.Center,
+        textAlign = TextAlign.Start,
         color = Color.Gray,
         fontSize = 14.sp,
         fontFamily = FontFamily.Cursive

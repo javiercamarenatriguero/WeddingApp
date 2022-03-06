@@ -23,6 +23,8 @@ fun HomeScreenContent(
             minutesLeft = viewState.minutesLeft,
             secondsLeft = viewState.secondsLeft
         )
+        WeddingDetails()
+        WeddingDescription()
         Carousel()
     }
 }
