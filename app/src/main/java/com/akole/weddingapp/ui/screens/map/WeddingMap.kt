@@ -9,6 +9,7 @@ import com.google.android.gms.maps.CameraUpdateFactory
 import com.google.android.gms.maps.model.BitmapDescriptorFactory
 import com.google.android.gms.maps.model.CameraPosition
 import com.google.maps.android.compose.*
+import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
 
 
@@ -40,7 +41,7 @@ fun WeddingMap(
     }
 
     val cameraPositionState = rememberCameraPositionState {
-        position = CameraPosition.fromLatLngZoom(locationItems[mapPosition].position, 16f)
+        position = CameraPosition.fromLatLngZoom(locationItems[mapPosition].position, 13f)
     }
 
     GoogleMap(
@@ -51,9 +52,10 @@ fun WeddingMap(
         cameraPositionState = cameraPositionState,
         onMapLoaded = {
             coroutineScope.launch {
+                delay(100)
                 cameraPositionState.animate(
                     CameraUpdateFactory
-                        .newLatLngZoom(locationItems[mapPosition].position, 16f)
+                        .newLatLngZoom(locationItems[mapPosition].position, 18f)
                 )
                 isMapLoaded = true
             }
@@ -64,7 +66,7 @@ fun WeddingMap(
                 position = locationItem.position,
                 title = stringResource(id = locationItem.title),
                 snippet = stringResource(id = locationItem.snippet),
-                icon = BitmapDescriptorFactory.fromResource(locationItem.icon),
+                //icon = BitmapDescriptorFactory.fromResource(locationItem.icon),
                 visible = true
             )
         }

@@ -1,4 +1,4 @@
-package com.akole.weddingapp.ui.screens
+package com.akole.weddingapp.ui.screens.splash
 
 import androidx.compose.animation.core.*
 import androidx.compose.foundation.layout.Box
@@ -52,7 +52,6 @@ fun SplashScreenContent(
                 fontFamily = FontFamily.Cursive,
                 textAlign = TextAlign.Center
             )
-
             Icon(
                 imageVector = Icons.Filled.Favorite,
                 contentDescription = "Icono Corazón",
