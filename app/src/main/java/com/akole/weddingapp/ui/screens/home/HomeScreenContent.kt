@@ -24,10 +24,10 @@ fun HomeScreenContent(
             minutesLeft = viewState.minutesLeft,
             secondsLeft = viewState.secondsLeft
         )
-        WeddingDetails()
-        Spacer(modifier = Modifier.height(10.dp))
-        WeddingPicks()
         WeddingDescription()
-        //Carousel()
+        WeddingPicks()
+        Spacer(modifier = Modifier.height(16.dp))
+        WeddingDetails()
+        Spacer(modifier = Modifier.height(16.dp))
     }
 }

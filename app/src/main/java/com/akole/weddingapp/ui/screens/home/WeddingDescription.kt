@@ -19,7 +19,7 @@ fun WeddingDescription() {
     Column (
         Modifier
             .fillMaxWidth()
-            .padding(20.dp),
+            .padding(start = 20.dp, end = 20.dp),
         horizontalAlignment = Alignment.CenterHorizontally
     ) {
         Text(

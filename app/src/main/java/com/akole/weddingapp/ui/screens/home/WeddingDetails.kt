@@ -43,7 +43,8 @@ private fun DetailBox(
 ) {
     Row(
         Modifier.fillMaxWidth(),
-        verticalAlignment = Alignment.CenterVertically
+        verticalAlignment = Alignment.CenterVertically,
+        horizontalArrangement = Arrangement.Center
     ) {
         Icon(imageVector = imageVector, contentDescription = "")
         Spacer(modifier = Modifier.width(16.dp))

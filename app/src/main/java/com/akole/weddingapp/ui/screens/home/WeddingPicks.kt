@@ -16,6 +16,7 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import coil.compose.rememberAsyncImagePainter
 import com.akole.weddingapp.R
+import com.akole.weddingapp.ui.theme.DarkPink
 import com.akole.weddingapp.ui.theme.LightPink
 
 @Composable
@@ -41,9 +42,9 @@ private fun Pick(@DrawableRes imageRes: Int, label: String) {
             contentDescription = "",
             contentScale = ContentScale.Crop,
             modifier = Modifier
-                .size(62.dp)
+                .size(100.dp)
                 .clip(CircleShape)
-                .border(2.dp, LightPink, CircleShape)
+                .border(4.dp, DarkPink, CircleShape)
         )
         Spacer(modifier = Modifier.height(5.dp))
         Text(

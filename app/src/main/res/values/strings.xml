@@ -15,4 +15,13 @@
     <string name="description_title">We are getting married!</string>
     <string name="description_text">Queremos que compartáis con nosotros un día muy especial., como es el de nuestra boda . Tu presencia es nuestro regalo. \n \nMediante la aplicación, podréis ver información del evento, detalles sobre la localización de la ceremonia, cocktel y restaurante, así como añadir las canciones que más os guste para la noche disco.</string>
     <string name="location_title">Bilbao Town Hall</string>
+    <string name="council_title">Bilbao Town Hall</string>
+    <string name="council_snippet">Wedding ceremony place</string>
+    <string name="cocktel_title">Restaurante Txoko Piperrak</string>
+    <string name="cocktel_snippet">Cocktel place</string>
+    <string name="restaurant_title">Restaurante Izarza</string>
+    <string name="restaurant_snippet">Dinner &amp; Dance</string>
+    <string name="council_details">Ernesto Erkoreka Plaza, 12,  Bilbo</string>
+    <string name="cocktel_details">Trav. de Uribitarte, 1, Bilbao</string>
+    <string name="restaurant_details">c/ Izartza Bidea, 48,  Izartza (Sondika)</string>
 </resources>

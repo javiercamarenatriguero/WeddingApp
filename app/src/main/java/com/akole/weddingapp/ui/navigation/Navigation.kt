@@ -6,7 +6,7 @@ import androidx.compose.runtime.Composable
 import androidx.navigation.*
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
-import com.akole.weddingapp.ui.screens.MapScreen
+import com.akole.weddingapp.ui.screens.map.MapScreen
 import com.akole.weddingapp.ui.screens.SongsScreen
 
 @Composable
