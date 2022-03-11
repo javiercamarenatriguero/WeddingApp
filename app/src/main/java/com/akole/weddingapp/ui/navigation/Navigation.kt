@@ -19,6 +19,7 @@ fun Navigation(navController: NavHostController) {
         homeNav(navController)
         mapNav(navController)
         songsNav(navController)
+        picturesNav(navController)
     }
 }
 
@@ -50,6 +51,17 @@ private fun NavGraphBuilder.songsNav(navController: NavController) {
         route = Feature.SONGS.route
     ) {
         composable(NavCommand.ContentType(Feature.SONGS)) {
+            SongsScreen()
+        }
+    }
+}
+
+private fun NavGraphBuilder.picturesNav(navController: NavController) {
+    navigation(
+        startDestination = NavCommand.ContentType(Feature.PICTURES).route,
+        route = Feature.PICTURES.route
+    ) {
+        composable(NavCommand.ContentType(Feature.PICTURES)) {
             SongsScreen()
         }
     }

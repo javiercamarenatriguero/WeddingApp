@@ -27,7 +27,7 @@ class WeddingAppState(
     private val coroutineScope: CoroutineScope,
 ) {
     companion object {
-        val BOTTOM_NAV_OPTIONS = listOf(NavItem.HOME, NavItem.MAP, NavItem.SONGS)
+        val BOTTOM_NAV_OPTIONS = listOf(NavItem.HOME, NavItem.MAP, NavItem.SONGS, NavItem.PICTURES)
     }
 
     val currentRoute: String
