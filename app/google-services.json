@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "645294011068",
+    "firebase_url": "https://wedding-app-343310-default-rtdb.europe-west1.firebasedatabase.app",
+    "project_id": "wedding-app-343310",
+    "storage_bucket": "wedding-app-343310.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:645294011068:android:a292dd26e433a60cd856b9",
+        "android_client_info": {
+          "package_name": "com.akole.weddingapp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "645294011068-8vmvsfugpefc9o6hu5q3g4ml7fallner.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAoKzu2cBMB_eJL6ZP_59yNiIf4sLEyoG0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "645294011068-8vmvsfugpefc9o6hu5q3g4ml7fallner.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

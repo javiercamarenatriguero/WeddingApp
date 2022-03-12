@@ -8,7 +8,11 @@ import androidx.compose.foundation.relocation.bringIntoViewRequester
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.foundation.text.KeyboardOptions
 import androidx.compose.material.Button
+import androidx.compose.material.Icon
 import androidx.compose.material.Text
+import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.MusicNote
+import androidx.compose.material.icons.filled.Person
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.rememberCoroutineScope
@@ -28,7 +32,7 @@ import kotlinx.coroutines.launch
 @Composable
 fun SongsForm(
     songValue: String = "",
-    artistValue: String = "",
+    artistValue: String? = "",
     onSongValueChanged: (String) -> Unit = {},
     onArtistValueChanged: (String) -> Unit = {},
     buttonEnabled: Boolean = false,
@@ -61,11 +65,17 @@ fun SongsForm(
                         bringIntoViewRequester.bringIntoView()
                     }
                 }
+            },
+            leadingIcon = {
+                Icon(
+                    imageVector = Icons.Default.MusicNote,
+                    contentDescription = ""
+                )
             }
         )
         Spacer(modifier = Modifier.height(20.dp))
         CustomOutlinedTextField(
-            value = artistValue,
+            value = artistValue ?: "",
             label = stringResource(id = R.string.songs_textfield_artist_label),
             modifier = Modifier.fillMaxWidth(),
             onValueChange = { artist ->
@@ -78,6 +88,12 @@ fun SongsForm(
                         bringIntoViewRequester.bringIntoView()
                     }
                 }
+            },
+            leadingIcon = {
+                Icon(
+                    imageVector = Icons.Default.Person,
+                    contentDescription = ""
+                )
             }
         )
         Spacer(modifier = Modifier.height(5.dp))

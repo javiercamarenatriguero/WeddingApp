@@ -20,7 +20,6 @@ fun SongsScreen(
 ){
     Box(modifier = Modifier
         .fillMaxSize()
-        .background(Color.Black)
     ) {
         SongsScreenContent(
             viewState = viewModel.state,

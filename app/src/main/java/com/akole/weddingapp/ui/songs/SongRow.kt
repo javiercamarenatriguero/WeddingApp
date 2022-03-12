@@ -18,12 +18,13 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.akole.weddingapp.R
+import com.akole.weddingapp.data.models.Song
 import com.akole.weddingapp.ui.theme.DarkPink
 
 @Composable
 fun SongRow(
     position: Int,
-    songItem: SongItem
+    songItem: Song
 ) {
     Row(
         modifier = Modifier
@@ -48,7 +49,7 @@ fun SongRow(
                 Icon(imageVector = Icons.Default.MusicNote, contentDescription = "")
                 Spacer(modifier = Modifier.width(10.dp))
                 Text(
-                    text = songItem.song,
+                    text = songItem.name ?: "",
                     fontSize = 26.sp,
                     fontFamily = FontFamily.Cursive,
                     color = DarkPink,
@@ -60,7 +61,7 @@ fun SongRow(
                 Icon(imageVector = Icons.Default.Person, contentDescription = "")
                 Spacer(modifier = Modifier.width(10.dp))
                 Text(
-                    text = songItem.artist ?: stringResource(id = R.string.unknown_artist),
+                    text = if(songItem.artist.isNullOrEmpty()) stringResource(id = R.string.unknown_artist) else songItem.artist,
                     fontSize = 20.sp,
                     fontFamily = FontFamily.Cursive,
                     color = Color.DarkGray

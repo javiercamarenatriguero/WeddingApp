@@ -16,10 +16,11 @@ import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.akole.weddingapp.R
+import com.akole.weddingapp.data.models.Song
 
 @Composable
 fun SongList(
-    songItemList: List<SongItem>
+    songItemList: List<Song>
 ) {
     Column {
         SongItemListTitle()

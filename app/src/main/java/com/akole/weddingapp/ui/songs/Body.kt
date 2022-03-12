@@ -37,7 +37,7 @@ fun Body(
             Box(
                 modifier = Modifier
                     .fillMaxWidth()
-                    .height(1000.dp)
+                    .height(800.dp)
                     .clip(RoundedCornerShape(topStart = 30.dp, topEnd = 30.dp))
                     .background(Color.White)
             ) {
@@ -55,7 +55,7 @@ fun Body(
                         onSubmitClicked = onSubmitClicked
                     )
                     Spacer(modifier = Modifier.height(20.dp))
-                    SongList(songItemList = songList)
+                    SongList(songItemList = viewState.songList)
                 }
             }
         }
