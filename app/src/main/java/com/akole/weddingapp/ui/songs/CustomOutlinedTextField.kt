@@ -15,11 +15,13 @@ import androidx.compose.ui.focus.FocusState
 import androidx.compose.ui.focus.focusRequester
 import androidx.compose.ui.focus.onFocusEvent
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.text.input.ImeAction
 import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.text.input.VisualTransformation
 import androidx.compose.ui.unit.dp
+import androidx.compose.ui.unit.sp
 import com.akole.weddingapp.ui.theme.Shapes
 
 @Composable
@@ -58,6 +60,10 @@ fun CustomOutlinedTextField(
             colors = TextFieldDefaults.textFieldColors(
                 focusedIndicatorColor = Color.Black,
                 focusedLabelColor = Color.Black
+            ),
+            textStyle = TextStyle(
+                fontFamily = FontFamily.Cursive,
+                fontSize = 24.sp
             ),
             keyboardOptions = KeyboardOptions(
                 autoCorrect = false,

@@ -51,6 +51,7 @@ fun Body(
                         artistValue = viewState.artist,
                         onSongValueChanged = onSongValueChanged,
                         onArtistValueChanged = onArtistValueChanged,
+                        buttonEnabled = viewState.isButtonReady,
                         onSubmitClicked = onSubmitClicked
                     )
                     Spacer(modifier = Modifier.height(20.dp))

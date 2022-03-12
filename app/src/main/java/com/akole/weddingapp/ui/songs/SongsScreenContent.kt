@@ -9,10 +9,18 @@ import com.google.accompanist.pager.*
 @Composable
 fun SongsScreenContent(
     viewState: SongsViewModel.UiState,
+    onSongTextChange: (String) -> Unit,
+    onArtistTextChange: (String) -> Unit,
+    onSubmitButtonClicked: () -> Unit,
     modifier: Modifier = Modifier
 ) {
     Box(modifier = Modifier.fillMaxSize()) {
         Header()
-        Body(viewState)
+        Body(
+            viewState = viewState,
+            onSongValueChanged = onSongTextChange,
+            onArtistValueChanged = onArtistTextChange,
+            onSubmitClicked = onSubmitButtonClicked
+        )
     }
 }

@@ -6,6 +6,7 @@ import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.relocation.BringIntoViewRequester
 import androidx.compose.foundation.relocation.bringIntoViewRequester
 import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.foundation.text.KeyboardOptions
 import androidx.compose.material.Button
 import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
@@ -30,6 +31,7 @@ fun SongsForm(
     artistValue: String = "",
     onSongValueChanged: (String) -> Unit = {},
     onArtistValueChanged: (String) -> Unit = {},
+    buttonEnabled: Boolean = false,
     onSubmitClicked: () -> Unit = {}
 ) {
     val focusRequester = remember { FocusRequester() }
@@ -81,6 +83,7 @@ fun SongsForm(
         Spacer(modifier = Modifier.height(5.dp))
         Button(
             onClick = onSubmitClicked,
+            enabled = buttonEnabled,
             modifier = Modifier.padding(vertical = 5.dp)) {
             Text(
                 fontFamily = FontFamily.Cursive,
