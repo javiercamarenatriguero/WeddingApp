@@ -14,6 +14,7 @@
     <string name="date_title"> 5.30 pm - May 27th, 2022</string>
     <string name="description_title">We are getting married!</string>
     <string name="description_text">Queremos que compartáis con nosotros un día muy especial, como es el de nuestra boda . Tu presencia es nuestro regalo. \n \nMediante la aplicación, podréis ver información del evento, detalles sobre la localización de la ceremonia, cocktel y restaurante, así como añadir las canciones que más os guste para la noche disco.</string>
+    <string name="songs_description_text">!Añade la música que más te guste para que suene en la noche de disco! \n\nEntre todas las canciones, se hará una selección por parte del jurado.</string>
     <string name="location_title">Bilbao Town Hall</string>
     <string name="council_title">Bilbao Town Hall</string>
     <string name="council_snippet">Wedding ceremony place</string>
@@ -24,4 +25,9 @@
     <string name="council_details">Ernesto Erkoreka Plaza, 12,  Bilbo</string>
     <string name="cocktel_details">Trav. de Uribitarte, 1, Bilbao</string>
     <string name="restaurant_details">c/ Izartza Bidea, 48,  Izartza (Sondika)</string>
+    <!-- Songs-->
+    <string name="submit_song">Add song</string>
+    <string name="add_music_text">Add your songs!</string>
+    <string name="songs_textfield_song_label">Song</string>
+    <string name="songs_textfield_artist_label">Artist/Group</string>
 </resources>

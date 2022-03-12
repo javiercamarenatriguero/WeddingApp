@@ -7,7 +7,7 @@ import androidx.navigation.*
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import com.akole.weddingapp.ui.screens.map.MapScreen
-import com.akole.weddingapp.ui.screens.SongsScreen
+import com.akole.weddingapp.ui.songs.SongsScreen
 
 @Composable
 fun Navigation(navController: NavHostController) {
