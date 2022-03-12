@@ -13,6 +13,6 @@ fun SongsScreenContent(
 ) {
     Box(modifier = Modifier.fillMaxSize()) {
         Header()
-        Body()
+        Body(viewState)
     }
 }

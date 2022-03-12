@@ -39,6 +39,7 @@ fun MapTitle(
                         .padding(vertical = 2.dp, horizontal = 10.dp),
                     color = Color.Black,
                     fontWeight = FontWeight.ExtraBold,
+                    fontFamily = FontFamily.Cursive,
                     fontSize = 18.sp,
                     textAlign = TextAlign.Center
                 )
@@ -48,6 +49,7 @@ fun MapTitle(
                         .padding(vertical = 2.dp, horizontal = 10.dp),
                     color = Color.Black,
                     fontWeight = FontWeight.Light,
+                    fontFamily = FontFamily.Cursive,
                     fontSize = 18.sp,
                     textAlign = TextAlign.Center
                 )

@@ -1,6 +1,5 @@
 package com.akole.weddingapp.ui.songs
 
-import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.padding
@@ -11,7 +10,12 @@ import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Close
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.focus.FocusRequester
+import androidx.compose.ui.focus.FocusState
+import androidx.compose.ui.focus.focusRequester
+import androidx.compose.ui.focus.onFocusEvent
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.text.input.ImeAction
 import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.text.input.VisualTransformation
@@ -22,6 +26,8 @@ import com.akole.weddingapp.ui.theme.Shapes
 fun CustomOutlinedTextField(
     value: String = "",
     onValueChange: (String) -> Unit = {},
+    focusRequester: FocusRequester,
+    onFocusEvent: (FocusState) -> Unit = {},
     onKeyboardNext: () -> Unit = {},
     onKeyboardDone: () -> Unit = {},
     label: String = "",
@@ -40,7 +46,10 @@ fun CustomOutlinedTextField(
             value = value,
             onValueChange = { onValueChange(it)},
             label = {
-                Text( text = label)
+                Text(
+                    text = label,
+                    fontFamily = FontFamily.Cursive
+                )
             },
             enabled = enabled,
             isError = isError,
@@ -71,7 +80,12 @@ fun CustomOutlinedTextField(
                     )
                 }
             },
-            leadingIcon = leadingIcon
+            leadingIcon = leadingIcon,
+            modifier = Modifier
+                .focusRequester(focusRequester)
+                .onFocusEvent { focusState ->
+                    onFocusEvent(focusState)
+                }
         )
         if (isError) {
             val errorTextPadding = 2.dp

@@ -1,18 +1,29 @@
 package com.akole.weddingapp.ui.songs
 
+import androidx.compose.foundation.ExperimentalFoundationApi
 import androidx.compose.foundation.border
 import androidx.compose.foundation.layout.*
+import androidx.compose.foundation.relocation.BringIntoViewRequester
+import androidx.compose.foundation.relocation.bringIntoViewRequester
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.Button
 import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.remember
+import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.focus.FocusRequester
 import androidx.compose.ui.res.stringResource
+import androidx.compose.ui.text.font.FontFamily
+import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
+import androidx.compose.ui.unit.sp
 import com.akole.weddingapp.R
 import com.akole.weddingapp.ui.theme.DarkPink
+import kotlinx.coroutines.launch
 
+@OptIn(ExperimentalFoundationApi::class)
 @Composable
 fun SongsForm(
     songValue: String = "",
@@ -21,11 +32,15 @@ fun SongsForm(
     onArtistValueChanged: (String) -> Unit = {},
     onSubmitClicked: () -> Unit = {}
 ) {
+    val focusRequester = remember { FocusRequester() }
+    val bringIntoViewRequester = remember { BringIntoViewRequester() }
+    val coroutineScope = rememberCoroutineScope()
     Column (
         Modifier
             .fillMaxWidth()
             .padding(start = 20.dp, end = 20.dp)
-            .border(2.dp, DarkPink, RoundedCornerShape(5.dp)),
+            .border(2.dp, DarkPink, RoundedCornerShape(5.dp))
+            .bringIntoViewRequester(bringIntoViewRequester),
         horizontalAlignment = Alignment.CenterHorizontally
 
     ) {
@@ -36,6 +51,14 @@ fun SongsForm(
             modifier = Modifier.fillMaxWidth(),
             onValueChange = { song ->
                 onSongValueChanged(song)
+            },
+            focusRequester = focusRequester,
+            onFocusEvent = { focusState ->
+                if (focusState.isFocused) {
+                    coroutineScope.launch {
+                        bringIntoViewRequester.bringIntoView()
+                    }
+                }
             }
         )
         Spacer(modifier = Modifier.height(20.dp))
@@ -45,13 +68,26 @@ fun SongsForm(
             modifier = Modifier.fillMaxWidth(),
             onValueChange = { artist ->
                 onArtistValueChanged(artist)
+            },
+            focusRequester = focusRequester,
+            onFocusEvent = { focusState ->
+                if (focusState.isFocused) {
+                    coroutineScope.launch {
+                        bringIntoViewRequester.bringIntoView()
+                    }
+                }
             }
         )
-        Spacer(modifier = Modifier.height(15.dp))
+        Spacer(modifier = Modifier.height(5.dp))
         Button(
             onClick = onSubmitClicked,
             modifier = Modifier.padding(vertical = 5.dp)) {
-            Text(text = stringResource(id = R.string.submit_song))
+            Text(
+                fontFamily = FontFamily.Cursive,
+                fontWeight = FontWeight.ExtraBold,
+                fontSize = 18.sp,
+                text = stringResource(id = R.string.submit_song)
+            )
         }
     }
 }

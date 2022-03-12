@@ -7,7 +7,6 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.lifecycle.viewmodel.compose.viewModel
-import com.akole.weddingapp.ui.screens.home.HomeViewModel
 
 @Composable
 fun SongsScreen(

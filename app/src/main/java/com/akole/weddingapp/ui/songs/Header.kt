@@ -18,8 +18,6 @@ import androidx.compose.ui.unit.sp
 import androidx.constraintlayout.compose.ConstraintLayout
 import coil.compose.rememberAsyncImagePainter
 import com.akole.weddingapp.R
-import com.akole.weddingapp.ui.theme.DarkPink
-import com.akole.weddingapp.ui.theme.LightPink
 
 @Composable
 fun Header() {

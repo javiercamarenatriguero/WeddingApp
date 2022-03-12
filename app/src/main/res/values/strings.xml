@@ -30,4 +30,6 @@
     <string name="add_music_text">Add your songs!</string>
     <string name="songs_textfield_song_label">Song</string>
     <string name="songs_textfield_artist_label">Artist/Group</string>
+    <string name="unknown_artist">Unknown artist</string>
+    <string name="song_list_title">Song list</string>
 </resources>
