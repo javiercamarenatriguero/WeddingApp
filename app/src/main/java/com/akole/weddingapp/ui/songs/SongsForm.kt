@@ -18,10 +18,13 @@ import androidx.compose.runtime.remember
 import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.focus.FocusDirection
 import androidx.compose.ui.focus.FocusRequester
+import androidx.compose.ui.platform.LocalFocusManager
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.text.input.ImeAction
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.akole.weddingapp.R
@@ -36,9 +39,11 @@ fun SongsForm(
     onSongValueChanged: (String) -> Unit = {},
     onArtistValueChanged: (String) -> Unit = {},
     buttonEnabled: Boolean = false,
-    onSubmitClicked: () -> Unit = {}
+    onSubmitClicked: () -> Unit = {},
+    onArtistCompleted: () -> Unit = {}
 ) {
     val focusRequester = remember { FocusRequester() }
+    val focusManager = LocalFocusManager.current
     val bringIntoViewRequester = remember { BringIntoViewRequester() }
     val coroutineScope = rememberCoroutineScope()
     Column (
@@ -66,6 +71,9 @@ fun SongsForm(
                     }
                 }
             },
+            onKeyboardNext = {
+                focusManager.moveFocus(FocusDirection.Down)
+            },
             leadingIcon = {
                 Icon(
                     imageVector = Icons.Default.MusicNote,
@@ -88,6 +96,10 @@ fun SongsForm(
                         bringIntoViewRequester.bringIntoView()
                     }
                 }
+            },
+            imeAction = ImeAction.Done,
+            onKeyboardDone = {
+                onArtistCompleted()
             },
             leadingIcon = {
                 Icon(

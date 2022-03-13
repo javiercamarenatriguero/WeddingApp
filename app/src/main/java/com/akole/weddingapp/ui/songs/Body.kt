@@ -16,9 +16,9 @@ fun Body(
     viewState: SongsViewModel.UiState,
     onSongValueChanged: (String) -> Unit = {},
     onArtistValueChanged: (String) -> Unit = {},
-    onSubmitClicked: () -> Unit = {}
+    onSubmitClicked: () -> Unit = {},
+    onArtistCompleted: () -> Unit = {}
 ) {
-
     Box(
         modifier = Modifier
             .fillMaxSize()
@@ -37,12 +37,13 @@ fun Body(
             Box(
                 modifier = Modifier
                     .fillMaxWidth()
-                    .height(800.dp)
+                    .heightIn(min = 100.dp, max = 20000.dp)
                     .clip(RoundedCornerShape(topStart = 30.dp, topEnd = 30.dp))
                     .background(Color.White)
             ) {
                 Column (
-                    modifier = Modifier.fillMaxWidth()
+                    modifier = Modifier
+                        .fillMaxWidth()
                 ) {
                     SongsDescription()
                     Spacer(modifier = Modifier.height(5.dp))
@@ -52,18 +53,16 @@ fun Body(
                         onSongValueChanged = onSongValueChanged,
                         onArtistValueChanged = onArtistValueChanged,
                         buttonEnabled = viewState.isButtonReady,
-                        onSubmitClicked = onSubmitClicked
+                        onSubmitClicked = onSubmitClicked,
+                        onArtistCompleted = onArtistCompleted
                     )
                     Spacer(modifier = Modifier.height(20.dp))
-                    SongList(songItemList = viewState.songList)
+                    SongList(
+                        songItemList = viewState.songList,
+                        isLoading = viewState.isLoading
+                    )
                 }
             }
         }
     }
 }
-
-private val songList = listOf(
-    SongItem("Chiquetete", "Esa cobardía"),
-    SongItem("Chiquetete", "Volveré"),
-    SongItem("Pitingo", "Entre aguas")
-)

@@ -10,7 +10,6 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.platform.LocalSoftwareKeyboardController
 import androidx.lifecycle.viewmodel.compose.viewModel
-import kotlinx.coroutines.flow.collect
 
 @OptIn(ExperimentalComposeUiApi::class)
 @Composable
@@ -18,8 +17,10 @@ fun SongsScreen(
     viewModel: SongsViewModel = viewModel(),
     modifier: Modifier = Modifier
 ){
+    val keyboardController = LocalSoftwareKeyboardController.current
     Box(modifier = Modifier
         .fillMaxSize()
+        .background(Color.Black)
     ) {
         SongsScreenContent(
             viewState = viewModel.state,
@@ -31,10 +32,16 @@ fun SongsScreen(
             },
             onSubmitButtonClicked = {
                 viewModel.on(SongsViewModel.ViewEvent.AddClicked)
+            },
+            onDismissDialog = {
+                viewModel.on(SongsViewModel.ViewEvent.DialogClicked)
+            },
+            onArtistCompleted = {
+                viewModel.on(SongsViewModel.ViewEvent.ArtistCompleted)
             }
         )
     }
-    val keyboardController = LocalSoftwareKeyboardController.current
+
     LaunchedEffect(viewModel.oneShotEvents) {
         viewModel.oneShotEvents.collect { event ->
             when (event) {

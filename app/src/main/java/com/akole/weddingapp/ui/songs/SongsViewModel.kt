@@ -27,7 +27,8 @@ class SongsViewModel: ViewModel() {
     }
 
     private fun syncSongList() {
-        RepositoryImpl.setDataListener { documentSnapshot ->
+        updateState(isLoading = true)
+        RepositoryImpl.getSongList( { documentSnapshot ->
             if (documentSnapshot != null && !documentSnapshot.isEmpty) {
                 var songList: MutableList<Song> = mutableListOf()
                 val documents = documentSnapshot.documents
@@ -38,7 +39,11 @@ class SongsViewModel: ViewModel() {
                 }
                 updateState(songList = songList)
             }
+            updateState(isLoading = false)
+        },{
+            updateState(isLoading = false)
         }
+        )
     }
 
     fun on(event: ViewEvent): Unit = with(event) {
@@ -50,6 +55,8 @@ class SongsViewModel: ViewModel() {
                 updateState(artist = value)
             }
             ViewEvent.AddClicked -> onAddClicked()
+            ViewEvent.DialogClicked -> updateState(isDialogShown = false)
+            ViewEvent.ArtistCompleted -> emit(OneShotEvent.HideKeyboard)
         }
     }
 
@@ -63,7 +70,8 @@ class SongsViewModel: ViewModel() {
         syncSongList()
         updateState(
             song = "",
-            artist = ""
+            artist = "",
+            isDialogShown = true
         )
         emit(OneShotEvent.HideKeyboard)
     }
@@ -82,6 +90,8 @@ class SongsViewModel: ViewModel() {
         data class SongTextChange(val value: String) : ViewEvent
         data class ArtistTextChange(val value: String) : ViewEvent
         object AddClicked: ViewEvent
+        object DialogClicked: ViewEvent
+        object ArtistCompleted: ViewEvent
     }
 
     data class UiState(
@@ -90,6 +100,7 @@ class SongsViewModel: ViewModel() {
         val songList: List<Song> = emptyList(),
         val isLoading: Boolean = false,
         val isButtonReady: Boolean = false,
+        val isDialogShown: Boolean = false
 
     )
 
@@ -98,14 +109,16 @@ class SongsViewModel: ViewModel() {
         artist: String? = state.artist,
         songList: List<Song> = state.songList,
         isLoading: Boolean = state.isLoading,
-        isButtonReady: Boolean = checkSubmitButton(song)
+        isButtonReady: Boolean = checkSubmitButton(song),
+        isDialogShown: Boolean = state.isDialogShown
     ) {
         state = UiState(
             song,
             artist,
             songList,
             isLoading,
-            isButtonReady
+            isButtonReady,
+            isDialogShown
         )
     }
 
