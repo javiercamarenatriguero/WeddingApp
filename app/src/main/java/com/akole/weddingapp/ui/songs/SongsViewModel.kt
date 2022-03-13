@@ -3,14 +3,17 @@ package com.akole.weddingapp.ui.songs
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.setValue
+import androidx.compose.ui.text.capitalize
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.akole.weddingapp.data.models.Song
 import com.akole.weddingapp.data.repositories.RepositoryImpl
+import com.akole.weddingapp.data.repositories.upperAsTitle
 import kotlinx.coroutines.channels.Channel
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.receiveAsFlow
 import kotlinx.coroutines.launch
+import java.util.*
 
 class SongsViewModel: ViewModel() {
 
@@ -63,8 +66,8 @@ class SongsViewModel: ViewModel() {
     private fun onAddClicked() {
         RepositoryImpl.saveSong(
             Song(
-                name = state.song,
-                artist = state.artist
+                name = state.song.upperAsTitle(),
+                artist = state.artist?.upperAsTitle()
             )
         )
         syncSongList()
