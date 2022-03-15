@@ -6,13 +6,16 @@ import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.border
 import androidx.compose.foundation.layout.*
+import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.Card
+import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.snapshotFlow
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.draw.clip
 import androidx.compose.ui.draw.drawWithContent
 import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.graphics.Color
@@ -24,6 +27,7 @@ import androidx.compose.ui.util.lerp
 import androidx.constraintlayout.compose.ConstraintLayout
 import coil.compose.rememberAsyncImagePainter
 import com.akole.weddingapp.ui.theme.DarkPink
+import com.akole.weddingapp.ui.theme.Shapes
 import com.google.accompanist.pager.*
 import kotlin.math.absoluteValue
 
@@ -79,27 +83,22 @@ fun Carousel(
                     .fillMaxWidth()
                     .aspectRatio(1.75f)
             ) {
-                CarouselItemCard(item = locationItems[page])
+                CarouselItemCard(item = locationItems[page], position = (page + 1))
             }
         }
-
-        HorizontalPagerIndicator(
-            pagerState = pagerState,
-            modifier = Modifier
-                .padding(16.dp)
-        )
     }
 }
 
 @Composable
 private fun CarouselItemCard(
+    position: Int,
     item: LocationItem
 ) {
     ConstraintLayout(
         modifier = Modifier.fillMaxWidth()
 
     ) {
-        val (image) = createRefs()
+        val (image, label) = createRefs()
         val painter = rememberAsyncImagePainter(item.image)
         Image(
             painter = painter,
@@ -113,20 +112,26 @@ private fun CarouselItemCard(
                     start.linkTo(parent.start)
                     end.linkTo(parent.end)
                 }
-                .graphicsLayer { alpha = 0.99f }
-                .drawWithContent {
-                    drawContent()
-                    drawRect(
-                        brush = Brush.verticalGradient(
-                            startY = size.height / 4,
-                            endY = size.height,
-                            colors = listOf(
-                                Color.Transparent,
-                                Color.Black,
-                            )
-                        )
-                    )
-                }
+                .border(4.dp, DarkPink)
         )
+        Box(
+            contentAlignment= Alignment.Center,
+            modifier = Modifier
+                .padding(10.dp)
+                .background(DarkPink)
+                .clip(CircleShape)
+                .constrainAs(label) {
+                    top.linkTo(image.top)
+                    start.linkTo(image.start)
+                }
+        ) {
+            Text(
+                text = position.toString(),
+                color = Color.White,
+                modifier = Modifier
+                    .padding(5.dp)
+            )
+        }
+
     }
 }

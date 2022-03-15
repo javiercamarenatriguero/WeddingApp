@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">WeddingApp</string>
+    <string name="app_name">Leyre&amp;Javier</string>
     <string name="nav_home_title">Inicio</string>
     <string name="nav_map_title">Mapa</string>
     <string name="nav_songs_title">Canciones</string>
@@ -23,9 +23,9 @@
     <string name="cocktel_snippet">Lugar del cocktel</string>
     <string name="restaurant_title">Restaurante Izarza</string>
     <string name="restaurant_snippet">Cena &amp; Disco</string>
-    <string name="council_details">Ernesto Erkoreka Plaza, 12,  Bilbo</string>
-    <string name="cocktel_details">Trav. de Uribitarte, 1, Bilbao</string>
-    <string name="restaurant_details">c/ Izartza Bidea, 48,  Izartza (Sondika)</string>
+    <string name="council_details">Ernesto Erkoreka Plaza, 12,  Bilbo \n \nLugar de ceremonia en la Sala Árabe, Ayuntamiento de Bilbao. Tendrá lugar a las 17h30.</string>
+    <string name="cocktel_details">Trav. de Uribitarte, 1, Bilbao \n \nUna vez finalizada la ceremonia y la sesión de fotos, tendrá lugar un cocktel donde poder charlar y compartir momentos.</string>
+    <string name="restaurant_details">c/ Izartza Bidea, 48,  Izartza (Sondika) \n\nFinalmente la cena tendrá lugar en Sondika a partir de las 21h00. ¡También nos espera una sesión de disco!</string>
     <!-- Songs-->
     <string name="submit_song">Añadir canción</string>
     <string name="add_music_text">¡Añade tus canciones!</string>

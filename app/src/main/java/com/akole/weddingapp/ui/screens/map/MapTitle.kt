@@ -23,7 +23,7 @@ fun MapTitle(
     modifier: Modifier = Modifier
 ) {
     Box(
-        modifier = modifier.padding(vertical = 20.dp)
+        modifier = modifier.padding(vertical = 10.dp)
     ) {
         Surface(
             elevation = 1.dp,
@@ -40,7 +40,7 @@ fun MapTitle(
                     color = Color.Black,
                     fontWeight = FontWeight.ExtraBold,
                     fontFamily = FontFamily.Cursive,
-                    fontSize = 18.sp,
+                    fontSize = 22.sp,
                     textAlign = TextAlign.Center
                 )
                 Text(
@@ -50,7 +50,7 @@ fun MapTitle(
                     color = Color.Black,
                     fontWeight = FontWeight.Light,
                     fontFamily = FontFamily.Cursive,
-                    fontSize = 18.sp,
+                    fontSize = 20.sp,
                     textAlign = TextAlign.Center
                 )
             }
