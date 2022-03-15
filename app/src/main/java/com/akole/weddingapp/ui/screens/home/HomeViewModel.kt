@@ -6,6 +6,9 @@ import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.setValue
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import kotlinx.coroutines.channels.Channel
+import kotlinx.coroutines.flow.Flow
+import kotlinx.coroutines.flow.receiveAsFlow
 import kotlinx.coroutines.launch
 import java.time.Instant
 
@@ -13,6 +16,9 @@ class HomeViewModel: ViewModel() {
 
     var state by mutableStateOf(UiState())
         private set
+
+    private val _oneShotEvents = Channel<HomeViewModel.OneShotEvent>(Channel.BUFFERED)
+    val oneShotEvents: Flow<HomeViewModel.OneShotEvent> = _oneShotEvents.receiveAsFlow()
 
     init {
         viewModelScope.launch {
@@ -60,6 +66,30 @@ class HomeViewModel: ViewModel() {
     private fun Long.getMinutesLeft() = (this / 60000) % 60
 
     private fun Long.getSecondsLeft() = (this / 1000) % 60
+
+    fun on(event: ViewEvent): Unit = with(event) {
+        when (this) {
+            ViewEvent.AddCalendarClicked -> onAddCalendarClicked()
+        }
+    }
+
+    private fun onAddCalendarClicked() {
+        emit(OneShotEvent.GoToCalendar)
+    }
+
+    private fun emit(event: OneShotEvent) {
+        viewModelScope.launch {
+            _oneShotEvents.send(event)
+        }
+    }
+
+    sealed interface OneShotEvent {
+        object GoToCalendar : OneShotEvent
+    }
+
+    sealed interface ViewEvent {
+        object AddCalendarClicked: ViewEvent
+    }
 
     data class UiState(
         val daysLeft: Int = 0,

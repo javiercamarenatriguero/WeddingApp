@@ -1,9 +1,14 @@
 package com.akole.weddingapp.ui.screens.home
 
+import android.content.Context
+import android.content.Intent
+import android.provider.CalendarContract
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.platform.LocalContext
 import androidx.lifecycle.viewmodel.compose.viewModel
 
 @Composable
@@ -11,6 +16,34 @@ fun HomeScreen(viewModel: HomeViewModel = viewModel()){
     Box(modifier = Modifier
         .fillMaxSize()
     ){
-        HomeScreenContent(viewModel.state)
+        HomeScreenContent(
+            viewState = viewModel.state,
+            onAddCalendarClicked = {
+                viewModel.on(HomeViewModel.ViewEvent.AddCalendarClicked)
+            }
+        )
     }
+    val context = LocalContext.current
+    LaunchedEffect(viewModel.oneShotEvents) {
+        viewModel.oneShotEvents.collect { event ->
+            when (event) {
+                HomeViewModel.OneShotEvent.GoToCalendar -> goToCalendar(context)
+            }
+        }
+    }
+}
+
+private  fun goToCalendar(context: Context) {
+    val eventStartTime = HomeViewModel.WEDDING_TIMESTAMP - 7200000
+    val insertCalendarIntent = Intent(Intent.ACTION_INSERT)
+        .setData(CalendarContract.Events.CONTENT_URI)
+        .putExtra(CalendarContract.Events.TITLE, "BODA LEYRE & JAVIER")
+        .putExtra(CalendarContract.EXTRA_EVENT_ALL_DAY, false)
+        .putExtra(CalendarContract.EXTRA_EVENT_BEGIN_TIME, eventStartTime)
+        .putExtra(CalendarContract.Events.EVENT_LOCATION, "Ayuntamiento de Bilbao")
+        .putExtra(CalendarContract.Events.DESCRIPTION, "Boda Leyre y Javier en el Ayuntamiento de Bilbao") // Description
+        .putExtra(Intent.EXTRA_EMAIL, "javier.camtri@gmail.com")
+        .putExtra(CalendarContract.Events.ACCESS_LEVEL, CalendarContract.Events.ACCESS_PRIVATE)
+        .putExtra(CalendarContract.Events.AVAILABILITY, CalendarContract.Events.AVAILABILITY_FREE)
+    context.startActivity(insertCalendarIntent)
 }

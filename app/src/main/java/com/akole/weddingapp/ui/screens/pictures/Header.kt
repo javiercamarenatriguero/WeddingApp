@@ -1,4 +1,4 @@
-package com.akole.weddingapp.ui.screens.songs
+package com.akole.weddingapp.ui.screens.pictures
 
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.*
@@ -25,9 +25,9 @@ fun Header() {
     ConstraintLayout(
         modifier = Modifier
             .fillMaxWidth()
-            .height(150.dp)
+            .height(250.dp)
     ){
-        val painter = rememberAsyncImagePainter(R.drawable.concert)
+        val painter = rememberAsyncImagePainter(R.drawable.mosaic_pic)
         val (image, title) = createRefs()
         Image(
             painter = painter,
@@ -49,7 +49,7 @@ fun Header() {
             }
         ) {
             Text(
-                text = stringResource(id = R.string.add_music_text),
+                text = stringResource(id = R.string.pictures_gallery_title),
                 textAlign = TextAlign.Center,
                 fontWeight = FontWeight.ExtraBold,
                 fontFamily = FontFamily.Cursive,

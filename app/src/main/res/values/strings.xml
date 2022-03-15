@@ -34,5 +34,8 @@
     <string name="song_list_title">Song list</string>
     <string name="songs_item_saved_message">Song added successfully</string>
     <string name="song_list_order">(Alphabet order)</string>
-    <string name="nav_pictures_title">Fotos</string>
+    <string name="nav_pictures_title">Photos</string>
+    <string name="pictures_gallery_title">Photos Gallery</string>
+    <string name="pictures_description_text">Aquí podrás compartir y disfrutar de todas las fotos de la boda. Como invitado, podrás subir las fotos que saques y ver el resto de momentos para que no te pierdas ni uno sólo.\n\n El servicio se habilitará el día de la boda.</string>
+    <string name="submit_photo">Añadir foto</string>
 </resources>

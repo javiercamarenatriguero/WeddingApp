@@ -17,7 +17,6 @@ import androidx.compose.ui.unit.dp
 import coil.compose.rememberAsyncImagePainter
 import com.akole.weddingapp.R
 import com.akole.weddingapp.ui.theme.DarkPink
-import com.akole.weddingapp.ui.theme.LightPink
 
 @Composable
 fun WeddingPicks() {

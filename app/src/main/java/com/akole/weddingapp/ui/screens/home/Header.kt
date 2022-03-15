@@ -31,7 +31,8 @@ fun Header(
     daysLeft: Int,
     hoursLeft: Int,
     minutesLeft: Int,
-    secondsLeft: Int
+    secondsLeft: Int,
+    onAddCalendarClicked: () -> Unit
 ) {
     ConstraintLayout(
         modifier = Modifier.fillMaxWidth()
@@ -50,6 +51,7 @@ fun Header(
             hoursLeft = hoursLeft,
             minutesLeft = minutesLeft,
             secondsLeft = secondsLeft,
+            onAddCalendarClicked = onAddCalendarClicked,
             modifier = Modifier.constrainAs(box) {
                 top.linkTo(image.top)
             }
@@ -76,6 +78,7 @@ private fun HeaderBox(
     hoursLeft: Int,
     minutesLeft: Int,
     secondsLeft: Int,
+    onAddCalendarClicked: () -> Unit,
     modifier: Modifier = Modifier
 ) {
     Column(
@@ -90,7 +93,7 @@ private fun HeaderBox(
         Title()
         CounterDown(daysLeft, hoursLeft, minutesLeft, secondsLeft)
         Spacer(modifier = Modifier.height(8.dp))
-        addToCalendarButton()
+        addToCalendarButton(onAddCalendarClicked)
     }
 }
 
@@ -171,9 +174,11 @@ private fun CounterBox(count: Int, label: String) {
 }
 
 @Composable
-private fun addToCalendarButton() {
+private fun addToCalendarButton(
+    onAddCalendarClicked: () -> Unit
+) {
     Button(
-        onClick = { /*TODO*/ },
+        onClick = onAddCalendarClicked,
         modifier = Modifier.padding(vertical = 5.dp)) {
         Text(text = stringResource(id = R.string.add_to_calendar))
     }

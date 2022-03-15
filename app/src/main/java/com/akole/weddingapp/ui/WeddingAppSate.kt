@@ -41,6 +41,7 @@ class WeddingAppState(
         navController.popBackStack()
     }
 
+
     fun onNavItemClick(navItem: NavItem) {
         navController.navigatePoppingUpToStartDestination(navItem.navCommand.route)
     }

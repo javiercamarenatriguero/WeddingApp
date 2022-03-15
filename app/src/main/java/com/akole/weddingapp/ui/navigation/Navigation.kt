@@ -7,6 +7,7 @@ import androidx.navigation.*
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import com.akole.weddingapp.ui.screens.map.MapScreen
+import com.akole.weddingapp.ui.screens.pictures.PicturesScreen
 import com.akole.weddingapp.ui.screens.songs.SongsScreen
 
 @Composable
@@ -62,7 +63,7 @@ private fun NavGraphBuilder.picturesNav(navController: NavController) {
         route = Feature.PICTURES.route
     ) {
         composable(NavCommand.ContentType(Feature.PICTURES)) {
-            SongsScreen()
+            PicturesScreen()
         }
     }
 }
