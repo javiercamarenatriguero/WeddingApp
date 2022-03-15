@@ -59,7 +59,7 @@ fun Header(
 
 @Composable
 private fun HeaderImage(modifier: Modifier = Modifier) {
-    val painter = rememberAsyncImagePainter(R.drawable.image3)
+    val painter = rememberAsyncImagePainter(R.drawable.home_main)
     Image(
         painter = painter,
         contentDescription = "",

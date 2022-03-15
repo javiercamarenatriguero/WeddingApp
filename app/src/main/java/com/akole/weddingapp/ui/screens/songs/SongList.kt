@@ -1,5 +1,6 @@
-package com.akole.weddingapp.ui.songs
+package com.akole.weddingapp.ui.screens.songs
 
+import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
@@ -19,6 +20,7 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.akole.weddingapp.R
 import com.akole.weddingapp.data.models.Song
+import com.akole.weddingapp.ui.theme.ExtraLightGray
 
 @Composable
 fun SongList(
@@ -35,6 +37,7 @@ fun SongList(
             LazyColumn (
                 modifier = Modifier
                     .padding(horizontal = 20.dp, vertical = 5.dp)
+                    .background(ExtraLightGray)
             ) {
                 itemsIndexed(songItemList) { index, songItem ->
                     SongRow(songItem = songItem, position = index + 1)

@@ -16,7 +16,7 @@ enum class NavItem(
     HOME(NavCommand.ContentType(Feature.HOME), Icons.Default.Home, R.string.nav_home_title),
     MAP(NavCommand.ContentType(Feature.MAP), Icons.Default.LocationOn, R.string.nav_map_title),
     SONGS(NavCommand.ContentType(Feature.SONGS), Icons.Default.MusicNote, R.string.nav_songs_title),
-    PICTURES(NavCommand.ContentType(Feature.PICTURES), Icons.Default.Camera, R.string.nav_songs_title)
+    PICTURES(NavCommand.ContentType(Feature.PICTURES), Icons.Default.Camera, R.string.nav_pictures_title)
 }
 
 sealed class NavCommand(

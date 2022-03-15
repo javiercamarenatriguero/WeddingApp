@@ -1,4 +1,4 @@
-package com.akole.weddingapp.ui.songs
+package com.akole.weddingapp.ui.screens.songs
 
 import androidx.compose.foundation.layout.*
 import androidx.compose.material.Text

@@ -1,9 +1,8 @@
-package com.akole.weddingapp.ui.songs
+package com.akole.weddingapp.ui.screens.songs
 
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.setValue
-import androidx.compose.ui.text.capitalize
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.akole.weddingapp.data.models.Song
@@ -13,7 +12,6 @@ import kotlinx.coroutines.channels.Channel
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.receiveAsFlow
 import kotlinx.coroutines.launch
-import java.util.*
 
 class SongsViewModel: ViewModel() {
 

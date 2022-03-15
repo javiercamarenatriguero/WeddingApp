@@ -1,4 +1,4 @@
-package com.akole.weddingapp.ui.songs
+package com.akole.weddingapp.ui.screens.songs
 
 data class SongItem(
     val artist: String?,

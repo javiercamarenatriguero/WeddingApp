@@ -52,7 +52,7 @@ fun WeddingMap(
         cameraPositionState = cameraPositionState,
         onMapLoaded = {
             coroutineScope.launch {
-                delay(100)
+                delay(0)
                 cameraPositionState.animate(
                     CameraUpdateFactory
                         .newLatLngZoom(locationItems[mapPosition].position, 18f)

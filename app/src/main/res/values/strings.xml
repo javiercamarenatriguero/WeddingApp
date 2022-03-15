@@ -34,4 +34,5 @@
     <string name="song_list_title">Song list</string>
     <string name="songs_item_saved_message">Song added successfully</string>
     <string name="song_list_order">(Alphabet order)</string>
+    <string name="nav_pictures_title">Fotos</string>
 </resources>
