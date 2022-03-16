@@ -20,7 +20,7 @@ fun SongsScreen(
     val keyboardController = LocalSoftwareKeyboardController.current
     Box(modifier = Modifier
         .fillMaxSize()
-        .background(Color.Black)
+        .background(Color.White)
     ) {
         SongsScreenContent(
             viewState = viewModel.state,

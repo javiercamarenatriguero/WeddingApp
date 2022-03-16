@@ -26,13 +26,12 @@ fun Body(
         Column(
             Modifier
                 .fillMaxWidth()
-                .wrapContentHeight()
                 .verticalScroll(rememberScrollState())
         ) {
             Box(
                 modifier = Modifier
                     .fillMaxWidth()
-                    .height(150.dp)
+                    .height(125.dp)
             )
             Box(
                 modifier = Modifier
