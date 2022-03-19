@@ -10,4 +10,8 @@
     <color name="pink">#fff8bbd0</color>
     <color name="light_pink">#ffffeeff</color>
     <color name="dark_pink">#ffc48b9f</color>
+    <color name="deep_purple">#ffb39ddb</color>
+    <color name="light_deep_purple">#ffe6ceff</color>
+    <color name="dark_deep_purple">#ff836fa9</color>
+
 </resources>

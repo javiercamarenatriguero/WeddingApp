@@ -7,7 +7,6 @@ import androidx.compose.ui.res.stringResource
 import com.google.android.gms.maps.CameraUpdateFactory
 import com.google.android.gms.maps.model.CameraPosition
 import com.google.maps.android.compose.*
-import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
 
 
@@ -50,7 +49,6 @@ fun WeddingMap(
         cameraPositionState = cameraPositionState,
         onMapLoaded = {
             coroutineScope.launch {
-                delay(0)
                 cameraPositionState.animate(
                     CameraUpdateFactory
                         .newLatLngZoom(locationItems[mapPosition].position, 18f)
