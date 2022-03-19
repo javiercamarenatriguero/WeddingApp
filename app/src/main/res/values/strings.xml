@@ -1,5 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">Leyre&amp;Javier</string>
+    <string name="app_name">L&amp;J</string>
     <string name="nav_home_title">Home</string>
     <string name="nav_map_title">Map</string>
     <string name="nav_songs_title">Songs</string>
@@ -8,34 +9,35 @@
     <string name="seconds">SECONDS</string>
     <string name="minutes">MINUTES</string>
     <string name="hours">HOURS</string>
-    <string name="add_to_calendar">Add to calendar</string>
+    <string name="add_to_calendar">Add date to your calendar</string>
     <string name="home_head_title"><![CDATA[Leyre & Javier]]></string>
     <string name="left_title"> Remaining time...</string>
-    <string name="date_title"> 5.30 pm - May 27th, 2022</string>
-    <string name="description_title">We are getting married!</string>
-    <string name="description_text">Queremos que compartáis con nosotros un día muy especial, como es el de nuestra boda . Tu presencia es nuestro regalo. \n \nMediante la aplicación, podréis ver información del evento, detalles sobre la localización de la ceremonia, cocktel y restaurante, así como añadir las canciones que más os guste para la noche disco.</string>
-    <string name="songs_description_text">!Añade la música que más te guste para que suene en la noche de disco! \n\nEntre todas las canciones, se hará una selección por parte del jurado.</string>
-    <string name="location_title">Bilbao Town Hall</string>
-    <string name="council_title">Bilbao Town Hall</string>
-    <string name="council_snippet">Wedding ceremony place</string>
-    <string name="cocktel_title">Restaurante Txoko Piperrak</string>
+    <string name="date_title"> 5.30 PM - 27th May, 2022</string>
+    <string name="description_title">¡We are getting married!</string>
+    <string name="description_text">We want you to share with us a very special day, such as our wedding. Your presence is our gift.\n\nThrough the application, you will be able to see information about the event, details about the location of the ceremony, cocktail and restaurant, see the photos of the wedding and as well as add the songs that you like the most for the disco night.</string>
+    <string name="songs_description_text">Add the music you like the most to play on disco night! \n\nAmong all the songs, a selection will be made by the jury.</string>
+    <string name="location_title">Bilbao City Hall</string>
+    <string name="council_title">Bilbao City Hall</string>
+    <string name="council_snippet">Ceremony place</string>
+    <string name="cocktel_title">Txoko Piperrak Restaurant</string>
     <string name="cocktel_snippet">Cocktel place</string>
-    <string name="restaurant_title">Restaurante Izarza</string>
-    <string name="restaurant_snippet">Dinner &amp; Dance</string>
-    <string name="council_details">Ernesto Erkoreka Plaza, 12,  Bilbo</string>
-    <string name="cocktel_details">Trav. de Uribitarte, 1, Bilbao</string>
-    <string name="restaurant_details">c/ Izartza Bidea, 48,  Izartza (Sondika)</string>
+    <string name="restaurant_title">Izarza Restaurant</string>
+    <string name="restaurant_snippet">Dinner &amp; Disco</string>
+    <string name="council_details">Ernesto Erkoreka Plaza, 12,  Bilbo \n \nPlace of ceremony in the Arab Room, Bilbao City Hall. It will take place at 5:30 p.m.</string>
+    <string name="cocktel_details">Trav. de Uribitarte, 1, Bilbao \n \nOnce the ceremony and photo session are over, a cocktail will take place where you can chat and share moments.</string>
+    <string name="restaurant_details">c/ Izartza Bidea, 48,  Izartza (Sondika) \n\nFinally, dinner will take place in Sondika starting at 9:00 p.m. A disco session awaits us too!</string>
     <!-- Songs-->
     <string name="submit_song">Add song</string>
     <string name="add_music_text">Add your songs!</string>
     <string name="songs_textfield_song_label">Song</string>
     <string name="songs_textfield_artist_label">Artist/Group</string>
     <string name="unknown_artist">Unknown artist</string>
-    <string name="song_list_title">Song list</string>
-    <string name="songs_item_saved_message">Song added successfully</string>
-    <string name="song_list_order">(Alphabet order)</string>
+    <string name="song_list_title">List of songs</string>
+    <string name="songs_item_saved_message">Song added successfully!</string>
+    <string name="song_list_order">(Alphabetic order)</string>
     <string name="nav_pictures_title">Photos</string>
-    <string name="pictures_gallery_title">Photos Gallery</string>
-    <string name="pictures_description_text">Aquí podrás compartir y disfrutar de todas las fotos de la boda. Como invitado, podrás subir las fotos que saques y ver el resto de momentos para que no te pierdas ni uno sólo.\n\n El servicio se habilitará el día de la boda.</string>
-    <string name="submit_photo">Añadir foto</string>
+    <string name="pictures_gallery_title">Photos gallery</string>
+    <string name="pictures_description_text">Here you can share and enjoy all the wedding photos. As a guest, you can upload the photos you take and see the rest of the moments so you don\'t miss a single one.\n\nThe service will be enabled on the day of the wedding.</string>
+    <string name="submit_photo">Add photo</string>
+
 </resources>
