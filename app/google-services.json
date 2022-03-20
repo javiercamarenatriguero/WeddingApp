@@ -15,6 +15,22 @@
       },
       "oauth_client": [
         {
+          "client_id": "645294011068-8csmakkauab799qh0q01h8dmnhcmjro3.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.akole.weddingapp",
+            "certificate_hash": "223b84a11c9a6ccbbe91be2e648583e9650c05e6"
+          }
+        },
+        {
+          "client_id": "645294011068-a98j4jm8pb3f7l441563qst9vbg3kbjm.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.akole.weddingapp",
+            "certificate_hash": "604f96244b60573cdb7e144f74494353dbc789fa"
+          }
+        },
+        {
           "client_id": "645294011068-8vmvsfugpefc9o6hu5q3g4ml7fallner.apps.googleusercontent.com",
           "client_type": 3
         }

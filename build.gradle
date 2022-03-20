@@ -1,12 +1,14 @@
 buildscript {
     repositories {
         google()
+        jcenter()
     }
     dependencies {
         classpath 'com.google.gms:google-services:4.3.10'
         // Add the Crashlytics Gradle plugin
         classpath 'com.google.firebase:firebase-crashlytics-gradle:2.8.1'
-
+        // Add the Performenr Plugin
+        classpath 'com.google.firebase:perf-plugin:1.4.1'
     }
     ext {
         compose_version = '1.1.1'
