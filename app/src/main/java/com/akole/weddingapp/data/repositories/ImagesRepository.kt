@@ -5,10 +5,14 @@ import com.akole.weddingapp.data.models.Song
 import com.google.android.gms.tasks.OnFailureListener
 import com.google.android.gms.tasks.OnSuccessListener
 import com.google.firebase.firestore.QuerySnapshot
+import com.google.firebase.storage.ListResult
 import com.google.firebase.storage.UploadTask
 
 interface ImagesRepository {
-    fun getImageList()
+    fun getImageList(
+        onFailureListener: OnFailureListener,
+        onSuccessListener: OnSuccessListener<in ListResult>
+    )
     fun saveImages(
         list: List<Uri>,
         onFailureListener: OnFailureListener,

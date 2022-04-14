@@ -4,6 +4,7 @@ import com.google.android.gms.tasks.OnFailureListener
 import com.google.android.gms.tasks.OnSuccessListener
 import com.google.firebase.firestore.QuerySnapshot
 import com.google.firebase.ktx.Firebase
+import com.google.firebase.storage.ListResult
 import com.google.firebase.storage.UploadTask
 import com.google.firebase.storage.ktx.storage
 import java.io.File
@@ -12,8 +13,15 @@ object ImagesRepositoryImpl: ImagesRepository {
     private val storage = Firebase.storage
     private val storageRef = storage.reference
 
-    override fun getImageList() {
-        TODO("Not yet implemented")
+    override fun getImageList(
+        onFailureListener: OnFailureListener,
+        onSuccessListener: OnSuccessListener<in ListResult>
+    ) {
+        val listRef = storage.reference.child("images")
+
+        listRef.listAll()
+            .addOnSuccessListener(onSuccessListener)
+            .addOnFailureListener(onFailureListener)
     }
 
     override fun saveImages(
@@ -27,7 +35,7 @@ object ImagesRepositoryImpl: ImagesRepository {
             var uploadTask = fileRef.putFile(uri)
             uploadTask
                 .addOnFailureListener(onFailureListener)
-                .addOnSuccessListener(onSuccessListener)
+                .addOnSuccessListener { onSuccessListener }
         }
     }
 
