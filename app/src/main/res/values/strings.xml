@@ -38,6 +38,6 @@
     <string name="nav_pictures_title">Photos</string>
     <string name="pictures_gallery_title">Photos gallery</string>
     <string name="pictures_description_text">Here you can share and enjoy all the wedding photos. As a guest, you can upload the photos you take and see the rest of the moments so you don\'t miss a single one.\n\nThe service will be enabled on the day of the wedding.</string>
-    <string name="submit_photo">Add photo</string>
+    <string name="submit_photo">Add photos</string>
 
 </resources>

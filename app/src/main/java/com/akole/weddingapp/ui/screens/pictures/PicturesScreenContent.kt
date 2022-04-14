@@ -17,13 +17,5 @@ fun PicturesScreenContent(
             viewState = viewState,
             onClick = onClick
         )
-        /*if (viewState.isDialogShown) {
-            CustomDialog(
-                message = stringResource(id = R.string.songs_item_saved_message),
-                buttonText = "OK",
-                onDismissDialog = onDismissDialog
-            )
-        }*/
-
     }
 }

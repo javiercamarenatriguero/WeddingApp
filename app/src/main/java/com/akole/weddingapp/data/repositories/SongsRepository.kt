@@ -5,7 +5,7 @@ import com.google.android.gms.tasks.OnFailureListener
 import com.google.android.gms.tasks.OnSuccessListener
 import com.google.firebase.firestore.QuerySnapshot
 
-interface Repository {
+interface SongsRepository {
     fun getSongList(
         onSuccessListener: OnSuccessListener<in QuerySnapshot>,
         onFailureListener: OnFailureListener

@@ -40,7 +40,7 @@ fun PicturesDescription(
 
         Button(
             onClick = onClick,
-            enabled = true,
+            enabled = !isLoading,
             modifier = Modifier.padding(vertical = 5.dp)) {
             Text(
                 fontFamily = FontFamily.Cursive,

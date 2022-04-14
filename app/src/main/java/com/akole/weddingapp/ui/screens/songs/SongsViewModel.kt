@@ -6,7 +6,7 @@ import androidx.compose.runtime.setValue
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.akole.weddingapp.data.models.Song
-import com.akole.weddingapp.data.repositories.RepositoryImpl
+import com.akole.weddingapp.data.repositories.SongsRepositoryImpl
 import com.akole.weddingapp.data.repositories.upperAsTitle
 import kotlinx.coroutines.channels.Channel
 import kotlinx.coroutines.flow.Flow
@@ -29,7 +29,7 @@ class SongsViewModel: ViewModel() {
 
     private fun syncSongList() {
         updateState(isLoading = true)
-        RepositoryImpl.getSongList( { documentSnapshot ->
+        SongsRepositoryImpl.getSongList( { documentSnapshot ->
             if (documentSnapshot != null && !documentSnapshot.isEmpty) {
                 var songList: MutableList<Song> = mutableListOf()
                 val documents = documentSnapshot.documents
@@ -62,7 +62,7 @@ class SongsViewModel: ViewModel() {
     }
 
     private fun onAddClicked() {
-        RepositoryImpl.saveSong(
+        SongsRepositoryImpl.saveSong(
             Song(
                 name = state.song.upperAsTitle(),
                 artist = state.artist?.upperAsTitle()

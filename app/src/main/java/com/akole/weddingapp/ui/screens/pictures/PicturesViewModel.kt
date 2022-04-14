@@ -29,7 +29,15 @@ class PicturesViewModel: ViewModel() {
     )
 
     private fun saveImages(list: List<@JvmSuppressWildcards Uri>) {
-
+        ImagesRepositoryImpl.saveImages(
+            list,
+            onFailureListener = {
+                updateState(isLoading = false)
+            } ,
+            onSuccessListener = {
+                updateState(isLoading = false)
+            }
+        )
     }
 
     private fun updateState(

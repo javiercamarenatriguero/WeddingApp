@@ -1,6 +1,5 @@
 package com.akole.weddingapp.data.repositories
 
-import androidx.compose.ui.text.capitalize
 import com.akole.weddingapp.data.models.Song
 import com.google.android.gms.tasks.OnFailureListener
 import com.google.android.gms.tasks.OnSuccessListener
@@ -9,7 +8,7 @@ import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
 import java.util.*
 
-object RepositoryImpl: Repository {
+object SongsRepositoryImpl: SongsRepository {
     private val db = Firebase.firestore
     private val songsCollection = db.collection("songs")
 
