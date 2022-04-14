@@ -9,11 +9,13 @@ import com.google.accompanist.pager.*
 @Composable
 fun PicturesScreenContent(
     viewState: PicturesViewModel.UiState,
+    onClick: () -> Unit
 ) {
     Box(modifier = Modifier.fillMaxSize()) {
         Header()
         Body(
-            viewState = viewState
+            viewState = viewState,
+            onClick = onClick
         )
         /*if (viewState.isDialogShown) {
             CustomDialog(

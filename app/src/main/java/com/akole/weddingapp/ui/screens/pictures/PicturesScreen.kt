@@ -1,5 +1,7 @@
 package com.akole.weddingapp.ui.screens.pictures
 
+import androidx.activity.compose.rememberLauncherForActivityResult
+import androidx.activity.result.contract.ActivityResultContracts
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.fillMaxSize
@@ -19,8 +21,14 @@ fun PicturesScreen(
         .fillMaxSize()
         .background(Color.White)
     ) {
+        val launcher = rememberLauncherForActivityResult(ActivityResultContracts.GetMultipleContents()) {
+            viewModel.on(PicturesViewModel.ViewEvent.GetImagesResponse(it))
+        }
         PicturesScreenContent(
-            viewState = viewModel.state
+            viewState = viewModel.state,
+            onClick = {
+                launcher.launch("image/*")
+            }
         )
     }
 }

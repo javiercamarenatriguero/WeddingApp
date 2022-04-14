@@ -10,7 +10,7 @@ import kotlinx.coroutines.channels.Channel
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.receiveAsFlow
 import kotlinx.coroutines.launch
-import java.time.Instant
+import java.util.*
 
 class HomeViewModel: ViewModel() {
 
@@ -22,7 +22,7 @@ class HomeViewModel: ViewModel() {
 
     init {
         viewModelScope.launch {
-            val currentTimestamp = Instant.now().toEpochMilli()
+            val currentTimestamp = Date().time
             val timestampToDate = WEDDING_TIMESTAMP - currentTimestamp
             if (timestampToDate <= 0) {
                 updateState(isWeddingTime = true)

@@ -2,6 +2,7 @@ package com.akole.weddingapp.ui.screens.pictures
 
 import androidx.compose.foundation.layout.*
 import androidx.compose.material.Button
+import androidx.compose.material.CircularProgressIndicator
 import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
@@ -15,7 +16,10 @@ import androidx.compose.ui.unit.sp
 import com.akole.weddingapp.R
 
 @Composable
-fun PicturesDescription() {
+fun PicturesDescription(
+    isLoading: Boolean = false,
+    onClick: () -> Unit
+) {
     Column (
         Modifier
             .fillMaxWidth()
@@ -33,9 +37,10 @@ fun PicturesDescription() {
             modifier = Modifier.padding(8.dp)
         )
         Spacer(modifier = Modifier.height(10.dp))
+
         Button(
-            onClick = { },
-            enabled = false,
+            onClick = onClick,
+            enabled = true,
             modifier = Modifier.padding(vertical = 5.dp)) {
             Text(
                 fontFamily = FontFamily.Cursive,
@@ -43,6 +48,12 @@ fun PicturesDescription() {
                 fontSize = 18.sp,
                 text = stringResource(id = R.string.submit_photo)
             )
+        }
+
+        Spacer(modifier = Modifier.height(10.dp))
+
+        if (isLoading) {
+            CircularProgressIndicator()
         }
     }
 }

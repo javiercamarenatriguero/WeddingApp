@@ -13,7 +13,8 @@ import androidx.compose.ui.unit.dp
 
 @Composable
 fun Body(
-    viewState: PicturesViewModel.UiState
+    viewState: PicturesViewModel.UiState,
+    onClick: () -> Unit
 ) {
     Box(
         modifier = Modifier
@@ -41,7 +42,10 @@ fun Body(
                     modifier = Modifier
                         .fillMaxWidth()
                 ) {
-                    PicturesDescription()
+                    PicturesDescription(
+                        isLoading = viewState.isLoading,
+                        onClick = onClick
+                    )
                 }
             }
         }
