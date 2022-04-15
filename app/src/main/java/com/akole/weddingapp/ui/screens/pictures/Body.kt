@@ -1,5 +1,6 @@
 package com.akole.weddingapp.ui.screens.pictures
 
+import android.widget.Space
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.rememberScrollState
@@ -18,13 +19,13 @@ fun Body(
 ) {
     Box(
         modifier = Modifier
-            .fillMaxSize()
+            .fillMaxWidth()
+            .verticalScroll(rememberScrollState())
     ){
         Column(
             Modifier
                 .fillMaxWidth()
                 .wrapContentHeight()
-                .verticalScroll(rememberScrollState())
         ) {
             Box(
                 modifier = Modifier
@@ -34,7 +35,7 @@ fun Body(
             Box(
                 modifier = Modifier
                     .fillMaxWidth()
-                    .fillMaxHeight()
+                    .wrapContentHeight()
                     .clip(RoundedCornerShape(topStart = 30.dp, topEnd = 30.dp))
                     .background(Color.White)
             ) {
@@ -44,7 +45,13 @@ fun Body(
                 ) {
                     PicturesDescription(
                         isLoading = viewState.isLoading,
+                        progress = viewState.uploadingProgress,
+                        numImages = viewState.uploadingImages,
                         onClick = onClick
+                    )
+                    PicturesGallery(
+                        isCollectionLoading = viewState.isCollectionLoading,
+                        imagesUriList = viewState.imageUrlList
                     )
                 }
             }

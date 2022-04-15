@@ -5,6 +5,9 @@ import androidx.activity.result.contract.ActivityResultContracts
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.rememberScrollState
+import androidx.compose.foundation.verticalScroll
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.ExperimentalComposeUiApi
 import androidx.compose.ui.Modifier
@@ -18,7 +21,7 @@ fun PicturesScreen(
     modifier: Modifier = Modifier
 ){
     Box(modifier = Modifier
-        .fillMaxSize()
+        .fillMaxWidth()
         .background(Color.White)
     ) {
         val launcher = rememberLauncherForActivityResult(ActivityResultContracts.GetMultipleContents()) {

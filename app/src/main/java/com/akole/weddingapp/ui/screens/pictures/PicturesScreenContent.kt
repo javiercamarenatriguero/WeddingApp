@@ -11,7 +11,7 @@ fun PicturesScreenContent(
     viewState: PicturesViewModel.UiState,
     onClick: () -> Unit
 ) {
-    Box(modifier = Modifier.fillMaxSize()) {
+    Box(modifier = Modifier.fillMaxWidth()) {
         Header()
         Body(
             viewState = viewState,

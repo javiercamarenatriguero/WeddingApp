@@ -1,4 +1,5 @@
 import android.net.Uri
+import android.util.Log
 import com.akole.weddingapp.data.repositories.ImagesRepository
 import com.google.android.gms.tasks.OnFailureListener
 import com.google.android.gms.tasks.OnSuccessListener
@@ -7,6 +8,7 @@ import com.google.firebase.ktx.Firebase
 import com.google.firebase.storage.ListResult
 import com.google.firebase.storage.UploadTask
 import com.google.firebase.storage.ktx.storage
+import okhttp3.internal.wait
 import java.io.File
 
 object ImagesRepositoryImpl: ImagesRepository {
@@ -26,17 +28,26 @@ object ImagesRepositoryImpl: ImagesRepository {
 
     override fun saveImages(
         list: List<Uri>,
+        index: Int,
         onFailureListener: OnFailureListener,
-        onSuccessListener: OnSuccessListener<in UploadTask.TaskSnapshot>
+        onSuccessListener: OnSuccessListener<in UploadTask.TaskSnapshot>,
+        onProgressListener: (progress: Int) -> Unit
     ) {
-        list.forEach { uri ->
+        val uri = list[index]
             val fileRef = storageRef.child("images/${uri.lastPathSegment?.substringAfterLast('/')}")
-
+            onProgressListener(index + 1)
             var uploadTask = fileRef.putFile(uri)
             uploadTask
                 .addOnFailureListener(onFailureListener)
-                .addOnSuccessListener { onSuccessListener }
-        }
+                .addOnSuccessListener {
+                    if (index == list.size - 1) {
+                        // Finish loading images
+                        onSuccessListener.onSuccess(it)
+                    } else {
+                        // Upload next image
+                        saveImages(list, index + 1, onFailureListener, onSuccessListener, onProgressListener)
+                    }
+                }
     }
 
 }

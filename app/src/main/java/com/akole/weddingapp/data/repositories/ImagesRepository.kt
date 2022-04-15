@@ -15,7 +15,9 @@ interface ImagesRepository {
     )
     fun saveImages(
         list: List<Uri>,
+        index: Int = 0,
         onFailureListener: OnFailureListener,
-        onSuccessListener: OnSuccessListener<in UploadTask.TaskSnapshot>
+        onSuccessListener: OnSuccessListener<in UploadTask.TaskSnapshot>,
+        onProgressListener: (progress: Int) -> Unit
     )
 }

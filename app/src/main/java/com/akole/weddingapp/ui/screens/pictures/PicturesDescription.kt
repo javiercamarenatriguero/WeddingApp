@@ -2,11 +2,12 @@ package com.akole.weddingapp.ui.screens.pictures
 
 import androidx.compose.foundation.layout.*
 import androidx.compose.material.Button
-import androidx.compose.material.CircularProgressIndicator
+import androidx.compose.material.LinearProgressIndicator
 import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.text.font.FontWeight
@@ -18,12 +19,13 @@ import com.akole.weddingapp.R
 @Composable
 fun PicturesDescription(
     isLoading: Boolean = false,
+    numImages: Int = 0,
+    progress: Int = 0,
     onClick: () -> Unit
 ) {
     Column (
         Modifier
             .fillMaxWidth()
-            .fillMaxHeight()
             .padding(start = 20.dp, end = 20.dp),
         horizontalAlignment = Alignment.CenterHorizontally
     ) {
@@ -53,7 +55,13 @@ fun PicturesDescription(
         Spacer(modifier = Modifier.height(10.dp))
 
         if (isLoading) {
-            CircularProgressIndicator()
+                LinearProgressIndicator(
+                backgroundColor = Color.LightGray,
+                color = Color.Blue
+            )
+            Spacer(modifier = Modifier.height(10.dp))
+            Text(text = stringResource(id = R.string.pictures_uploading_progress_text) + " $progress / $numImages")
+            Spacer(modifier = Modifier.height(20.dp))
         }
     }
 }
