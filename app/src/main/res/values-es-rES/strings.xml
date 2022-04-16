@@ -40,6 +40,6 @@
     <string name="pictures_description_text">Aquí podrás compartir y disfrutar de todas las fotos de la boda. Como invitado, podrás subir las fotos que saques y ver el resto de momentos para que no te pierdas ni uno sólo.\n\nEl servicio se habilitará el día de la boda.</string>
     <string name="submit_photo">Añadir fotos</string>
     <string name="pictures_uploading_progress_text">"Subiendo fotos: "</string>
-    <string name="picture_close_button_text">Close</string>
+    <string name="picture_close_button_text">Cerrar</string>
 
 </resources>
