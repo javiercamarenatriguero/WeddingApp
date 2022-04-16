@@ -31,6 +31,12 @@ fun PicturesScreen(
             viewState = viewModel.state,
             onClick = {
                 launcher.launch("image/*")
+            },
+            onClickImage = { uri ->
+                viewModel.on(PicturesViewModel.ViewEvent.ShowPictureDialog(uri))
+            },
+            onDismissDialog = {
+                viewModel.on(PicturesViewModel.ViewEvent.DismissDialog)
             }
         )
     }

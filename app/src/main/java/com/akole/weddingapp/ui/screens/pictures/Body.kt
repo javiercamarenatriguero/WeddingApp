@@ -1,5 +1,6 @@
 package com.akole.weddingapp.ui.screens.pictures
 
+import android.net.Uri
 import android.widget.Space
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.*
@@ -15,7 +16,8 @@ import androidx.compose.ui.unit.dp
 @Composable
 fun Body(
     viewState: PicturesViewModel.UiState,
-    onClick: () -> Unit
+    onClick: () -> Unit,
+    onClickImage: (Uri) -> Unit
 ) {
     Box(
         modifier = Modifier
@@ -51,7 +53,8 @@ fun Body(
                     )
                     PicturesGallery(
                         isCollectionLoading = viewState.isCollectionLoading,
-                        imagesUriList = viewState.imageUrlList
+                        imagesUriList = viewState.imageUrlList,
+                        onClick = onClickImage
                     )
                 }
             }

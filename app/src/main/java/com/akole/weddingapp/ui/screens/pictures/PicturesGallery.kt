@@ -7,6 +7,7 @@ import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.GridCells
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.LazyVerticalGrid
+import androidx.compose.foundation.lazy.itemsIndexed
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.CircularProgressIndicator
@@ -25,7 +26,8 @@ import com.akole.weddingapp.ui.theme.DarkPink
 @Composable
 fun PicturesGallery(
     isCollectionLoading: Boolean,
-    imagesUriList: List<Uri>
+    imagesUriList: List<Uri>,
+    onClick: (uri: Uri) -> Unit
 ) {
     Column (
         Modifier
@@ -43,7 +45,7 @@ fun PicturesGallery(
                     modifier = Modifier.wrapContentHeight().fillMaxWidth(),
                     cells = GridCells.Fixed(3)
                 ) {
-                    items (imagesUriList.size) { item ->
+                    items(imagesUriList.size) { item ->
                         val painter = rememberAsyncImagePainter(imagesUriList[item])
                         Image(
                             painter = painter,
@@ -54,6 +56,7 @@ fun PicturesGallery(
                                 .padding(2.dp)
                                 .clip(RoundedCornerShape(5.dp))
                                 .border(1.dp, DarkPink, RoundedCornerShape(5.dp))
+                                .clickable { onClick(imagesUriList[item]) }
                         )
                     }
                 }

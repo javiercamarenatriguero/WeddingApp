@@ -34,8 +34,17 @@ class PicturesViewModel: ViewModel() {
                     uploadingImages = value.size
                 )
                 saveImages(value)
-
             }
+            is ViewEvent.ShowPictureDialog -> {
+                updateState(
+                    isShownPictureDialog = true,
+                    pictureUri = value
+                )
+            }
+            ViewEvent.DismissDialog -> updateState(
+                isShownPictureDialog = false,
+                pictureUri = null
+            )
         }
     }
     data class UiState(
@@ -43,7 +52,9 @@ class PicturesViewModel: ViewModel() {
         val isCollectionLoading: Boolean = false,
         val uploadingImages: Int = 0,
         val uploadingProgress: Int = 0,
-        val imageUrlList: List<Uri> = emptyList()
+        val imageUrlList: List<Uri> = emptyList(),
+        val isShownPictureDialog: Boolean = false,
+        val pictureUri: Uri? = null
     )
 
     private fun saveImages(list: List<@JvmSuppressWildcards Uri>) {
@@ -118,7 +129,9 @@ class PicturesViewModel: ViewModel() {
         uploadingImages: Int = state.uploadingImages,
         uploadingProgress: Int = state.uploadingProgress,
         isCollectionLoading: Boolean = state.isCollectionLoading,
-        imageUrlList: List<Uri> = state.imageUrlList
+        imageUrlList: List<Uri> = state.imageUrlList,
+        isShownPictureDialog: Boolean = state.isShownPictureDialog,
+        pictureUri: Uri? = state.pictureUri
     ) {
         state = UiState(
             isLoading = isLoading,
@@ -126,10 +139,14 @@ class PicturesViewModel: ViewModel() {
             uploadingProgress = uploadingProgress,
             isCollectionLoading = isCollectionLoading,
             imageUrlList = imageUrlList,
+            isShownPictureDialog = isShownPictureDialog,
+            pictureUri = pictureUri
         )
     }
 
     sealed interface ViewEvent {
         class GetImagesResponse(val value: List<@JvmSuppressWildcards Uri>) : ViewEvent
+        class ShowPictureDialog(val value: Uri) : ViewEvent
+        object DismissDialog: ViewEvent
     }
 }
