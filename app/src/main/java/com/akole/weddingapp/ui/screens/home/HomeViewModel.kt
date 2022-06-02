@@ -6,19 +6,23 @@ import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.setValue
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import com.akole.weddingapp.ui.utils.getDaysLeft
+import com.akole.weddingapp.ui.utils.getHoursLeft
+import com.akole.weddingapp.ui.utils.getMinutesLeft
+import com.akole.weddingapp.ui.utils.getSecondsLeft
 import kotlinx.coroutines.channels.Channel
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.receiveAsFlow
 import kotlinx.coroutines.launch
-import java.util.*
+import java.util.Date
 
 class HomeViewModel: ViewModel() {
 
     var state by mutableStateOf(UiState())
         private set
 
-    private val _oneShotEvents = Channel<HomeViewModel.OneShotEvent>(Channel.BUFFERED)
-    val oneShotEvents: Flow<HomeViewModel.OneShotEvent> = _oneShotEvents.receiveAsFlow()
+    private val _oneShotEvents = Channel<OneShotEvent>(Channel.BUFFERED)
+    val oneShotEvents: Flow<OneShotEvent> = _oneShotEvents.receiveAsFlow()
 
     init {
         viewModelScope.launch {
@@ -28,7 +32,7 @@ class HomeViewModel: ViewModel() {
                 updateState(isWeddingTime = true)
             } else {
                 updateState(
-                    daysLeft = timestampToDate.getDaysLetf().toInt(),
+                    daysLeft = timestampToDate.getDaysLeft().toInt(),
                     hoursLeft = timestampToDate.getHoursLeft().toInt(),
                     minutesLeft = timestampToDate.getMinutesLeft().toInt(),
                     secondsLeft = timestampToDate.getSecondsLeft().toInt(),
@@ -39,7 +43,7 @@ class HomeViewModel: ViewModel() {
 
                 override fun onTick(millisUntilFinished: Long) {
                     updateState(
-                        daysLeft = millisUntilFinished.getDaysLetf().toInt(),
+                        daysLeft = millisUntilFinished.getDaysLeft().toInt(),
                         hoursLeft = millisUntilFinished.getHoursLeft().toInt(),
                         minutesLeft = millisUntilFinished.getMinutesLeft().toInt(),
                         secondsLeft = millisUntilFinished.getSecondsLeft().toInt(),
@@ -58,14 +62,6 @@ class HomeViewModel: ViewModel() {
             }.start()
         }
     }
-
-    private fun Long.getDaysLetf() = this / 86400000
-
-    private fun Long.getHoursLeft() = (this / 3600000) % 24
-
-    private fun Long.getMinutesLeft() = (this / 60000) % 60
-
-    private fun Long.getSecondsLeft() = (this / 1000) % 60
 
     fun on(event: ViewEvent): Unit = with(event) {
         when (this) {
@@ -116,6 +112,7 @@ class HomeViewModel: ViewModel() {
     }
 
     companion object {
-        internal const val WEDDING_TIMESTAMP = 1653665400000
+        // 27.05.2025
+        internal const val WEDDING_TIMESTAMP = 1748367000000
     }
 }

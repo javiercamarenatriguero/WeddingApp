@@ -10,6 +10,7 @@ import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
 import androidx.lifecycle.viewmodel.compose.viewModel
+import com.akole.weddingapp.R
 
 @Composable
 fun HomeScreen(viewModel: HomeViewModel = viewModel()){
@@ -34,15 +35,15 @@ fun HomeScreen(viewModel: HomeViewModel = viewModel()){
 }
 
 private  fun goToCalendar(context: Context) {
+    // Google Calendar event starts hours before
     val eventStartTime = HomeViewModel.WEDDING_TIMESTAMP - 7200000
     val insertCalendarIntent = Intent(Intent.ACTION_INSERT)
         .setData(CalendarContract.Events.CONTENT_URI)
-        .putExtra(CalendarContract.Events.TITLE, "BODA LEYRE & JAVIER")
+        .putExtra(CalendarContract.Events.TITLE, R.string.calendar_title)
         .putExtra(CalendarContract.EXTRA_EVENT_ALL_DAY, false)
         .putExtra(CalendarContract.EXTRA_EVENT_BEGIN_TIME, eventStartTime)
-        .putExtra(CalendarContract.Events.EVENT_LOCATION, "Ayuntamiento de Bilbao")
-        .putExtra(CalendarContract.Events.DESCRIPTION, "Boda Leyre y Javier en el Ayuntamiento de Bilbao") // Description
-        .putExtra(Intent.EXTRA_EMAIL, "javier.camtri@gmail.com")
+        .putExtra(CalendarContract.Events.EVENT_LOCATION, R.string.calendar_place)
+        .putExtra(CalendarContract.Events.DESCRIPTION, R.string.calendar_description)
         .putExtra(CalendarContract.Events.ACCESS_LEVEL, CalendarContract.Events.ACCESS_PRIVATE)
         .putExtra(CalendarContract.Events.AVAILABILITY, CalendarContract.Events.AVAILABILITY_FREE)
     context.startActivity(insertCalendarIntent)

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">L&amp;J</string>
+    <string name="app_name">P&amp;R</string>
     <string name="nav_home_title">Home</string>
     <string name="nav_map_title">Map</string>
     <string name="nav_songs_title">Songs</string>
@@ -10,10 +10,10 @@
     <string name="minutes">MINUTES</string>
     <string name="hours">HOURS</string>
     <string name="add_to_calendar">Add date to your calendar</string>
-    <string name="home_head_title"><![CDATA[Leyre & Javier]]></string>
+    <string name="home_head_title"><![CDATA[Pablo & Rosa]]></string>
     <string name="left_title"> Remaining time...</string>
-    <string name="date_title"> 5.30 PM - 27th May, 2022</string>
-    <string name="description_title">¡We are getting married!</string>
+    <string name="date_title"> 5.30 PM - 27th May, 2025</string>
+    <string name="description_title">We are getting married!</string>
     <string name="description_text">We want you to share with us a very special day, such as our wedding. Your presence is our gift.\n\nThrough the application, you will be able to see information about the event, details about the location of the ceremony, cocktail and restaurant, see the photos of the wedding and as well as add the songs that you like the most for the disco night.</string>
     <string name="songs_description_text">Add the music you like the most to play on disco night! \n\nAmong all the songs, a selection will be made by the jury.</string>
     <string name="location_title">Bilbao City Hall</string>
@@ -41,5 +41,8 @@
     <string name="submit_photo">Add photos</string>
     <string name="pictures_uploading_progress_text">"Uploading photos: "</string>
     <string name="picture_close_button_text">Close</string>
+    <string name="calendar_title"><![CDATA[Wedding Pablo & Rosa]]></string>
+    <string name="calendar_place">Bilbao City Hall</string>
+    <string name="calendar_description">Pablo &amp; Rosa Wedding at Bilbao City Hall</string>
 
 </resources>

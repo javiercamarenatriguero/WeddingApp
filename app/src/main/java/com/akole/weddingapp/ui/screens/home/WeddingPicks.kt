@@ -25,8 +25,8 @@ fun WeddingPicks() {
             .fillMaxWidth(),
         horizontalArrangement = Arrangement.Center
     ) {
-        Pick(R.drawable.javier1, "Javier")
-        Pick(R.drawable.leyre1, "Leyre")
+        Pick(R.drawable.javier1, PICTURE_LABEL_1)
+        Pick(R.drawable.leyre1, PICTURE_LABEL_2)
     }
 }
 
@@ -53,3 +53,6 @@ private fun Pick(@DrawableRes imageRes: Int, label: String) {
         )
     }
 }
+
+private const val PICTURE_LABEL_1 = "Pablo"
+private const val PICTURE_LABEL_2 = "Rosa"

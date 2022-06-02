@@ -37,11 +37,6 @@ class WeddingAppState(
     val showUpNavigation: Boolean
         @Composable get() = !NavItem.values().map { it.navCommand.route }.contains(currentRoute)
 
-    fun onUpClick() {
-        navController.popBackStack()
-    }
-
-
     fun onNavItemClick(navItem: NavItem) {
         navController.navigatePoppingUpToStartDestination(navItem.navCommand.route)
     }
