@@ -16,6 +16,7 @@ import kotlinx.coroutines.channels.awaitClose
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.flow.*
 import kotlinx.coroutines.launch
+import java.util.*
 
 class PicturesViewModel: ViewModel() {
 
@@ -54,7 +55,8 @@ class PicturesViewModel: ViewModel() {
         val uploadingProgress: Int = 0,
         val imageUrlList: List<Uri> = emptyList(),
         val isShownPictureDialog: Boolean = false,
-        val pictureUri: Uri? = null
+        val pictureUri: Uri? = null,
+        val isPhotoServiceEnabled: Boolean = false
     )
 
     private fun saveImages(list: List<@JvmSuppressWildcards Uri>) {
@@ -131,7 +133,8 @@ class PicturesViewModel: ViewModel() {
         isCollectionLoading: Boolean = state.isCollectionLoading,
         imageUrlList: List<Uri> = state.imageUrlList,
         isShownPictureDialog: Boolean = state.isShownPictureDialog,
-        pictureUri: Uri? = state.pictureUri
+        pictureUri: Uri? = state.pictureUri,
+        isPhotoServiceEnabled: Boolean = isWeddingTime()
     ) {
         state = UiState(
             isLoading = isLoading,
@@ -140,7 +143,8 @@ class PicturesViewModel: ViewModel() {
             isCollectionLoading = isCollectionLoading,
             imageUrlList = imageUrlList,
             isShownPictureDialog = isShownPictureDialog,
-            pictureUri = pictureUri
+            pictureUri = pictureUri,
+            isPhotoServiceEnabled = isPhotoServiceEnabled
         )
     }
 
@@ -148,5 +152,14 @@ class PicturesViewModel: ViewModel() {
         class GetImagesResponse(val value: List<@JvmSuppressWildcards Uri>) : ViewEvent
         class ShowPictureDialog(val value: Uri) : ViewEvent
         object DismissDialog: ViewEvent
+    }
+
+    private fun isWeddingTime(): Boolean {
+        val time = PHOTO_AVAILABLE_TIMESTAMP - Date().time
+        return time < 0
+    }
+
+    companion object {
+        private const val PHOTO_AVAILABLE_TIMESTAMP = 1653634800000
     }
 }

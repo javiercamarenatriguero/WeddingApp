@@ -47,6 +47,7 @@ fun Body(
                 ) {
                     PicturesDescription(
                         isLoading = viewState.isLoading,
+                        isPhotoServiceEnabled = viewState.isPhotoServiceEnabled,
                         progress = viewState.uploadingProgress,
                         numImages = viewState.uploadingImages,
                         onClick = onClick

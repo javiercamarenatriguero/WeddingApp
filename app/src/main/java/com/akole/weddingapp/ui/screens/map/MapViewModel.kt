@@ -35,7 +35,6 @@ class MapViewModel: ViewModel() {
             snippet = R.string.council_snippet,
             image = R.drawable.marker1,
             details = R.string.council_details,
-            icon = R.drawable.ic_council
         )
         private val cocktelMarker = LocationItem(
             position = LatLng(43.263880486320836, -2.9260678485581844),
@@ -43,7 +42,6 @@ class MapViewModel: ViewModel() {
             snippet = R.string.cocktel_snippet,
             image = R.drawable.marker2,
             details = R.string.cocktel_details,
-            icon = R.drawable.ic_cocktel
 
         )
         private val restaurantMarker = LocationItem(
@@ -52,7 +50,6 @@ class MapViewModel: ViewModel() {
             snippet = R.string.restaurant_snippet,
             image = R.drawable.marker3,
             details = R.string.restaurant_details,
-            icon = R.drawable.ic_restaurant
         )
     }
 

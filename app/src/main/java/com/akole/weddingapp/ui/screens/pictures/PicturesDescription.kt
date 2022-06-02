@@ -19,6 +19,7 @@ import com.akole.weddingapp.R
 @Composable
 fun PicturesDescription(
     isLoading: Boolean = false,
+    isPhotoServiceEnabled: Boolean = false,
     numImages: Int = 0,
     progress: Int = 0,
     onClick: () -> Unit
@@ -42,8 +43,8 @@ fun PicturesDescription(
 
         Button(
             onClick = onClick,
-            //enabled = !isLoading,
-            enabled = false,
+            enabled = !isLoading && isPhotoServiceEnabled,
+            //enabled = false,
             modifier = Modifier.padding(vertical = 5.dp)) {
             Text(
                 fontFamily = FontFamily.Cursive,

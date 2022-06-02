@@ -116,6 +116,6 @@ class HomeViewModel: ViewModel() {
     }
 
     companion object {
-        internal const val WEDDING_TIMESTAMP = 1653669000000
+        internal const val WEDDING_TIMESTAMP = 1653665400000
     }
 }
