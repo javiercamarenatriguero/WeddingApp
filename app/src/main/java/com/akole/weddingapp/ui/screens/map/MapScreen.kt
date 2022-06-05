@@ -20,7 +20,7 @@ fun MapScreen(viewModel: MapViewModel = viewModel()){
                 bottom.linkTo(parent.bottom)
             },
             mapPosition = viewModel.state.mapItemPosition,
-            locationItems = viewModel.markers
+            locationUIItems = viewModel.markers
         )
         MapTitle(
             modifier = Modifier.constrainAs(title) {
@@ -31,8 +31,7 @@ fun MapScreen(viewModel: MapViewModel = viewModel()){
             details = viewModel.markers[viewModel.state.mapItemPosition].details
         )
         Carousel(
-            mapPosition = viewModel.state.mapItemPosition,
-            locationItems = viewModel.markers,
+            locationUIItems = viewModel.markers,
             modifier = Modifier.constrainAs(carousel) {
                 bottom.linkTo(parent.bottom)
             },

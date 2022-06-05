@@ -36,7 +36,7 @@ fun HomeScreen(viewModel: HomeViewModel = viewModel()){
 
 private  fun goToCalendar(context: Context) {
     // Google Calendar event starts hours before
-    val eventStartTime = HomeViewModel.WEDDING_TIMESTAMP - 7200000
+    val eventStartTime = HomeViewModel.PHOTO_SERVICE_START_TIMESTAMP
     val insertCalendarIntent = Intent(Intent.ACTION_INSERT)
         .setData(CalendarContract.Events.CONTENT_URI)
         .putExtra(CalendarContract.Events.TITLE, R.string.calendar_title)

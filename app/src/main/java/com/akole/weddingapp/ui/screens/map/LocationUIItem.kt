@@ -4,7 +4,7 @@ import androidx.annotation.DrawableRes
 import androidx.annotation.StringRes
 import com.google.android.gms.maps.model.LatLng
 
-data class LocationItem(
+data class LocationUIItem(
     val position: LatLng,
     @StringRes val title: Int,
     @StringRes val snippet: Int,

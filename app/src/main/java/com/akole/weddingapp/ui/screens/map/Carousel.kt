@@ -28,8 +28,7 @@ import kotlin.math.absoluteValue
 @OptIn(ExperimentalPagerApi::class)
 @Composable
 fun Carousel(
-    mapPosition: Int,
-    locationItems: List<LocationItem>,
+    locationUIItems: List<LocationUIItem>,
     modifier: Modifier = Modifier,
     onPositionChanged: (Int) -> Unit
 ) {
@@ -46,7 +45,7 @@ fun Carousel(
         horizontalAlignment = Alignment.CenterHorizontally
     ) {
         HorizontalPager(
-            count = locationItems.size,
+            count = locationUIItems.size,
             state = pagerState,
             contentPadding = PaddingValues(horizontal = 60.dp, vertical = 10.dp),
             modifier = Modifier
@@ -77,7 +76,7 @@ fun Carousel(
                     .fillMaxWidth()
                     .aspectRatio(1.75f)
             ) {
-                CarouselItemCard(item = locationItems[page], position = (page + 1))
+                CarouselItemCard(UIItem = locationUIItems[page], position = (page + 1))
             }
         }
     }
@@ -86,17 +85,17 @@ fun Carousel(
 @Composable
 private fun CarouselItemCard(
     position: Int,
-    item: LocationItem
+    UIItem: LocationUIItem
 ) {
     ConstraintLayout(
         modifier = Modifier.fillMaxWidth()
 
     ) {
         val (image, label) = createRefs()
-        val painter = rememberAsyncImagePainter(item.image)
+        val painter = rememberAsyncImagePainter(UIItem.image)
         Image(
             painter = painter,
-            contentDescription = stringResource(id = item.title),
+            contentDescription = stringResource(id = UIItem.title),
             contentScale = ContentScale.Fit,
             modifier = Modifier
                 .width(400.dp)

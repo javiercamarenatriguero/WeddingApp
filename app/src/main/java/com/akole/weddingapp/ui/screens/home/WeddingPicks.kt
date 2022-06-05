@@ -25,8 +25,8 @@ fun WeddingPicks() {
             .fillMaxWidth(),
         horizontalArrangement = Arrangement.Center
     ) {
-        Pick(R.drawable.javier1, PICTURE_LABEL_1)
-        Pick(R.drawable.leyre1, PICTURE_LABEL_2)
+        Pick(R.drawable.profile1, PICTURE_LABEL_1)
+        Pick(R.drawable.profile2, PICTURE_LABEL_2)
     }
 }
 

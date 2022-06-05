@@ -16,6 +16,9 @@ class MapViewModel: ViewModel() {
         val mapItemPosition: Int = 0
     )
 
+    internal val markers = listOf(councilMarker, cocktelMarker, restaurantMarker)
+
+
     fun onPositionChanged(position: Int) {
         updateState(position)
     }
@@ -29,14 +32,15 @@ class MapViewModel: ViewModel() {
     }
 
     companion object {
-        private val councilMarker = LocationItem(
+        // Location Items defined as constants
+        private val councilMarker = LocationUIItem(
             position = LatLng(43.2640404644175, -2.9231387425674176),
             title = R.string.council_title,
             snippet = R.string.council_snippet,
             image = R.drawable.marker1,
             details = R.string.council_details,
         )
-        private val cocktelMarker = LocationItem(
+        private val cocktelMarker = LocationUIItem(
             position = LatLng(43.263880486320836, -2.9260678485581844),
             title = R.string.cocktel_title,
             snippet = R.string.cocktel_snippet,
@@ -44,7 +48,7 @@ class MapViewModel: ViewModel() {
             details = R.string.cocktel_details,
 
         )
-        private val restaurantMarker = LocationItem(
+        private val restaurantMarker = LocationUIItem(
             position = LatLng(43.29085987514852, -2.925274743006676),
             title = R.string.restaurant_title,
             snippet = R.string.restaurant_snippet,
@@ -52,6 +56,4 @@ class MapViewModel: ViewModel() {
             details = R.string.restaurant_details,
         )
     }
-
-    val markers = listOf(councilMarker, cocktelMarker, restaurantMarker)
 }

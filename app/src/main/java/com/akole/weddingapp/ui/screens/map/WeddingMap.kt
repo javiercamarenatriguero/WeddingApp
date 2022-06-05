@@ -13,7 +13,7 @@ import kotlinx.coroutines.launch
 @Composable
 fun WeddingMap(
     mapPosition: Int,
-    locationItems: List<LocationItem>,
+    locationUIItems: List<LocationUIItem>,
     modifier: Modifier = Modifier,
     onPositionChanged: (Int) -> Unit ={}
 ) {
@@ -38,7 +38,7 @@ fun WeddingMap(
     }
 
     val cameraPositionState = rememberCameraPositionState {
-        position = CameraPosition.fromLatLngZoom(locationItems[mapPosition].position, 13f)
+        position = CameraPosition.fromLatLngZoom(locationUIItems[mapPosition].position, 13f)
     }
 
     GoogleMap(
@@ -51,13 +51,13 @@ fun WeddingMap(
             coroutineScope.launch {
                 cameraPositionState.animate(
                     CameraUpdateFactory
-                        .newLatLngZoom(locationItems[mapPosition].position, 18f)
+                        .newLatLngZoom(locationUIItems[mapPosition].position, 18f)
                 )
                 isMapLoaded = true
             }
         }
     ){
-        locationItems.forEach { locationItem ->
+        locationUIItems.forEach { locationItem ->
             Marker(
                 position = locationItem.position,
                 title = stringResource(id = locationItem.title),
@@ -71,7 +71,7 @@ fun WeddingMap(
         if(isMapLoaded) {
             cameraPositionState.animate(
                 CameraUpdateFactory
-                    .newLatLngZoom(locationItems[mapPosition].position, 18f)
+                    .newLatLngZoom(locationUIItems[mapPosition].position, 18f)
             )
         }
     }
