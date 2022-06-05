@@ -114,7 +114,7 @@ class HomeViewModel: ViewModel() {
     companion object {
         // 27.05.2025 (random date)
         internal const val WEDDING_TIMESTAMP = 1748367000000
-        // 12 hours before wedding in order to activate the photo service
-        internal const val PHOTO_SERVICE_START_TIMESTAMP = WEDDING_TIMESTAMP - 7200000
+        // 12 hours before wedding in order to start calendar notification
+        internal const val CALENDAR_NOTIFICATION_START_TIMESTAMP = WEDDING_TIMESTAMP - 7200000
     }
 }

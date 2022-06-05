@@ -2,17 +2,12 @@ package com.akole.weddingapp.ui.screens.pictures
 
 import android.net.Uri
 import androidx.compose.foundation.Image
-import androidx.compose.foundation.border
-import androidx.compose.foundation.clickable
 import androidx.compose.foundation.gestures.detectTransformGestures
 import androidx.compose.foundation.layout.*
-import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.Button
 import com.akole.weddingapp.ui.common.CustomPictureDialog
-
 import androidx.compose.material.Text
 import androidx.compose.runtime.*
-
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.graphicsLayer
@@ -61,8 +56,7 @@ fun PictureDialogContent(
                         )
                         .pointerInput(Unit) {
                             detectTransformGestures(
-                                onGesture = { _, pan, gestureZoom, gestureRotate ->
-                                    //angle += gestureRotate
+                                onGesture = { _, pan, gestureZoom, _ ->
                                     zoom *= gestureZoom
                                     val x = pan.x * zoom
                                     val y = pan.y * zoom

@@ -18,7 +18,8 @@ import com.akole.weddingapp.R
 
 @Composable
 fun PicturesDescription(
-    isLoading: Boolean = false,
+    isUploadingImagesLoading: Boolean = false,
+    isCollectionLoading: Boolean = false,
     isPhotoServiceEnabled: Boolean = false,
     numImages: Int = 0,
     progress: Int = 0,
@@ -27,10 +28,10 @@ fun PicturesDescription(
     Column (
         Modifier
             .fillMaxWidth()
-            .padding(start = 20.dp, end = 20.dp),
-        horizontalAlignment = Alignment.CenterHorizontally
+            .padding(start = 20.dp, end = 20.dp, top = 10.dp),
+        horizontalAlignment = Alignment.CenterHorizontally,
+        verticalArrangement = Arrangement.spacedBy(10.dp)
     ) {
-        Spacer(modifier = Modifier.height(10.dp))
         Text(
             text = stringResource(R.string.pictures_description_text),
             textAlign = TextAlign.Justify,
@@ -39,12 +40,10 @@ fun PicturesDescription(
             fontSize = 20.sp,
             modifier = Modifier.padding(8.dp)
         )
-        Spacer(modifier = Modifier.height(10.dp))
 
         Button(
             onClick = onClick,
-            enabled = !isLoading && isPhotoServiceEnabled,
-            //enabled = false,
+            enabled = !isCollectionLoading && !isUploadingImagesLoading && isPhotoServiceEnabled,
             modifier = Modifier.padding(vertical = 5.dp)) {
             Text(
                 fontFamily = FontFamily.Cursive,
@@ -54,14 +53,11 @@ fun PicturesDescription(
             )
         }
 
-        Spacer(modifier = Modifier.height(10.dp))
-
-        if (isLoading) {
+        if (isUploadingImagesLoading) {
                 LinearProgressIndicator(
                 backgroundColor = Color.LightGray,
                 color = Color.Blue
             )
-            Spacer(modifier = Modifier.height(10.dp))
             Text(text = stringResource(id = R.string.pictures_uploading_progress_text) + " $progress / $numImages")
             Spacer(modifier = Modifier.height(20.dp))
         }

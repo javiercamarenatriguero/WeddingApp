@@ -1,7 +1,6 @@
 package com.akole.weddingapp.ui.screens.pictures
 
 import android.net.Uri
-import android.widget.Space
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.rememberScrollState
@@ -46,7 +45,8 @@ fun Body(
                         .fillMaxWidth()
                 ) {
                     PicturesDescription(
-                        isLoading = viewState.isLoading,
+                        isUploadingImagesLoading = viewState.isUploadingImagesLoading,
+                        isCollectionLoading = viewState.isCollectionLoading,
                         isPhotoServiceEnabled = viewState.isPhotoServiceEnabled,
                         progress = viewState.uploadingProgress,
                         numImages = viewState.uploadingImages,

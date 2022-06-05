@@ -1,19 +1,14 @@
 package com.akole.weddingapp.ui.screens.pictures
 
 import android.net.Uri
-import android.util.Log
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.setValue
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.akole.weddingapp.ui.screens.home.HomeViewModel
 import com.google.firebase.storage.ListResult
-import kotlinx.coroutines.NonCancellable.cancel
-import kotlinx.coroutines.cancel
 import kotlinx.coroutines.channels.Channel
 import kotlinx.coroutines.channels.awaitClose
-import kotlinx.coroutines.delay
 import kotlinx.coroutines.flow.*
 import kotlinx.coroutines.launch
 import java.util.*
@@ -49,7 +44,7 @@ class PicturesViewModel: ViewModel() {
         }
     }
     data class UiState(
-        val isLoading: Boolean = false,
+        val isUploadingImagesLoading: Boolean = false,
         val isCollectionLoading: Boolean = false,
         val uploadingImages: Int = 0,
         val uploadingProgress: Int = 0,
@@ -127,17 +122,17 @@ class PicturesViewModel: ViewModel() {
     }
 
     private fun updateState(
-        isLoading: Boolean = state.isLoading,
+        isLoading: Boolean = state.isUploadingImagesLoading,
         uploadingImages: Int = state.uploadingImages,
         uploadingProgress: Int = state.uploadingProgress,
         isCollectionLoading: Boolean = state.isCollectionLoading,
         imageUrlList: List<Uri> = state.imageUrlList,
         isShownPictureDialog: Boolean = state.isShownPictureDialog,
         pictureUri: Uri? = state.pictureUri,
-        isPhotoServiceEnabled: Boolean = isWeddingTime()
+        isPhotoServiceEnabled: Boolean = isPhotoServiceEnabled()
     ) {
         state = UiState(
-            isLoading = isLoading,
+            isUploadingImagesLoading = isLoading,
             uploadingImages = uploadingImages,
             uploadingProgress = uploadingProgress,
             isCollectionLoading = isCollectionLoading,
@@ -154,7 +149,7 @@ class PicturesViewModel: ViewModel() {
         object DismissDialog: ViewEvent
     }
 
-    private fun isWeddingTime(): Boolean {
+    private fun isPhotoServiceEnabled(): Boolean {
         val time = PHOTO_AVAILABLE_TIMESTAMP - Date().time
         return time < 0
     }

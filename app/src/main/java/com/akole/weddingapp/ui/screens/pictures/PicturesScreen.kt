@@ -1,5 +1,7 @@
 package com.akole.weddingapp.ui.screens.pictures
 
+import android.net.Uri
+import androidx.activity.compose.ManagedActivityResultLauncher
 import androidx.activity.compose.rememberLauncherForActivityResult
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.compose.foundation.background
@@ -20,7 +22,7 @@ fun PicturesScreen(
     viewModel: PicturesViewModel = viewModel(),
     modifier: Modifier = Modifier
 ){
-    Box(modifier = Modifier
+    Box(modifier = modifier
         .fillMaxWidth()
         .background(Color.White)
     ) {
@@ -30,7 +32,7 @@ fun PicturesScreen(
         PicturesScreenContent(
             viewState = viewModel.state,
             onClick = {
-                launcher.launch("image/*")
+                goToImageGallery(launcher)
             },
             onClickImage = { uri ->
                 viewModel.on(PicturesViewModel.ViewEvent.ShowPictureDialog(uri))
@@ -40,4 +42,10 @@ fun PicturesScreen(
             }
         )
     }
+}
+
+private fun goToImageGallery(
+    launcher: ManagedActivityResultLauncher<String, List<@JvmSuppressWildcards Uri>>
+) {
+    launcher.launch("image/*")
 }
