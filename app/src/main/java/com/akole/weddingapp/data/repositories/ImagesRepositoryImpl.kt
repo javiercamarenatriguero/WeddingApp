@@ -1,15 +1,11 @@
 import android.net.Uri
-import android.util.Log
 import com.akole.weddingapp.data.repositories.ImagesRepository
 import com.google.android.gms.tasks.OnFailureListener
 import com.google.android.gms.tasks.OnSuccessListener
-import com.google.firebase.firestore.QuerySnapshot
 import com.google.firebase.ktx.Firebase
 import com.google.firebase.storage.ListResult
 import com.google.firebase.storage.UploadTask
 import com.google.firebase.storage.ktx.storage
-import okhttp3.internal.wait
-import java.io.File
 
 object ImagesRepositoryImpl: ImagesRepository {
     private val storage = Firebase.storage

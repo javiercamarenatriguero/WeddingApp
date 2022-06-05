@@ -22,7 +22,7 @@ class MainActivity : ComponentActivity() {
 
 @Composable
 private fun WeddingApp(content: @Composable () -> Unit) {
-    WeddingAppTheme{
+    WeddingAppTheme {
         Surface(color = MaterialTheme.colors.background){
             content()
         }
