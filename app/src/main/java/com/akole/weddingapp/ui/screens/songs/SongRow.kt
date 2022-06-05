@@ -22,7 +22,6 @@ import com.akole.weddingapp.ui.theme.DarkPink
 
 @Composable
 fun SongRow(
-    position: Int,
     songItem: Song
 ) {
     Card(

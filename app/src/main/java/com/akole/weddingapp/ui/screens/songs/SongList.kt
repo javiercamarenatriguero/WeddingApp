@@ -5,7 +5,6 @@ import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.lazy.LazyColumn
-import androidx.compose.foundation.lazy.itemsIndexed
 import androidx.compose.material.CircularProgressIndicator
 import androidx.compose.material.Divider
 import androidx.compose.material.Text
@@ -39,8 +38,8 @@ fun SongList(
                     .padding(horizontal = 20.dp, vertical = 5.dp)
                     .background(ExtraLightGray)
             ) {
-                itemsIndexed(songItemList) { index, songItem ->
-                    SongRow(songItem = songItem, position = index + 1)
+                items(songItemList.size) { index ->
+                    SongRow(songItem = songItemList[index])
                 }
             }
         }

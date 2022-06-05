@@ -35,9 +35,9 @@ import kotlinx.coroutines.launch
 fun SongsForm(
     songValue: String = "",
     artistValue: String? = "",
+    buttonEnabled: Boolean = false,
     onSongValueChanged: (String) -> Unit = {},
     onArtistValueChanged: (String) -> Unit = {},
-    buttonEnabled: Boolean = false,
     onSubmitClicked: () -> Unit = {},
     onArtistCompleted: () -> Unit = {}
 ) {

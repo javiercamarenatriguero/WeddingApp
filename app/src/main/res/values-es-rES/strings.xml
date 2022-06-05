@@ -44,5 +44,6 @@
     <string name="calendar_title"><![CDATA[Wedding Pablo & Rosa]]></string>
     <string name="calendar_place">Ayuntamiento de Bilbao</string>
     <string name="calendar_description">Boda Pablo y Rosa en el Ayuntamiento de Bilbao</string>
+    <string name="songs_submit_button_text">OK</string>
 
 </resources>

@@ -41,9 +41,10 @@ class SongsViewModel: ViewModel() {
                 updateState(songList = songList)
             }
             updateState(isLoading = false)
-        },{
-            updateState(isLoading = false)
-        }
+        },
+            {
+                updateState(isLoading = false)
+            }
         )
     }
 
@@ -123,5 +124,6 @@ class SongsViewModel: ViewModel() {
         )
     }
 
+    // Check if song name is null or empty. Artist name is not mandatory
     private fun checkSubmitButton(song: String) = !song.isNullOrEmpty()
 }

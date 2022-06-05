@@ -44,5 +44,6 @@
     <string name="calendar_title"><![CDATA[Wedding Pablo & Rosa]]></string>
     <string name="calendar_place">Bilbao City Hall</string>
     <string name="calendar_description">Pablo &amp; Rosa Wedding at Bilbao City Hall</string>
+    <string name="songs_submit_button_text">OK</string>
 
 </resources>

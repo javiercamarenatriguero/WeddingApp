@@ -18,7 +18,7 @@ fun SongsScreen(
     modifier: Modifier = Modifier
 ){
     val keyboardController = LocalSoftwareKeyboardController.current
-    Box(modifier = Modifier
+    Box(modifier = modifier
         .fillMaxSize()
         .background(Color.White)
     ) {
