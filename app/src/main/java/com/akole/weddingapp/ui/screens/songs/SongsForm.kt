@@ -36,11 +36,8 @@ fun SongsForm(
     songValue: String = "",
     artistValue: String? = "",
     buttonEnabled: Boolean = false,
-    onSongValueChanged: (String) -> Unit = {},
-    onArtistValueChanged: (String) -> Unit = {},
-    onSubmitClicked: () -> Unit = {},
-    onArtistCompleted: () -> Unit = {}
-) {
+    onEventHandler: (SongsViewModel.ViewEvent) -> Unit
+    ) {
     val focusRequester = remember { FocusRequester() }
     val focusManager = LocalFocusManager.current
     val bringIntoViewRequester = remember { BringIntoViewRequester() }
@@ -60,7 +57,7 @@ fun SongsForm(
             label = stringResource(id = R.string.songs_textfield_song_label),
             modifier = Modifier.fillMaxWidth(),
             onValueChange = { song ->
-                onSongValueChanged(song)
+                onEventHandler.invoke(SongsViewModel.ViewEvent.SongTextChange(song))
             },
             focusRequester = focusRequester,
             onFocusEvent = { focusState ->
@@ -86,7 +83,7 @@ fun SongsForm(
             label = stringResource(id = R.string.songs_textfield_artist_label),
             modifier = Modifier.fillMaxWidth(),
             onValueChange = { artist ->
-                onArtistValueChanged(artist)
+                onEventHandler.invoke(SongsViewModel.ViewEvent.ArtistTextChange(artist))
             },
             focusRequester = focusRequester,
             onFocusEvent = { focusState ->
@@ -98,7 +95,7 @@ fun SongsForm(
             },
             imeAction = ImeAction.Done,
             onKeyboardDone = {
-                onArtistCompleted()
+                onEventHandler.invoke(SongsViewModel.ViewEvent.ArtistCompleted)
             },
             leadingIcon = {
                 Icon(
@@ -109,7 +106,9 @@ fun SongsForm(
         )
         Spacer(modifier = Modifier.height(5.dp))
         Button(
-            onClick = onSubmitClicked,
+            onClick = {
+                 onEventHandler.invoke(SongsViewModel.ViewEvent.AddClicked)
+            },
             enabled = buttonEnabled,
             modifier = Modifier.padding(vertical = 5.dp)) {
             Text(

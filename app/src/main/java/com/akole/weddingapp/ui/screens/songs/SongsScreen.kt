@@ -24,21 +24,7 @@ fun SongsScreen(
     ) {
         SongsScreenContent(
             viewState = viewModel.state,
-            onSongTextChange = { song ->
-                viewModel.on(SongsViewModel.ViewEvent.SongTextChange(song))
-            },
-            onArtistTextChange = { artist ->
-                viewModel.on(SongsViewModel.ViewEvent.ArtistTextChange(artist))
-            },
-            onSubmitButtonClicked = {
-                viewModel.on(SongsViewModel.ViewEvent.AddClicked)
-            },
-            onDismissDialog = {
-                viewModel.on(SongsViewModel.ViewEvent.DialogClicked)
-            },
-            onArtistCompleted = {
-                viewModel.on(SongsViewModel.ViewEvent.ArtistCompleted)
-            }
+            onEventHandler = viewModel::on
         )
     }
 

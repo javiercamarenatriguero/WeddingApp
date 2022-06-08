@@ -6,21 +6,22 @@ import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.unit.sp
+import com.akole.weddingapp.ui.screens.songs.SongsViewModel
 
 @Composable
 fun CustomDialog(
     message: String,
     buttonText: String,
-    onDismissDialog: () -> Unit
-) {
+    onEventHandler: (SongsViewModel.ViewEvent) -> Unit
+    ) {
     AlertDialog(
         onDismissRequest = {
-            onDismissDialog()
+            onEventHandler.invoke(SongsViewModel.ViewEvent.DialogClicked)
         },
         confirmButton = {
             Button(
                 onClick = {
-                    onDismissDialog()
+                    onEventHandler.invoke(SongsViewModel.ViewEvent.DialogClicked)
                 },
             ) {
                 Text(
@@ -36,6 +37,6 @@ fun CustomDialog(
                 fontFamily = FontFamily.Cursive,
                 fontSize = 20.sp
             )
-        },
+        }
     )
 }

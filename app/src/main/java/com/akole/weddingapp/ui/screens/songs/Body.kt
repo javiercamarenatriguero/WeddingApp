@@ -14,11 +14,8 @@ import androidx.compose.ui.unit.dp
 @Composable
 fun Body(
     viewState: SongsViewModel.UiState,
-    onSongValueChanged: (String) -> Unit = {},
-    onArtistValueChanged: (String) -> Unit = {},
-    onSubmitClicked: () -> Unit = {},
-    onArtistCompleted: () -> Unit = {}
-) {
+    onEventHandler: (SongsViewModel.ViewEvent) -> Unit
+    ) {
     Box(
         modifier = Modifier
             .fillMaxSize()
@@ -49,11 +46,8 @@ fun Body(
                     SongsForm(
                         songValue = viewState.song,
                         artistValue = viewState.artist,
-                        onSongValueChanged = onSongValueChanged,
-                        onArtistValueChanged = onArtistValueChanged,
                         buttonEnabled = viewState.isButtonReady,
-                        onSubmitClicked = onSubmitClicked,
-                        onArtistCompleted = onArtistCompleted
+                        onEventHandler = onEventHandler
                     )
                     Spacer(modifier = Modifier.height(20.dp))
                     SongList(
