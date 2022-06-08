@@ -29,7 +29,8 @@ object ImagesRepositoryImpl: ImagesRepository {
         onSuccessListener: OnSuccessListener<in UploadTask.TaskSnapshot>,
         onProgressListener: (progress: Int) -> Unit
     ) {
-        val uri = list[index]
+        if (list.isNotEmpty()) {
+            val uri = list[index]
             val fileRef = storageRef.child("images/${uri.lastPathSegment?.substringAfterLast('/')}")
             onProgressListener(index + 1)
             var uploadTask = fileRef.putFile(uri)
@@ -44,6 +45,6 @@ object ImagesRepositoryImpl: ImagesRepository {
                         saveImages(list, index + 1, onFailureListener, onSuccessListener, onProgressListener)
                     }
                 }
+        }
     }
-
 }

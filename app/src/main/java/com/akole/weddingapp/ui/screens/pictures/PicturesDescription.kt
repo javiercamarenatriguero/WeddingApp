@@ -15,6 +15,7 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.akole.weddingapp.R
+import com.akole.weddingapp.ui.screens.map.MapViewModel
 
 @Composable
 fun PicturesDescription(
@@ -23,7 +24,7 @@ fun PicturesDescription(
     isPhotoServiceEnabled: Boolean = false,
     numImages: Int = 0,
     progress: Int = 0,
-    onClick: () -> Unit
+    onEventHandler: (PicturesViewModel.ViewEvent) -> Unit,
 ) {
     Column (
         Modifier
@@ -42,7 +43,9 @@ fun PicturesDescription(
         )
 
         Button(
-            onClick = onClick,
+            onClick = {
+                 onEventHandler.invoke(PicturesViewModel.ViewEvent.AddPhotosClicked)
+            },
             enabled = !isCollectionLoading && !isUploadingImagesLoading && isPhotoServiceEnabled,
             modifier = Modifier.padding(vertical = 5.dp)) {
             Text(

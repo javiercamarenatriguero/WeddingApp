@@ -18,6 +18,9 @@ class PicturesViewModel: ViewModel() {
     var state by mutableStateOf(UiState())
         private set
 
+    private val _oneShotEvents = Channel<OneShotEvent>(Channel.BUFFERED)
+    val oneShotEvents: Flow<OneShotEvent> = _oneShotEvents.receiveAsFlow()
+
     init {
         syncImages()
     }
@@ -41,6 +44,7 @@ class PicturesViewModel: ViewModel() {
                 isShownPictureDialog = false,
                 pictureUri = null
             )
+            ViewEvent.AddPhotosClicked -> onAddPhotosClicked()
         }
     }
     data class UiState(
@@ -54,20 +58,38 @@ class PicturesViewModel: ViewModel() {
         val isPhotoServiceEnabled: Boolean = false
     )
 
+    sealed interface OneShotEvent {
+        object GoToImageGallery : OneShotEvent
+    }
+
+    private fun emit(event: OneShotEvent) {
+        viewModelScope.launch {
+            _oneShotEvents.send(event)
+        }
+    }
+
+    private fun onAddPhotosClicked() {
+        emit(OneShotEvent.GoToImageGallery)
+    }
+
     private fun saveImages(list: List<@JvmSuppressWildcards Uri>) {
-        ImagesRepositoryImpl.saveImages(
-            list,
-            onFailureListener = {
-                updateState(isLoading = false)
-            } ,
-            onSuccessListener = {
-                updateState(isLoading = false)
-                syncImages()
-            },
-            onProgressListener = { progress ->
-                updateState(uploadingProgress = progress)
-            }
-        )
+        if (list.isEmpty()) {
+            updateState(isLoading = false)
+        } else {
+            ImagesRepositoryImpl.saveImages(
+                list,
+                onFailureListener = {
+                    updateState(isLoading = false)
+                } ,
+                onSuccessListener = {
+                    updateState(isLoading = false)
+                    syncImages()
+                },
+                onProgressListener = { progress ->
+                    updateState(uploadingProgress = progress)
+                }
+            )
+        }
     }
 
     private fun syncImages() {
@@ -146,6 +168,7 @@ class PicturesViewModel: ViewModel() {
     sealed interface ViewEvent {
         class GetImagesResponse(val value: List<@JvmSuppressWildcards Uri>) : ViewEvent
         class ShowPictureDialog(val value: Uri) : ViewEvent
+        object AddPhotosClicked: ViewEvent
         object DismissDialog: ViewEvent
     }
 

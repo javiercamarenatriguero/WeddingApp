@@ -15,8 +15,7 @@ import androidx.compose.ui.unit.dp
 @Composable
 fun Body(
     viewState: PicturesViewModel.UiState,
-    onClick: () -> Unit,
-    onClickImage: (Uri) -> Unit
+    onEventHandler: (PicturesViewModel.ViewEvent) -> Unit
 ) {
     Box(
         modifier = Modifier
@@ -50,12 +49,12 @@ fun Body(
                         isPhotoServiceEnabled = viewState.isPhotoServiceEnabled,
                         progress = viewState.uploadingProgress,
                         numImages = viewState.uploadingImages,
-                        onClick = onClick
+                        onEventHandler = onEventHandler
                     )
                     PicturesGallery(
                         isCollectionLoading = viewState.isCollectionLoading,
                         imagesUriList = viewState.imageUrlList,
-                        onClick = onClickImage
+                        onEventHandler = onEventHandler
                     )
                 }
             }

@@ -25,10 +25,12 @@ import kotlin.math.sin
 @Composable
 fun PictureDialogContent(
     uri: Uri,
-    onDismissListener: () -> Unit
+    onEventHandler: (PicturesViewModel.ViewEvent) -> Unit,
 ) {
     CustomPictureDialog(
-        onDismissRequest = onDismissListener,
+        onDismissRequest = {
+            onEventHandler.invoke(PicturesViewModel.ViewEvent.DismissDialog)
+        },
         content = {
             Column (
                 modifier =
@@ -67,7 +69,9 @@ fun PictureDialogContent(
                             )
                         }
                 )
-                Button(onClick = onDismissListener) {
+                Button(onClick = {
+                    onEventHandler.invoke(PicturesViewModel.ViewEvent.DismissDialog)
+                }) {
                     Text(stringResource(id = R.string.picture_close_button_text))
                 }
             }

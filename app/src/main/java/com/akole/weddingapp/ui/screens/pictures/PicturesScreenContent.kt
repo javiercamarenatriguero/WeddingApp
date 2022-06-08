@@ -1,6 +1,5 @@
 package com.akole.weddingapp.ui.screens.pictures
 
-import android.net.Uri
 import androidx.compose.foundation.layout.*
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
@@ -10,21 +9,18 @@ import com.google.accompanist.pager.ExperimentalPagerApi
 @Composable
 fun PicturesScreenContent(
     viewState: PicturesViewModel.UiState,
-    onClick: () -> Unit,
-    onClickImage: (Uri) -> Unit,
-    onDismissDialog: () -> Unit
+    onEventHandler: (PicturesViewModel.ViewEvent) -> Unit
 ) {
     Box(modifier = Modifier.fillMaxWidth()) {
         Header()
         Body(
             viewState = viewState,
-            onClick = onClick,
-            onClickImage = onClickImage
+            onEventHandler = onEventHandler
         )
         if (viewState.isShownPictureDialog && viewState.pictureUri != null) {
             PictureDialogContent(
                 uri = viewState.pictureUri,
-                onDismissListener = onDismissDialog
+                onEventHandler = onEventHandler
             )
         }
     }

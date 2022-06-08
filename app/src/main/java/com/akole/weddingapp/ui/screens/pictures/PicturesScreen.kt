@@ -11,10 +11,13 @@ import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.ui.ExperimentalComposeUiApi
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.lifecycle.viewmodel.compose.viewModel
+import com.akole.weddingapp.ui.screens.home.HomeViewModel
+import com.akole.weddingapp.ui.screens.home.goToCalendar
 
 @OptIn(ExperimentalComposeUiApi::class)
 @Composable
@@ -31,16 +34,18 @@ fun PicturesScreen(
         }
         PicturesScreenContent(
             viewState = viewModel.state,
-            onClick = {
-                goToImageGallery(launcher)
-            },
-            onClickImage = { uri ->
-                viewModel.on(PicturesViewModel.ViewEvent.ShowPictureDialog(uri))
-            },
-            onDismissDialog = {
-                viewModel.on(PicturesViewModel.ViewEvent.DismissDialog)
+            onEventHandler = { viewEvent ->
+                viewModel.on(viewEvent)
             }
         )
+
+        LaunchedEffect(viewModel.oneShotEvents) {
+            viewModel.oneShotEvents.collect { event ->
+                when (event) {
+                    PicturesViewModel.OneShotEvent.GoToImageGallery -> goToImageGallery(launcher)
+                }
+            }
+        }
     }
 }
 
