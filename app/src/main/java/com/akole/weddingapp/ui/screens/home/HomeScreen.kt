@@ -19,8 +19,8 @@ fun HomeScreen(viewModel: HomeViewModel = viewModel()){
     ){
         HomeScreenContent(
             viewState = viewModel.state,
-            onAddCalendarClicked = {
-                viewModel.on(HomeViewModel.ViewEvent.AddCalendarClicked)
+            onEventHandler = { viewEvent ->
+                viewModel.on(viewEvent)
             }
         )
     }

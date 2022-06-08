@@ -16,7 +16,7 @@ import com.google.accompanist.pager.ExperimentalPagerApi
 @Composable
 fun HomeScreenContent(
     viewState: HomeViewModel.UiState,
-    onAddCalendarClicked: () -> Unit,
+    onEventHandler: (HomeViewModel.ViewEvent) -> Unit,
     modifier: Modifier = Modifier
 ) {
     Column(
@@ -29,7 +29,7 @@ fun HomeScreenContent(
             hoursLeft = viewState.hoursLeft,
             minutesLeft = viewState.minutesLeft,
             secondsLeft = viewState.secondsLeft,
-            onAddCalendarClicked = onAddCalendarClicked
+            onEventHandler = onEventHandler
         )
         WeddingDescription()
         WeddingPicks()

@@ -23,6 +23,7 @@ import androidx.constraintlayout.compose.ConstraintLayout
 import androidx.constraintlayout.compose.Dimension
 import coil.compose.rememberAsyncImagePainter
 import com.akole.weddingapp.R
+import com.akole.weddingapp.ui.screens.home.HomeViewModel
 
 @Composable
 fun Header(
@@ -30,7 +31,7 @@ fun Header(
     hoursLeft: Int,
     minutesLeft: Int,
     secondsLeft: Int,
-    onAddCalendarClicked: () -> Unit
+    onEventHandler: (HomeViewModel.ViewEvent) -> Unit
 ) {
     ConstraintLayout(
         modifier = Modifier.fillMaxWidth()
@@ -49,7 +50,7 @@ fun Header(
             hoursLeft = hoursLeft,
             minutesLeft = minutesLeft,
             secondsLeft = secondsLeft,
-            onAddCalendarClicked = onAddCalendarClicked,
+            onEventHandler = onEventHandler,
             modifier = Modifier.constrainAs(box) {
                 top.linkTo(image.top)
             }
@@ -76,7 +77,7 @@ private fun HeaderBox(
     hoursLeft: Int,
     minutesLeft: Int,
     secondsLeft: Int,
-    onAddCalendarClicked: () -> Unit,
+    onEventHandler: (HomeViewModel.ViewEvent) -> Unit,
     modifier: Modifier = Modifier
 ) {
     Column(
@@ -91,6 +92,6 @@ private fun HeaderBox(
         Title()
         CounterDown(daysLeft, hoursLeft, minutesLeft, secondsLeft)
         Spacer(modifier = Modifier.height(8.dp))
-        AddToCalendarButton(onAddCalendarClicked)
+        AddToCalendarButton( onEventHandler = onEventHandler)
     }
 }

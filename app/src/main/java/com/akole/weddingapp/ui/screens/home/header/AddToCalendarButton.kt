@@ -8,13 +8,16 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 import com.akole.weddingapp.R
+import com.akole.weddingapp.ui.screens.home.HomeViewModel
 
 @Composable
 internal fun AddToCalendarButton(
-    onAddCalendarClicked: () -> Unit
+    onEventHandler: (HomeViewModel.ViewEvent) -> Unit
 ) {
     Button(
-        onClick = onAddCalendarClicked,
+        onClick = {
+            onEventHandler.invoke(HomeViewModel.ViewEvent.AddCalendarClicked)
+        },
         modifier = Modifier.padding(vertical = 5.dp)) {
         Text(text = stringResource(id = R.string.add_to_calendar))
     }
