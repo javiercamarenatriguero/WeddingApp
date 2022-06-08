@@ -9,13 +9,11 @@ import com.google.android.gms.maps.model.CameraPosition
 import com.google.maps.android.compose.*
 import kotlinx.coroutines.launch
 
-
 @Composable
 fun WeddingMap(
     mapPosition: Int,
     locationUIItems: List<LocationUIItem>,
-    modifier: Modifier = Modifier,
-    onPositionChanged: (Int) -> Unit ={}
+    modifier: Modifier = Modifier
 ) {
     var isMapLoaded by remember { mutableStateOf(false) }
 
@@ -69,6 +67,7 @@ fun WeddingMap(
     }
     LaunchedEffect(mapPosition) {
         if(isMapLoaded) {
+            // Initial Map animation in order to zoom to the first position
             cameraPositionState.animate(
                 CameraUpdateFactory
                     .newLatLngZoom(locationUIItems[mapPosition].position, 18f)

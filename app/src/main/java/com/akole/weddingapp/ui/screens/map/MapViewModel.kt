@@ -18,8 +18,18 @@ class MapViewModel: ViewModel() {
 
     internal val markers = listOf(councilMarker, cocktelMarker, restaurantMarker)
 
+    sealed interface ViewEvent {
+        data class PositionChanged(val position: Int): ViewEvent
+    }
 
-    fun onPositionChanged(position: Int) {
+    fun on(viewEvent: ViewEvent): Unit = with(viewEvent) {
+        when (this) {
+            is ViewEvent.PositionChanged ->
+                onPositionChanged(position = position)
+        }
+    }
+
+    private fun onPositionChanged(position: Int) {
         updateState(position)
     }
 

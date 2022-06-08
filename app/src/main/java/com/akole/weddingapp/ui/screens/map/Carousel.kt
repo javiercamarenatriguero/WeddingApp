@@ -21,6 +21,7 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.util.lerp
 import androidx.constraintlayout.compose.ConstraintLayout
 import coil.compose.rememberAsyncImagePainter
+import com.akole.weddingapp.ui.screens.home.HomeViewModel
 import com.akole.weddingapp.ui.theme.DarkPink
 import com.google.accompanist.pager.*
 import kotlin.math.absoluteValue
@@ -30,13 +31,13 @@ import kotlin.math.absoluteValue
 fun Carousel(
     locationUIItems: List<LocationUIItem>,
     modifier: Modifier = Modifier,
-    onPositionChanged: (Int) -> Unit
+    onEventHandler: (MapViewModel.ViewEvent) -> Unit,
 ) {
     val pagerState = rememberPagerState()
 
     LaunchedEffect(pagerState) {
         snapshotFlow { pagerState.currentPage }.collect { page ->
-            onPositionChanged(page)
+            onEventHandler.invoke(MapViewModel.ViewEvent.PositionChanged(page))
         }
     }
 

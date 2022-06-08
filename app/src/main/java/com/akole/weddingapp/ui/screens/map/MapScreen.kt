@@ -35,8 +35,8 @@ fun MapScreen(viewModel: MapViewModel = viewModel()){
             modifier = Modifier.constrainAs(carousel) {
                 bottom.linkTo(parent.bottom)
             },
-            onPositionChanged = { position ->
-                viewModel.onPositionChanged(position = position)
+            onEventHandler = { viewEvent ->
+                viewModel.on(viewEvent = viewEvent)
             }
         )
     }
