@@ -12,7 +12,6 @@
     <string name="add_to_calendar">Add date to your calendar</string>
     <string name="home_head_title"><![CDATA[Pablo & Rosa]]></string>
     <string name="left_title"> Remaining time...</string>
-    <string name="date_title"> 5.30 PM - 27th May, 2025</string>
     <string name="description_title">We are getting married!</string>
     <string name="description_text">We want you to share with us a very special day, such as our wedding. Your presence is our gift.\n\nThrough the application, you will be able to see information about the event, details about the location of the ceremony, cocktail and restaurant, see the photos of the wedding and as well as add the songs that you like the most for the disco night.</string>
     <string name="songs_description_text">Add the music you like the most to play on disco night! \n\nAmong all the songs, a selection will be made by the jury.</string>
@@ -23,7 +22,7 @@
     <string name="cocktel_snippet">Cocktel place</string>
     <string name="restaurant_title">Izarza Restaurant</string>
     <string name="restaurant_snippet">Dinner &amp; Disco</string>
-    <string name="council_details">Ernesto Erkoreka Plaza, 12,  Bilbo \n \nPlace of ceremony in the Arab Room, Bilbao City Hall. It will take place at 5:30 p.m.</string>
+    <string name="council_details">Ernesto Erkoreka Plaza, 12,  Bilbo \n \nPlace of ceremony in the Arab Room, Bilbao City Hall.</string>
     <string name="cocktel_details">Trav. de Uribitarte, 1, Bilbao \n \nOnce the ceremony and photo session are over, a cocktail will take place where you can chat and share moments.</string>
     <string name="restaurant_details">c/ Izartza Bidea, 48,  Izartza (Sondika) \n\nFinally, dinner will take place in Sondika starting at 9:00 p.m. A disco session awaits us too!</string>
     <!-- Songs-->

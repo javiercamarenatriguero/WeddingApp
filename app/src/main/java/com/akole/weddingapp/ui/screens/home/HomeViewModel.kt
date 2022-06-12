@@ -6,6 +6,7 @@ import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.setValue
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import com.akole.weddingapp.Constants.WEDDING_TIMESTAMP
 import com.akole.weddingapp.ui.utils.getDaysLeft
 import com.akole.weddingapp.ui.utils.getHoursLeft
 import com.akole.weddingapp.ui.utils.getMinutesLeft
@@ -109,12 +110,5 @@ class HomeViewModel: ViewModel() {
             secondsLeft,
             isWeddingTime
         )
-    }
-
-    companion object {
-        // 27.05.2025 (random date)
-        internal const val WEDDING_TIMESTAMP = 1748367000000
-        // 12 hours before wedding in order to start calendar notification
-        internal const val CALENDAR_NOTIFICATION_START_TIMESTAMP = WEDDING_TIMESTAMP - 7200000
     }
 }

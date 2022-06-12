@@ -6,18 +6,13 @@ import androidx.activity.compose.rememberLauncherForActivityResult
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Box
-import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
-import androidx.compose.foundation.rememberScrollState
-import androidx.compose.foundation.verticalScroll
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.ui.ExperimentalComposeUiApi
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.lifecycle.viewmodel.compose.viewModel
-import com.akole.weddingapp.ui.screens.home.HomeViewModel
-import com.akole.weddingapp.ui.screens.home.goToCalendar
 
 @OptIn(ExperimentalComposeUiApi::class)
 @Composable
@@ -34,9 +29,7 @@ fun PicturesScreen(
         }
         PicturesScreenContent(
             viewState = viewModel.state,
-            onEventHandler = { viewEvent ->
-                viewModel.on(viewEvent)
-            }
+            onEventHandler = viewModel::on
         )
 
         LaunchedEffect(viewModel.oneShotEvents) {

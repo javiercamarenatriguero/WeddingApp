@@ -60,7 +60,6 @@ fun WeddingMap(
                 position = locationItem.position,
                 title = stringResource(id = locationItem.title),
                 snippet = stringResource(id = locationItem.snippet),
-                //icon = BitmapDescriptorFactory.fromResource(locationItem.icon),
                 visible = true
             )
         }

@@ -27,7 +27,7 @@ fun Header() {
             .fillMaxWidth()
             .height(250.dp)
     ){
-        val painter = rememberAsyncImagePainter(R.drawable.mosaic_pic)
+        val painter = rememberAsyncImagePainter(R.drawable.mosaic_photo)
         val (image, title) = createRefs()
         Image(
             painter = painter,

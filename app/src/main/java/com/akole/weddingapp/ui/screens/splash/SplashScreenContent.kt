@@ -41,14 +41,15 @@ fun SplashScreenContent(
         contentAlignment = Alignment.Center
     ) {
         Column(
-            horizontalAlignment = Alignment.CenterHorizontally
+            horizontalAlignment = Alignment.CenterHorizontally,
+            verticalArrangement = Arrangement.spacedBy(20.dp)
         ) {
-            val painter = rememberAsyncImagePainter(com.akole.weddingapp.R.drawable.gp_graphic)
+            val painter = rememberAsyncImagePainter(com.akole.weddingapp.R.drawable.splash_title)
             Image(
                 painter = painter,
                 contentDescription = "",
                 contentScale = ContentScale.Crop,
-                modifier = Modifier.width(300.dp)
+                modifier = Modifier.width(400.dp)
             )
             Icon(
                 imageVector = Icons.Filled.Favorite,

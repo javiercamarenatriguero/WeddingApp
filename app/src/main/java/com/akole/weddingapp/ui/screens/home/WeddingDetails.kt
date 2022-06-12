@@ -14,7 +14,11 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import com.akole.weddingapp.Constants.DATETIME_FORMAT
+import com.akole.weddingapp.Constants.WEDDING_TIMESTAMP
 import com.akole.weddingapp.R
+import com.akole.weddingapp.ui.utils.formatTimestamp
+import java.time.format.DateTimeFormatter
 
 @Composable
 fun WeddingDetails() {
@@ -25,7 +29,7 @@ fun WeddingDetails() {
         horizontalAlignment = Alignment.CenterHorizontally
     ) {
         DetailBox(
-            text = stringResource(id = R.string.date_title),
+            text = WEDDING_TIMESTAMP.formatTimestamp(DATETIME_FORMAT),
             imageVector = Icons.Default.DateRange
         )
         Spacer(modifier = Modifier.height(12.dp))

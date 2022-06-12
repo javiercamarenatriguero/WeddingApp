@@ -12,7 +12,6 @@
     <string name="add_to_calendar">Añadir la fecha a tu calendario</string>
     <string name="home_head_title"><![CDATA[Pablo & Rosa]]></string>
     <string name="left_title"> Tiempo restante...</string>
-    <string name="date_title"> 17h30 - 27 de mayo, 2025</string>
     <string name="description_title">¡Nos casamos!</string>
     <string name="description_text">Queremos que compartáis con nosotros un día muy especial, como es el de nuestra boda . Tu presencia es nuestro regalo. \n \nMediante la aplicación, podréis ver información del evento, detalles sobre la localización de la ceremonia, cocktel y restaurante, ver las fotos de la boda y así como añadir las canciones que más os guste para la noche disco.</string>
     <string name="songs_description_text">!Añade la música que más te guste para que suene en la noche de disco! \n\nEntre todas las canciones, se hará una selección por parte del jurado.</string>
@@ -23,7 +22,7 @@
     <string name="cocktel_snippet">Lugar del cocktel</string>
     <string name="restaurant_title">Restaurante Izarza</string>
     <string name="restaurant_snippet">Cena &amp; Disco</string>
-    <string name="council_details">Ernesto Erkoreka Plaza, 12,  Bilbo \n \nLugar de ceremonia en la Sala Árabe, Ayuntamiento de Bilbao. Tendrá lugar a las 17h30.</string>
+    <string name="council_details">Ernesto Erkoreka Plaza, 12,  Bilbo \n \nLugar de ceremonia en la Sala Árabe, Ayuntamiento de Bilbao.</string>
     <string name="cocktel_details">Trav. de Uribitarte, 1, Bilbao \n \nUna vez finalizada la ceremonia y la sesión de fotos, tendrá lugar un cocktel donde poder charlar y compartir momentos.</string>
     <string name="restaurant_details">c/ Izartza Bidea, 48,  Izartza (Sondika) \n\nFinalmente la cena tendrá lugar en Sondika a partir de las 21h00. ¡También nos espera una sesión de disco!</string>
     <!-- Songs-->

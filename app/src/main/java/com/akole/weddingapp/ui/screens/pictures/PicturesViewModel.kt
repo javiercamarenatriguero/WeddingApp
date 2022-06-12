@@ -6,6 +6,7 @@ import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.setValue
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import com.akole.weddingapp.Constants.PHOTO_AVAILABLE_TIMESTAMP
 import com.google.firebase.storage.ListResult
 import kotlinx.coroutines.channels.Channel
 import kotlinx.coroutines.channels.awaitClose
@@ -175,9 +176,5 @@ class PicturesViewModel: ViewModel() {
     private fun isPhotoServiceEnabled(): Boolean {
         val time = PHOTO_AVAILABLE_TIMESTAMP - Date().time
         return time < 0
-    }
-
-    companion object {
-        private const val PHOTO_AVAILABLE_TIMESTAMP = 1653634800000
     }
 }

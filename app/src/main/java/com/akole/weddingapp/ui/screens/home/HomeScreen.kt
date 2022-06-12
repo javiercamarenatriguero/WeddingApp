@@ -10,6 +10,7 @@ import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
 import androidx.lifecycle.viewmodel.compose.viewModel
+import com.akole.weddingapp.Constants.CALENDAR_NOTIFICATION_START_TIMESTAMP
 import com.akole.weddingapp.R
 
 @Composable
@@ -19,9 +20,7 @@ fun HomeScreen(viewModel: HomeViewModel = viewModel()){
     ){
         HomeScreenContent(
             viewState = viewModel.state,
-            onEventHandler = { viewEvent ->
-                viewModel.on(viewEvent)
-            }
+            onEventHandler = viewModel::on
         )
     }
     val context = LocalContext.current
@@ -36,7 +35,7 @@ fun HomeScreen(viewModel: HomeViewModel = viewModel()){
 
 fun goToCalendar(context: Context) {
     // Google Calendar event starts hours before
-    val eventStartTime = HomeViewModel.CALENDAR_NOTIFICATION_START_TIMESTAMP
+    val eventStartTime = CALENDAR_NOTIFICATION_START_TIMESTAMP
     val insertCalendarIntent = Intent(Intent.ACTION_INSERT)
         .setData(CalendarContract.Events.CONTENT_URI)
         .putExtra(CalendarContract.Events.TITLE, R.string.calendar_title)
