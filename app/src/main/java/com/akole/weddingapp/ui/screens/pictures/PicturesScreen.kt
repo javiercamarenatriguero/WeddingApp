@@ -12,12 +12,13 @@ import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.ui.ExperimentalComposeUiApi
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.lifecycle.viewmodel.compose.viewModel
 
 @OptIn(ExperimentalComposeUiApi::class)
 @Composable
 fun PicturesScreen(
-    viewModel: PicturesViewModel = viewModel(),
+    viewModel: PicturesViewModel = hiltViewModel(),
     modifier: Modifier = Modifier
 ){
     Box(modifier = modifier

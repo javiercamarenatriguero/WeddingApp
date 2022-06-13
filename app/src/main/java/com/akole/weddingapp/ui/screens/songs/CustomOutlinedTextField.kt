@@ -87,7 +87,7 @@ fun CustomOutlinedTextField(
                 }
             },
             leadingIcon = leadingIcon,
-            modifier = Modifier
+            modifier = modifier
                 .focusRequester(focusRequester)
                 .onFocusEvent { focusState ->
                     onFocusEvent(focusState)

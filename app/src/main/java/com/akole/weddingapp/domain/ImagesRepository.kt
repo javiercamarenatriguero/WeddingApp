@@ -1,4 +1,4 @@
-package com.akole.weddingapp.data.repositories
+package com.akole.weddingapp.domain
 
 import android.net.Uri
 import com.akole.weddingapp.data.models.Song
@@ -7,6 +7,9 @@ import com.google.android.gms.tasks.OnSuccessListener
 import com.google.firebase.firestore.QuerySnapshot
 import com.google.firebase.storage.ListResult
 import com.google.firebase.storage.UploadTask
+import kotlinx.coroutines.InternalCoroutinesApi
+import kotlinx.coroutines.flow.Flow
+import kotlinx.coroutines.flow.internal.ChannelFlow
 
 interface ImagesRepository {
     fun getImageList(
@@ -20,4 +23,6 @@ interface ImagesRepository {
         onSuccessListener: OnSuccessListener<in UploadTask.TaskSnapshot>,
         onProgressListener: (progress: Int) -> Unit
     )
+
+    fun getImages(): Flow<GetImagesResponse>
 }

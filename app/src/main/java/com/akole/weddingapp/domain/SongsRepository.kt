@@ -1,4 +1,4 @@
-package com.akole.weddingapp.data.repositories
+package com.akole.weddingapp.domain
 
 import com.akole.weddingapp.data.models.Song
 import com.google.android.gms.tasks.OnFailureListener

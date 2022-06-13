@@ -52,6 +52,7 @@ fun Body(
                     )
                     PicturesGallery(
                         isCollectionLoading = viewState.isCollectionLoading,
+                        isCollectionError = viewState.isCollectionError,
                         imagesUriList = viewState.imageUrlList,
                         onEventHandler = onEventHandler
                     )

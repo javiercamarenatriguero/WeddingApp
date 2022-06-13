@@ -7,14 +7,21 @@ import androidx.compose.runtime.setValue
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.akole.weddingapp.Constants.PHOTO_AVAILABLE_TIMESTAMP
+import com.akole.weddingapp.domain.GetImagesResponse
+import com.akole.weddingapp.domain.ImagesRepository
 import com.google.firebase.storage.ListResult
+import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.channels.Channel
 import kotlinx.coroutines.channels.awaitClose
 import kotlinx.coroutines.flow.*
 import kotlinx.coroutines.launch
 import java.util.*
+import javax.inject.Inject
 
-class PicturesViewModel: ViewModel() {
+@HiltViewModel
+class PicturesViewModel @Inject constructor(
+    private val imagesRepository: ImagesRepository
+): ViewModel() {
 
     var state by mutableStateOf(UiState())
         private set
@@ -51,6 +58,7 @@ class PicturesViewModel: ViewModel() {
     data class UiState(
         val isUploadingImagesLoading: Boolean = false,
         val isCollectionLoading: Boolean = false,
+        val isCollectionError: Boolean = false,
         val uploadingImages: Int = 0,
         val uploadingProgress: Int = 0,
         val imageUrlList: List<Uri> = emptyList(),
@@ -77,7 +85,7 @@ class PicturesViewModel: ViewModel() {
         if (list.isEmpty()) {
             updateState(isLoading = false)
         } else {
-            ImagesRepositoryImpl.saveImages(
+            imagesRepository.saveImages(
                 list,
                 onFailureListener = {
                     updateState(isLoading = false)
@@ -94,54 +102,31 @@ class PicturesViewModel: ViewModel() {
     }
 
     private fun syncImages() {
-        updateState(isCollectionLoading = true)
-        ImagesRepositoryImpl.getImageList(
-            onFailureListener = {
-                updateState(isCollectionLoading = false)
-            },
-            onSuccessListener = { itemList ->
-                viewModelScope.launch {
-                    loadImages(itemList = itemList)
+        viewModelScope.launch {
+            imagesRepository.getImages().collect { response ->
+                when (response) {
+                    is GetImagesResponse.Loading -> {
+                        updateState(
+                            isCollectionLoading = true,
+                            isCollectionError = false
+                        )
+                    }
+                    is GetImagesResponse.Success -> {
+                        updateState(
+                            isCollectionLoading = false,
+                            isCollectionError = false,
+                            imageUrlList = response.images
+                        )
+                    }
+                    is GetImagesResponse.Error -> {
+                        updateState(
+                            isCollectionLoading = false,
+                            isCollectionError = true
+                        )
+                    }
                 }
             }
-        )
-    }
-
-    private suspend fun loadImages(itemList: ListResult ) {
-        val list = mutableListOf<Uri>()
-        var index = 0
-        itemList.items.asFlow()
-            .flatMapMerge{
-                callbackFlow<Uri> {
-                    it.downloadUrl
-                        .addOnCompleteListener {
-                            index++
-                            trySend(it.result)
-                            close()
-                        }
-                        .addOnFailureListener {
-                            index++
-                            close()
-                        }
-                        .addOnCanceledListener {
-                            index++
-                            close()
-                        }
-                    awaitClose {
-                        close()
-                    }
-                }.buffer(Channel.UNLIMITED)
-            }
-            .catch {
-                index++
-            }
-            .collect { uri ->
-                list.add(uri)
-            }
-        updateState(
-            imageUrlList = list,
-            isCollectionLoading = false
-        )
+        }
     }
 
     private fun updateState(
@@ -149,6 +134,7 @@ class PicturesViewModel: ViewModel() {
         uploadingImages: Int = state.uploadingImages,
         uploadingProgress: Int = state.uploadingProgress,
         isCollectionLoading: Boolean = state.isCollectionLoading,
+        isCollectionError: Boolean = state.isCollectionError,
         imageUrlList: List<Uri> = state.imageUrlList,
         isShownPictureDialog: Boolean = state.isShownPictureDialog,
         pictureUri: Uri? = state.pictureUri,
@@ -159,6 +145,7 @@ class PicturesViewModel: ViewModel() {
             uploadingImages = uploadingImages,
             uploadingProgress = uploadingProgress,
             isCollectionLoading = isCollectionLoading,
+            isCollectionError = isCollectionError,
             imageUrlList = imageUrlList,
             isShownPictureDialog = isShownPictureDialog,
             pictureUri = pictureUri,

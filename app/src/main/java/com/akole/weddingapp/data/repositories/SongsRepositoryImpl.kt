@@ -1,6 +1,7 @@
 package com.akole.weddingapp.data.repositories
 
 import com.akole.weddingapp.data.models.Song
+import com.akole.weddingapp.domain.SongsRepository
 import com.google.android.gms.tasks.OnFailureListener
 import com.google.android.gms.tasks.OnSuccessListener
 import com.google.firebase.firestore.QuerySnapshot

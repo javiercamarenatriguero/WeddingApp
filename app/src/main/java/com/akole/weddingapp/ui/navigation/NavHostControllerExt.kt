@@ -4,7 +4,7 @@ import androidx.navigation.NavGraph.Companion.findStartDestination
 import androidx.navigation.NavHostController
 
 fun NavHostController.navigatePoppingUpToStartDestination(route: String) {
-    if(!route.contains(this?.currentDestination?.route ?: "")) {
+    if(!route.contains(this.currentDestination?.route ?: "")) {
         navigate(route) {
             popUpTo(graph.findStartDestination().id) {
                 saveState = true

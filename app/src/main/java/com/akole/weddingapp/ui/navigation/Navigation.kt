@@ -17,14 +17,14 @@ fun Navigation(navController: NavHostController) {
         navController = navController,
         startDestination = Feature.HOME.route
     ) {
-        homeNav(navController)
-        mapNav(navController)
-        songsNav(navController)
-        picturesNav(navController)
+        homeNav()
+        mapNav()
+        songsNav()
+        picturesNav()
     }
 }
 
-private fun NavGraphBuilder.homeNav(navController: NavController) {
+private fun NavGraphBuilder.homeNav() {
     navigation(
         startDestination = NavCommand.ContentType(Feature.HOME).route,
         route = Feature.HOME.route
@@ -35,7 +35,7 @@ private fun NavGraphBuilder.homeNav(navController: NavController) {
     }
 }
 
-private fun NavGraphBuilder.mapNav(navController: NavController) {
+private fun NavGraphBuilder.mapNav() {
     navigation(
         startDestination = NavCommand.ContentType(Feature.MAP).route,
         route = Feature.MAP.route
@@ -46,7 +46,7 @@ private fun NavGraphBuilder.mapNav(navController: NavController) {
     }
 }
 
-private fun NavGraphBuilder.songsNav(navController: NavController) {
+private fun NavGraphBuilder.songsNav() {
     navigation(
         startDestination = NavCommand.ContentType(Feature.SONGS).route,
         route = Feature.SONGS.route
@@ -57,7 +57,7 @@ private fun NavGraphBuilder.songsNav(navController: NavController) {
     }
 }
 
-private fun NavGraphBuilder.picturesNav(navController: NavController) {
+private fun NavGraphBuilder.picturesNav() {
     navigation(
         startDestination = NavCommand.ContentType(Feature.PICTURES).route,
         route = Feature.PICTURES.route

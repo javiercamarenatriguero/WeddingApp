@@ -7,8 +7,11 @@ buildscript {
         classpath 'com.google.gms:google-services:4.3.10'
         // Add the Crashlytics Gradle plugin
         classpath 'com.google.firebase:firebase-crashlytics-gradle:2.8.1'
-        // Add the Performenr Plugin
+        // Add the Performer Plugin
         classpath 'com.google.firebase:perf-plugin:1.4.1'
+        // Add Hilt Plugin
+        classpath 'com.google.dagger:hilt-android-gradle-plugin:2.28-alpha'
+
     }
     ext {
         compose_version = '1.1.1'

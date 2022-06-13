@@ -8,7 +8,9 @@ import androidx.compose.material.Surface
 import androidx.compose.runtime.Composable
 import com.akole.weddingapp.ui.screens.WeddingAppContent
 import com.akole.weddingapp.ui.theme.WeddingAppTheme
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

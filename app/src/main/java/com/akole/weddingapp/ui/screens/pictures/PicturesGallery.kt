@@ -7,19 +7,23 @@ import androidx.compose.foundation.lazy.GridCells
 import androidx.compose.foundation.lazy.LazyVerticalGrid
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.CircularProgressIndicator
+import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.layout.ContentScale
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 import coil.compose.rememberAsyncImagePainter
+import com.akole.weddingapp.R
 import com.akole.weddingapp.ui.theme.DarkPink
 
 @OptIn(ExperimentalFoundationApi::class)
 @Composable
 fun PicturesGallery(
     isCollectionLoading: Boolean,
+    isCollectionError: Boolean,
     imagesUriList: List<Uri>,
     onEventHandler: (PicturesViewModel.ViewEvent) -> Unit,
 ) {
@@ -33,10 +37,16 @@ fun PicturesGallery(
         Spacer(modifier = Modifier.height(10.dp))
         if (isCollectionLoading) {
             CircularProgressIndicator()
+        } else if (isCollectionError) {
+            Text(
+                text = stringResource(id = R.string.pictures_error_message)
+            )
         } else {
             if (imagesUriList.isNotEmpty()) {
                 LazyVerticalGrid (
-                    modifier = Modifier.wrapContentHeight().fillMaxWidth(),
+                    modifier = Modifier
+                        .wrapContentHeight()
+                        .fillMaxWidth(),
                     cells = GridCells.Fixed(3)
                 ) {
                     items(imagesUriList.size) { item ->
@@ -53,12 +63,18 @@ fun PicturesGallery(
                                 .clickable {
                                     onEventHandler
                                         .invoke(
-                                            PicturesViewModel.ViewEvent.ShowPictureDialog(imagesUriList[item])
+                                            PicturesViewModel.ViewEvent.ShowPictureDialog(
+                                                imagesUriList[item]
+                                            )
                                         )
                                 }
-                        )
+                            )
+                        }
                     }
-                }
+            } else {
+                Text(
+                    text = stringResource(id = R.string.pictures_empty_message)
+                )
             }
         }
     }
