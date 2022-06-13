@@ -9,6 +9,7 @@ import androidx.lifecycle.viewModelScope
 import com.akole.weddingapp.Constants.PHOTO_AVAILABLE_TIMESTAMP
 import com.akole.weddingapp.domain.GetImagesResponse
 import com.akole.weddingapp.domain.ImagesRepository
+import com.akole.weddingapp.domain.SaveImagesResponse
 import com.google.firebase.storage.ListResult
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.channels.Channel
@@ -85,19 +86,22 @@ class PicturesViewModel @Inject constructor(
         if (list.isEmpty()) {
             updateState(isLoading = false)
         } else {
-            imagesRepository.saveImages(
-                list,
-                onFailureListener = {
-                    updateState(isLoading = false)
-                } ,
-                onSuccessListener = {
-                    updateState(isLoading = false)
-                    syncImages()
-                },
-                onProgressListener = { progress ->
-                    updateState(uploadingProgress = progress)
+            viewModelScope.launch {
+                imagesRepository.saveImages(list).collect { response ->
+                    when (response) {
+                        is SaveImagesResponse.Loading -> {
+                            updateState(uploadingProgress = response.position)
+                        }
+                        is SaveImagesResponse.Success -> {
+                            updateState(isLoading = false)
+                            syncImages()
+                        }
+                        is SaveImagesResponse.Error -> {
+                            updateState(isLoading = false)
+                        }
+                    }
                 }
-            )
+            }
         }
     }
 
