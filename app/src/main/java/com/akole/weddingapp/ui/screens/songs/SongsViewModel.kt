@@ -5,15 +5,24 @@ import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.setValue
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.akole.weddingapp.data.models.Song
-import com.akole.weddingapp.data.repositories.SongsRepositoryImpl
+import com.akole.weddingapp.domain.models.Song
 import com.akole.weddingapp.data.repositories.upperAsTitle
+import com.akole.weddingapp.domain.usecases.GetSongs
+import com.akole.weddingapp.domain.usecases.GetSongsResponse
+import com.akole.weddingapp.domain.usecases.SaveSong
+import com.akole.weddingapp.domain.usecases.SaveSongResponse
+import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.channels.Channel
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.receiveAsFlow
 import kotlinx.coroutines.launch
+import javax.inject.Inject
 
-class SongsViewModel: ViewModel() {
+@HiltViewModel
+class SongsViewModel @Inject constructor(
+    private val getSongs: GetSongs,
+    private val saveSong: SaveSong
+): ViewModel() {
 
     var state by mutableStateOf(UiState())
         private set
@@ -23,29 +32,55 @@ class SongsViewModel: ViewModel() {
 
     init {
         viewModelScope.launch {
-            syncSongList()
+            loadSongList()
         }
     }
 
-    private fun syncSongList() {
-        updateState(isLoading = true)
-        SongsRepositoryImpl.getSongList( { documentSnapshot ->
-            if (documentSnapshot != null && !documentSnapshot.isEmpty) {
-                var songList: MutableList<Song> = mutableListOf()
-                val documents = documentSnapshot.documents
-                documents.forEach { document ->
-                    document.toObject(Song::class.java)?.apply {
-                        songList.add(this)
-                    }
+    private suspend fun loadSongList() {
+        getSongs().collect { response ->
+            when (response) {
+                is GetSongsResponse.Loading -> {
+                    updateState(
+                        isLoading = true,
+                        isButtonReady = false
+                    )
                 }
-                updateState(songList = songList)
+                is GetSongsResponse.Success -> {
+                    updateState(
+                        isLoading = false,
+                        isButtonReady = true,
+                        songList = response.songs
+                    )
+                }
+                is GetSongsResponse.Error -> {
+                    updateState(
+                        isLoading = false,
+                        isButtonReady = true
+                    )
+                }
             }
-            updateState(isLoading = false)
-        },
-            {
-                updateState(isLoading = false)
+        }
+    }
+
+    private suspend fun uploadSong(song: Song) {
+        saveSong(song).collect { response ->
+            when (response) {
+                is SaveSongResponse.Loading -> {
+                    updateState(isLoading = true)
+                }
+                is SaveSongResponse.Success -> {
+                    loadSongList()
+                    updateState(
+                        song = "",
+                        artist = "",
+                        isDialogShown = true
+                    )
+                }
+                is SaveSongResponse.Error -> {
+                    updateState(isLoading = false)
+                }
             }
-        )
+        }
     }
 
     fun on(event: ViewEvent): Unit = with(event) {
@@ -63,19 +98,15 @@ class SongsViewModel: ViewModel() {
     }
 
     private fun onAddClicked() {
-        SongsRepositoryImpl.saveSong(
-            Song(
-                name = state.song.upperAsTitle(),
-                artist = state.artist?.upperAsTitle()
+        viewModelScope.launch {
+            emit(OneShotEvent.HideKeyboard)
+            uploadSong(
+                Song(
+                    name = state.song.upperAsTitle(),
+                    artist = state.artist?.upperAsTitle()
+                )
             )
-        )
-        syncSongList()
-        updateState(
-            song = "",
-            artist = "",
-            isDialogShown = true
-        )
-        emit(OneShotEvent.HideKeyboard)
+        }
     }
 
     private fun emit(event: OneShotEvent) {

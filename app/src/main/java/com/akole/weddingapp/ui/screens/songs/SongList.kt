@@ -18,7 +18,7 @@ import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.akole.weddingapp.R
-import com.akole.weddingapp.data.models.Song
+import com.akole.weddingapp.domain.models.Song
 import com.akole.weddingapp.ui.theme.ExtraLightGray
 
 @Composable

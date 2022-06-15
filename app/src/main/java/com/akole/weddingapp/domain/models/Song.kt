@@ -1,4 +1,4 @@
-package com.akole.weddingapp.data.models
+package com.akole.weddingapp.domain.models
 
 import java.io.Serializable
 

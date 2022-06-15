@@ -1,7 +1,9 @@
+package com.akole.weddingapp.data.repositories
+
 import android.net.Uri
-import com.akole.weddingapp.domain.GetImagesResponse
-import com.akole.weddingapp.domain.ImagesRepository
-import com.akole.weddingapp.domain.SaveImagesResponse
+import com.akole.weddingapp.domain.usecases.GetImagesResponse
+import com.akole.weddingapp.domain.repositories.ImagesRepository
+import com.akole.weddingapp.domain.usecases.SaveImagesResponse
 import com.google.firebase.ktx.Firebase
 import com.google.firebase.storage.ListResult
 import com.google.firebase.storage.ktx.storage
@@ -18,7 +20,7 @@ class ImagesRepositoryImpl @Inject constructor(): ImagesRepository {
     private val storage = Firebase.storage
     private val storageRef = storage.reference
 
-    override fun saveImages(
+    override suspend fun saveImages(
         list: List<Uri>,
         index: Int
     ): Flow<SaveImagesResponse> {
@@ -71,7 +73,7 @@ class ImagesRepositoryImpl @Inject constructor(): ImagesRepository {
         }.flowOn(Dispatchers.IO)
     }
 
-    override fun getImages(): Flow<GetImagesResponse> {
+    override suspend fun getImages(): Flow<GetImagesResponse> {
         val listRef = storage.reference.child("images")
         return callbackFlow {
             trySend(

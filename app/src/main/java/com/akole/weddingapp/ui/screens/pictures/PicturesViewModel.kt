@@ -7,13 +7,12 @@ import androidx.compose.runtime.setValue
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.akole.weddingapp.Constants.PHOTO_AVAILABLE_TIMESTAMP
-import com.akole.weddingapp.domain.GetImagesResponse
-import com.akole.weddingapp.domain.ImagesRepository
-import com.akole.weddingapp.domain.SaveImagesResponse
-import com.google.firebase.storage.ListResult
+import com.akole.weddingapp.domain.usecases.GetImagesResponse
+import com.akole.weddingapp.domain.usecases.GetImages
+import com.akole.weddingapp.domain.usecases.SaveImages
+import com.akole.weddingapp.domain.usecases.SaveImagesResponse
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.channels.Channel
-import kotlinx.coroutines.channels.awaitClose
 import kotlinx.coroutines.flow.*
 import kotlinx.coroutines.launch
 import java.util.*
@@ -21,7 +20,9 @@ import javax.inject.Inject
 
 @HiltViewModel
 class PicturesViewModel @Inject constructor(
-    private val imagesRepository: ImagesRepository
+    private val getImages: GetImages,
+    private val saveImages: SaveImages
+
 ): ViewModel() {
 
     var state by mutableStateOf(UiState())
@@ -31,7 +32,9 @@ class PicturesViewModel @Inject constructor(
     val oneShotEvents: Flow<OneShotEvent> = _oneShotEvents.receiveAsFlow()
 
     init {
-        syncImages()
+        viewModelScope.launch {
+            loadImages()
+        }
     }
 
     fun on(event: ViewEvent) = with(event) {
@@ -41,7 +44,7 @@ class PicturesViewModel @Inject constructor(
                     isLoading = true,
                     uploadingImages = value.size
                 )
-                saveImages(value)
+                uploadImages(value)
             }
             is ViewEvent.ShowPictureDialog -> {
                 updateState(
@@ -82,19 +85,19 @@ class PicturesViewModel @Inject constructor(
         emit(OneShotEvent.GoToImageGallery)
     }
 
-    private fun saveImages(list: List<@JvmSuppressWildcards Uri>) {
+    private fun uploadImages(list: List<@JvmSuppressWildcards Uri>) {
         if (list.isEmpty()) {
             updateState(isLoading = false)
         } else {
             viewModelScope.launch {
-                imagesRepository.saveImages(list).collect { response ->
+                saveImages(list).collect { response ->
                     when (response) {
                         is SaveImagesResponse.Loading -> {
                             updateState(uploadingProgress = response.position)
                         }
                         is SaveImagesResponse.Success -> {
                             updateState(isLoading = false)
-                            syncImages()
+                            loadImages()
                         }
                         is SaveImagesResponse.Error -> {
                             updateState(isLoading = false)
@@ -105,29 +108,27 @@ class PicturesViewModel @Inject constructor(
         }
     }
 
-    private fun syncImages() {
-        viewModelScope.launch {
-            imagesRepository.getImages().collect { response ->
-                when (response) {
-                    is GetImagesResponse.Loading -> {
-                        updateState(
-                            isCollectionLoading = true,
-                            isCollectionError = false
-                        )
-                    }
-                    is GetImagesResponse.Success -> {
-                        updateState(
-                            isCollectionLoading = false,
-                            isCollectionError = false,
-                            imageUrlList = response.images
-                        )
-                    }
-                    is GetImagesResponse.Error -> {
-                        updateState(
-                            isCollectionLoading = false,
-                            isCollectionError = true
-                        )
-                    }
+    private suspend fun loadImages() {
+        getImages().collect { response ->
+            when (response) {
+                is GetImagesResponse.Loading -> {
+                    updateState(
+                        isCollectionLoading = true,
+                        isCollectionError = false
+                    )
+                }
+                is GetImagesResponse.Success -> {
+                    updateState(
+                        isCollectionLoading = false,
+                        isCollectionError = false,
+                        imageUrlList = response.images
+                    )
+                }
+                is GetImagesResponse.Error -> {
+                    updateState(
+                        isCollectionLoading = false,
+                        isCollectionError = true
+                    )
                 }
             }
         }
