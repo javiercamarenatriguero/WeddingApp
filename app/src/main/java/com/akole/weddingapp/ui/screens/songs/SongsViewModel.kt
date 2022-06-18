@@ -36,7 +36,7 @@ class SongsViewModel @Inject constructor(
         }
     }
 
-    private suspend fun loadSongList() {
+    suspend fun loadSongList() {
         getSongs().collect { response ->
             when (response) {
                 is GetSongsResponse.Loading -> {
@@ -62,7 +62,7 @@ class SongsViewModel @Inject constructor(
         }
     }
 
-    private suspend fun uploadSong(song: Song) {
+    suspend fun uploadSong(song: Song) {
         saveSong(song).collect { response ->
             when (response) {
                 is SaveSongResponse.Loading -> {
