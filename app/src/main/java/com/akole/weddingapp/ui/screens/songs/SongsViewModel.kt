@@ -6,11 +6,11 @@ import androidx.compose.runtime.setValue
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.akole.weddingapp.domain.models.Song
-import com.akole.weddingapp.data.repositories.upperAsTitle
 import com.akole.weddingapp.domain.usecases.GetSongs
 import com.akole.weddingapp.domain.usecases.GetSongsResponse
 import com.akole.weddingapp.domain.usecases.SaveSong
 import com.akole.weddingapp.domain.usecases.SaveSongResponse
+import com.akole.weddingapp.ui.utils.upperAsTitle
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.channels.Channel
 import kotlinx.coroutines.flow.Flow

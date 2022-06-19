@@ -51,7 +51,7 @@ class ImagesRepositoryImpl @Inject constructor(): ImagesRepository {
     private fun saveImage(uri: Uri): Flow<SaveImageResponse> {
         val fileRef = storageRef.child("images/${uri.lastPathSegment?.substringAfterLast('/')}")
         return callbackFlow {
-            var uploadTask = fileRef.putFile(uri)
+            val uploadTask = fileRef.putFile(uri)
             uploadTask
                 .addOnFailureListener { exception ->
                     GlobalScope.launch {

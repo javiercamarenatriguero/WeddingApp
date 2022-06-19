@@ -26,7 +26,7 @@ class SongsRepositoryImpl @Inject constructor(): SongsRepository {
                 .get()
                 .addOnSuccessListener { response ->
                     if (response != null && !response.isEmpty) {
-                        var songList: MutableList<Song> = mutableListOf()
+                        val songList: MutableList<Song> = mutableListOf()
                         val documents = response.documents
                         documents.forEach { document ->
                             document.toObject(Song::class.java)?.apply {
@@ -67,10 +67,4 @@ class SongsRepositoryImpl @Inject constructor(): SongsRepository {
             }
         }
     }
-}
-
-fun String.upperAsTitle(): String? {
-    return this
-        .lowercase()
-        .replaceFirstChar { if (it.isLowerCase()) it.titlecase(Locale.getDefault()) else it.toString() }
 }
