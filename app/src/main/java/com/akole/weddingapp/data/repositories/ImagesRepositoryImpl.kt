@@ -21,8 +21,7 @@ class ImagesRepositoryImpl @Inject constructor(): ImagesRepository {
     private val storageRef = storage.reference
 
     override suspend fun saveImages(
-        list: List<Uri>,
-        index: Int
+        list: List<Uri>
     ): Flow<SaveImagesResponse> {
          return callbackFlow {
              list.forEachIndexed { index, uri ->

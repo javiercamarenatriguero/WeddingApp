@@ -9,7 +9,6 @@ interface ImagesRepository {
     suspend fun getImages(): Flow<GetImagesResponse>
 
     suspend fun saveImages(
-        list: List<Uri>,
-        index: Int = 0
+        list: List<Uri>
     ): Flow<SaveImagesResponse>
 }
