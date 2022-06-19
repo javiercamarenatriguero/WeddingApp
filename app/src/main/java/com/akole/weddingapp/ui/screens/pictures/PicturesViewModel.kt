@@ -44,7 +44,9 @@ class PicturesViewModel @Inject constructor(
                     isLoading = true,
                     uploadingImages = value.size
                 )
-                uploadImages(value)
+                viewModelScope.launch {
+                    uploadImages(value)
+                }
             }
             is ViewEvent.ShowPictureDialog -> {
                 updateState(
@@ -85,30 +87,28 @@ class PicturesViewModel @Inject constructor(
         emit(OneShotEvent.GoToImageGallery)
     }
 
-    private fun uploadImages(list: List<@JvmSuppressWildcards Uri>) {
+    suspend fun uploadImages(list: List<@JvmSuppressWildcards Uri>) {
         if (list.isEmpty()) {
             updateState(isLoading = false)
         } else {
-            viewModelScope.launch {
-                saveImages(list).collect { response ->
-                    when (response) {
-                        is SaveImagesResponse.Loading -> {
-                            updateState(uploadingProgress = response.position)
-                        }
-                        is SaveImagesResponse.Success -> {
-                            updateState(isLoading = false)
-                            loadImages()
-                        }
-                        is SaveImagesResponse.Error -> {
-                            updateState(isLoading = false)
-                        }
+            saveImages(list).collect { response ->
+                when (response) {
+                    is SaveImagesResponse.Loading -> {
+                        updateState(uploadingProgress = response.position)
+                    }
+                    is SaveImagesResponse.Success -> {
+                        updateState(isLoading = false)
+                        loadImages()
+                    }
+                    is SaveImagesResponse.Error -> {
+                        updateState(isLoading = false)
                     }
                 }
             }
         }
     }
 
-    private suspend fun loadImages() {
+    suspend fun loadImages() {
         getImages().collect { response ->
             when (response) {
                 is GetImagesResponse.Loading -> {

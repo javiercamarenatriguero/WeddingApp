@@ -55,7 +55,9 @@ fun SongsForm(
         CustomOutlinedTextField(
             value = songValue,
             label = stringResource(id = R.string.songs_textfield_song_label),
-            modifier = Modifier.fillMaxWidth(),
+            modifier = Modifier
+                .fillMaxWidth()
+                .padding(start = 20.dp, end = 20.dp),
             onValueChange = { song ->
                 onEventHandler.invoke(SongsViewModel.ViewEvent.SongTextChange(song))
             },
@@ -81,7 +83,9 @@ fun SongsForm(
         CustomOutlinedTextField(
             value = artistValue ?: "",
             label = stringResource(id = R.string.songs_textfield_artist_label),
-            modifier = Modifier.fillMaxWidth(),
+            modifier = Modifier
+                .fillMaxWidth()
+                .padding(start = 20.dp, end = 20.dp),
             onValueChange = { artist ->
                 onEventHandler.invoke(SongsViewModel.ViewEvent.ArtistTextChange(artist))
             },
