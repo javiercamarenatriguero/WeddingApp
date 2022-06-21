@@ -19,10 +19,10 @@ In addition to that, this is a tool for guests in so as to they could upload son
 
 ![Demo](https://bitbucket.org/javi_hetfield/weddingapp/raw/master/screenshots/weddingapp.gif)
 
-![Home](https://bitbucket.org/javi_hetfield/weddingapp/raw/master/screenshots/screenshot_1.png)
-![Maps](https://bitbucket.org/javi_hetfield/weddingapp/raw/master/screenshots/screenshot_2.png)
-![Songs](https://bitbucket.org/javi_hetfield/weddingapp/raw/master/screenshots/screenshot_4.png)
-![Images](https://bitbucket.org/javi_hetfield/weddingapp/raw/master/screenshots/screenshot_8.png)
+<img src="https://bitbucket.org/javi_hetfield/weddingapp/raw/master/screenshots/screenshot_1.png" width="480">
+<img src="https://bitbucket.org/javi_hetfield/weddingapp/raw/master/screenshots/screenshot_2.png" width="480">
+<img src="https://bitbucket.org/javi_hetfield/weddingapp/raw/master/screenshots/screenshot_4.png" width="480">
+<img src="https://bitbucket.org/javi_hetfield/weddingapp/raw/master/screenshots/screenshot_8.png" width="480">
 
 ### External Libraries
 
