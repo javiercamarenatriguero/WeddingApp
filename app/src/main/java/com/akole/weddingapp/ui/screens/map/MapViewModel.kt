@@ -42,6 +42,7 @@ class MapViewModel: ViewModel() {
     }
 
     companion object {
+        // TODO: Move those constants to a better package or inject by DI
         // Location Items defined as constants
         private val councilMarker = LocationUIItem(
             position = LatLng(43.2640404644175, -2.9231387425674176),
