@@ -7,12 +7,17 @@ In addition to that, this is a tool for guests in so as to they could upload son
 
 * Clean code architecture (pending create Android modules for each layer)
 * MVVM Design patterns & Unidirectional Data Flow (UDF)  
-* 100% kotlin & Jetpack Compose
-* Hilt Dependency Injection  
+* 100% Kotlin & Jetpack Compose
+* Flow - Coroutines - StateFlows  
+* Hilt Dependency Injection
+* Compose Navigation  
+* Google Maps for Jetpack Compose  
 * Firebase services:
-  ** Crashlytics
-  ** Firestore (images)
-  ** Realtime databse (songs)
+  - Crashlytics
+  - Analytics
+  - Performance  
+  - Firestore (images)
+  - Realtime database (songs)
 * Uploaded on Play Store (Until 10th of June)
 
 ### Screenshots
