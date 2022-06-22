@@ -2,10 +2,10 @@
 Wedding application in order to get basic information about the location, date and some other details.
 In addition to that, this is a tool for guests in so as to they could upload songs for the disco and taken photos during the day.
 Following are some of the features available on the app:
-* Wedding basic information: Date, time, people and locations
-* Maps points: See where the different locations are pointed on Google Maps tool
-* Songs: See the playlist for the disco and add a song suggestion
-* Pictures: See the gallery of the weeding and upload your photos as a guest
+- Wedding basic information: Date, time, people and locations
+- Maps points: See where the different locations are pointed on Google Maps tool
+- Songs: See the playlist for the disco and add a song suggestion
+- Pictures: See the gallery of the weeding and upload your photos as a guest
 
 ---
 ## Technical details 
@@ -18,11 +18,11 @@ Following are some of the features available on the app:
 * Google Maps for Jetpack Compose  
 * Firebase services:
 
-  * Crashlytics
-  * Analytics
-  * Performance
-  * Firestore (images)
-  * Realtime database (songs)
+  - Crashlytics
+  - Analytics
+  - Performance
+  - Firestore (images)
+  - Realtime database (songs)
   
 * Uploaded on Play Store (Until 10th of June)
 
