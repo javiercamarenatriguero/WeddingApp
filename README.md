@@ -1,7 +1,7 @@
 # WeddingApp App
 
-Wedding application in order to get basic information about the location, date and some other details.\
-In addition to that, this is a tool for guests in so as to they could upload songs for the disco and taken photos during the day.\
+Wedding application in order to get basic information about the location, date and some other details.
+In addition to that, this is a tool for guests in so as to they could upload songs for the disco and taken photos during the day.
 Following are some of the features available on the app:
 - Wedding basic information: Date, time, people and locations
 - Maps points: See where the different locations are pointed on Google Maps tool
@@ -18,25 +18,25 @@ Following are some of the features available on the app:
 * Compose Navigation  
 * Google Maps for Jetpack Compose  
 * Firebase services:
-  -- Crashlytics
-  -- Analytics
-  -- Performance  
-  -- Firestore (images)
-  -- Realtime database (songs)
+  * Crashlytics
+  * Analytics
+  * Performance
+  * Firestore (images)
+  * Realtime database (songs)
 * Uploaded on Play Store (Until 10th of June)
 
 ### Screenshots
 
 ![Demo](https://bitbucket.org/javi_hetfield/weddingapp/raw/master/screenshots/weddingapp.gif)
 
-<img src="https://bitbucket.org/javi_hetfield/weddingapp/raw/master/screenshots/screenshot_1.png" width="260">
-<img src="https://bitbucket.org/javi_hetfield/weddingapp/raw/master/screenshots/screenshot_2.png" width="260">
-<img src="https://bitbucket.org/javi_hetfield/weddingapp/raw/master/screenshots/screenshot_3.png" width="260">
-<img src="https://bitbucket.org/javi_hetfield/weddingapp/raw/master/screenshots/screenshot_4.png" width="260">
-<img src="https://bitbucket.org/javi_hetfield/weddingapp/raw/master/screenshots/screenshot_5.png" width="260">
-<img src="https://bitbucket.org/javi_hetfield/weddingapp/raw/master/screenshots/screenshot_6.png" width="260">
-<img src="https://bitbucket.org/javi_hetfield/weddingapp/raw/master/screenshots/screenshot_7.png" width="260">
-<img src="https://bitbucket.org/javi_hetfield/weddingapp/raw/master/screenshots/screenshot_8.png" width="260">
+<img src="https://bitbucket.org/javi_hetfield/weddingapp/raw/master/screenshots/screenshot_1.png" width="200">
+<img src="https://bitbucket.org/javi_hetfield/weddingapp/raw/master/screenshots/screenshot_2.png" width="200">
+<img src="https://bitbucket.org/javi_hetfield/weddingapp/raw/master/screenshots/screenshot_3.png" width="200">
+<img src="https://bitbucket.org/javi_hetfield/weddingapp/raw/master/screenshots/screenshot_4.png" width="200">
+<img src="https://bitbucket.org/javi_hetfield/weddingapp/raw/master/screenshots/screenshot_5.png" width="200">
+<img src="https://bitbucket.org/javi_hetfield/weddingapp/raw/master/screenshots/screenshot_6.png" width="200">
+<img src="https://bitbucket.org/javi_hetfield/weddingapp/raw/master/screenshots/screenshot_7.png" width="200">
+<img src="https://bitbucket.org/javi_hetfield/weddingapp/raw/master/screenshots/screenshot_8.png" width="200">
 
 ### External Libraries
 
@@ -47,11 +47,12 @@ Following are some of the features available on the app:
 ### Requirements
 * Min. Android SDK: 26
 * Target Android SDK: 31
+* Kotlin 1.6.10
 
 ### Version
 * 1.6
 
-### Herramientas de desarrollo
+### IDE tools
 
 * Android Studio Chipmunk | 2021.2.1 Patch 1
 * Bitbucket Repository
