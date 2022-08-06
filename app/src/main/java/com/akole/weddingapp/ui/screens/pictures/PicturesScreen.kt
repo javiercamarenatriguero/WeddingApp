@@ -23,11 +23,11 @@ fun PicturesScreen(
         .background(Color.White)
     ) {
         val launcher = rememberLauncherForActivityResult(ActivityResultContracts.GetMultipleContents()) {
-            viewModel.on(PicturesViewModel.ViewEvent.GetImagesResponse(it))
+            viewModel.onViewEvent(PicturesViewModel.ViewEvent.GetImagesResponse(it))
         }
         PicturesScreenContent(
             viewState = viewModel.state,
-            onEventHandler = viewModel::on
+            onEventHandler = viewModel::onViewEvent
         )
 
         LaunchedEffect(viewModel.oneShotEvents) {

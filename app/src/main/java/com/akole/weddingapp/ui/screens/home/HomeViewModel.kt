@@ -64,7 +64,7 @@ class HomeViewModel: ViewModel() {
         }
     }
 
-    fun on(event: ViewEvent): Unit = with(event) {
+    fun onViewEvent(event: ViewEvent): Unit = with(event) {
         when (this) {
             ViewEvent.AddCalendarClicked -> onAddCalendarClicked()
         }

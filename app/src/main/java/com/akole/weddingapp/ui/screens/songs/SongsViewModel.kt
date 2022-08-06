@@ -83,7 +83,7 @@ class SongsViewModel @Inject constructor(
         }
     }
 
-    fun on(event: ViewEvent): Unit = with(event) {
+    fun onViewEvent(event: ViewEvent): Unit = with(event) {
         when (this) {
             is ViewEvent.SongTextChange -> {
                 updateState(song = value)
@@ -156,5 +156,5 @@ class SongsViewModel @Inject constructor(
     }
 
     // Check if song name is null or empty. Artist name is not mandatory
-    private fun checkSubmitButton(song: String) = !song.isNullOrEmpty()
+    private fun checkSubmitButton(song: String) = song.isNotEmpty()
 }

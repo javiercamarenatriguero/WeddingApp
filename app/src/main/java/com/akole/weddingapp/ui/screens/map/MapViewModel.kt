@@ -22,7 +22,7 @@ class MapViewModel: ViewModel() {
         data class PositionChanged(val position: Int): ViewEvent
     }
 
-    fun on(viewEvent: ViewEvent): Unit = with(viewEvent) {
+    fun onViewEvent(viewEvent: ViewEvent): Unit = with(viewEvent) {
         when (this) {
             is ViewEvent.PositionChanged ->
                 onPositionChanged(position = position)

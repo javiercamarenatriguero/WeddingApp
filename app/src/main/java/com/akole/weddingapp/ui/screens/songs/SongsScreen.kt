@@ -24,7 +24,7 @@ fun SongsScreen(
     ) {
         SongsScreenContent(
             viewState = viewModel.state,
-            onEventHandler = viewModel::on
+            onEventHandler = viewModel::onViewEvent
         )
     }
 

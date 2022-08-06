@@ -12,6 +12,7 @@ import com.akole.weddingapp.domain.usecases.GetImages
 import com.akole.weddingapp.domain.usecases.SaveImages
 import com.akole.weddingapp.domain.usecases.SaveImagesResponse
 import dagger.hilt.android.lifecycle.HiltViewModel
+import kotlinx.coroutines.InternalCoroutinesApi
 import kotlinx.coroutines.channels.Channel
 import kotlinx.coroutines.flow.*
 import kotlinx.coroutines.launch
@@ -37,7 +38,7 @@ class PicturesViewModel @Inject constructor(
         }
     }
 
-    fun on(event: ViewEvent) = with(event) {
+    fun onViewEvent(event: ViewEvent) = with(event) {
         when(this) {
             is ViewEvent.GetImagesResponse -> {
                 updateState(
@@ -87,6 +88,7 @@ class PicturesViewModel @Inject constructor(
         emit(OneShotEvent.GoToImageGallery)
     }
 
+    @OptIn(InternalCoroutinesApi::class)
     suspend fun uploadImages(list: List<@JvmSuppressWildcards Uri>) {
         if (list.isEmpty()) {
             updateState(isLoading = false)

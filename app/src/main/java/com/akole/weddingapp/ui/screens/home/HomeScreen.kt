@@ -20,7 +20,7 @@ fun HomeScreen(viewModel: HomeViewModel = viewModel()){
     ){
         HomeScreenContent(
             viewState = viewModel.state,
-            onEventHandler = viewModel::on
+            onEventHandler = viewModel::onViewEvent
         )
     }
     val context = LocalContext.current
