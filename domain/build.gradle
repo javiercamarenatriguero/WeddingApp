@@ -31,7 +31,7 @@ android {
 }
 
 dependencies {
-    implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core-jvm:$coroutines_core_jvm")
+    implementation("org.jetbrains.kotlinx:kotlinx-coroutines-android:1.6.2")
     // Hilt
     implementation "com.google.dagger:hilt-android:$hilt_version"
     kapt "org.jetbrains.kotlinx:kotlinx-metadata-jvm:0.4.2"

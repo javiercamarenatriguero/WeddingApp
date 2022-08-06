@@ -81,6 +81,7 @@ dependencies {
     implementation 'com.google.firebase:firebase-crashlytics-ktx'
     implementation 'com.google.firebase:firebase-perf-ktx'
     implementation 'com.google.firebase:firebase-storage-ktx'
+    implementation("org.jetbrains.kotlinx:kotlinx-coroutines-android:1.6.2")
     // Hilt
     implementation "com.google.dagger:hilt-android:$hilt_version"
     implementation "androidx.hilt:hilt-navigation-compose:1.0.0"
