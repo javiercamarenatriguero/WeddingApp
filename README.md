@@ -10,7 +10,8 @@ Following are some of the features available on the app:
 
 ---
 ## Technical details 
-* Clean code architecture (pending create Android modules for each layer)
+* Clean code architecture
+* Android modules (app, domain, data)
 * MVVM Design patterns & UI State handling
 * 100% Kotlin & Jetpack Compose
 * Kotlin Coroutines - Flows  
@@ -49,8 +50,9 @@ Following are some of the features available on the app:
 
 ### Requirements
 * Min. Android SDK: 26
-* Target Android SDK: 31
-* Kotlin 1.6.10
+* Target Android SDK: 32
+* Kotlin 1.7.0
+* Jetpack Compose 1.2.0 
 ---
 
 ### Version
@@ -59,7 +61,7 @@ Following are some of the features available on the app:
 ---
 ### IDE tools
 * Android Studio Chipmunk | 2021.2.1 Patch 1
-* Bitbucket Repository
+* Github Repository
 
 ---
 ### Test
@@ -69,7 +71,6 @@ Following are some of the features available on the app:
 
 ---
 ### TODOs
-* Create Android Modules for Domain & Data Layers (Currently just isolated in packages)
 * Improvements on Images visualization: Pagination, Error Management...
 * Stronger security for Firebase access  
 * Add more tests
