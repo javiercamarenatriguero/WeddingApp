@@ -32,14 +32,10 @@ Following are some of the features available on the app:
 ### Screenshots
 ![Demo](https://github.com/javiercamarenatriguero/WeddingApp/blob/master/screenshots/weddingapp.gif)
 
-<img src="https://github.com/javiercamarenatriguero/WeddingApp/blob/master/screenshots/screenshot_1.png" width="200">
-<img src="https://github.com/javiercamarenatriguero/WeddingApp/blob/master/screenshots/screenshot_2.png" width="200">
-<img src="https://github.com/javiercamarenatriguero/WeddingApp/blob/master/screenshots/screenshot_3.png" width="200">
-<img src="https://github.com/javiercamarenatriguero/WeddingApp/blob/master/screenshots/screenshot_4.png" width="200">
-<img src="https://github.com/javiercamarenatriguero/WeddingApp/blob/master/screenshots/screenshot_5.png" width="200">
-<img src="https://github.com/javiercamarenatriguero/WeddingApp/blob/master/screenshots/screenshot_6.png" width="200">
-<img src="https://github.com/javiercamarenatriguero/WeddingApp/blob/master/screenshots/screenshot_7.png" width="200">
-<img src="https://github.com/javiercamarenatriguero/WeddingApp/blob/master/screenshots/screenshot_8.png" width="200">
+<img src="https://github.com/javiercamarenatriguero/WeddingApp/blob/master/screenshots/screenshot_1.png" width="200"><img src="https://github.com/javiercamarenatriguero/WeddingApp/blob/master/screenshots/screenshot_2.png" width="200">
+<img src="https://github.com/javiercamarenatriguero/WeddingApp/blob/master/screenshots/screenshot_3.png" width="200"><img src="https://github.com/javiercamarenatriguero/WeddingApp/blob/master/screenshots/screenshot_4.png" width="200">
+<img src="https://github.com/javiercamarenatriguero/WeddingApp/blob/master/screenshots/screenshot_5.png" width="200"><img src="https://github.com/javiercamarenatriguero/WeddingApp/blob/master/screenshots/screenshot_6.png" width="200">
+<img src="https://github.com/javiercamarenatriguero/WeddingApp/blob/master/screenshots/screenshot_7.png" width="200"><img src="https://github.com/javiercamarenatriguero/WeddingApp/blob/master/screenshots/screenshot_8.png" width="200">
 
 ---
 
