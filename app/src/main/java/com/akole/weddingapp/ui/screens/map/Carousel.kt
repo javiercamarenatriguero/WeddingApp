@@ -21,12 +21,12 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.util.lerp
 import androidx.constraintlayout.compose.ConstraintLayout
 import coil.compose.rememberAsyncImagePainter
-import com.akole.weddingapp.ui.screens.home.HomeViewModel
 import com.akole.weddingapp.ui.theme.DarkPink
 import com.google.accompanist.pager.*
+import kotlinx.coroutines.InternalCoroutinesApi
 import kotlin.math.absoluteValue
 
-@OptIn(ExperimentalPagerApi::class)
+@OptIn(ExperimentalPagerApi::class, InternalCoroutinesApi::class)
 @Composable
 fun Carousel(
     locationUIItems: List<LocationUIItem>,

@@ -8,9 +8,8 @@ import com.akole.weddingapp.ui.WeddingAppState
 import com.akole.weddingapp.ui.navigation.AppBottomNavigation
 import com.akole.weddingapp.ui.navigation.Navigation
 import com.akole.weddingapp.ui.rememberWeddingAppState
-import com.google.accompanist.pager.ExperimentalPagerApi
 
-@OptIn(ExperimentalPagerApi::class, androidx.compose.material.ExperimentalMaterialApi::class,
+@OptIn(androidx.compose.material.ExperimentalMaterialApi::class,
     androidx.compose.foundation.ExperimentalFoundationApi::class
 )
 @Composable

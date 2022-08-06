@@ -54,7 +54,7 @@ fun SongRow(
                     Icon(imageVector = Icons.Default.Person, contentDescription = "")
                     Spacer(modifier = Modifier.width(10.dp))
                     Text(
-                        text = if(songItem.artist.isNullOrEmpty()) stringResource(id = R.string.unknown_artist) else songItem.artist,
+                        text = songItem.artist ?: stringResource(id = R.string.unknown_artist),
                         fontSize = 18.sp,
                         fontFamily = FontFamily.Cursive,
                         color = Color.DarkGray
@@ -63,5 +63,4 @@ fun SongRow(
             }
         }
     }
-
 }

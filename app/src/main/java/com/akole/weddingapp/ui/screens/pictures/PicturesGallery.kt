@@ -3,8 +3,8 @@ package com.akole.weddingapp.ui.screens.pictures
 import android.net.Uri
 import androidx.compose.foundation.*
 import androidx.compose.foundation.layout.*
-import androidx.compose.foundation.lazy.GridCells
-import androidx.compose.foundation.lazy.LazyVerticalGrid
+import androidx.compose.foundation.lazy.grid.GridCells
+import androidx.compose.foundation.lazy.grid.LazyVerticalGrid
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.CircularProgressIndicator
 import androidx.compose.material.Text
@@ -19,7 +19,6 @@ import coil.compose.rememberAsyncImagePainter
 import com.akole.weddingapp.R
 import com.akole.weddingapp.ui.theme.DarkPink
 
-@OptIn(ExperimentalFoundationApi::class)
 @Composable
 fun PicturesGallery(
     isCollectionLoading: Boolean,
@@ -47,7 +46,7 @@ fun PicturesGallery(
                     modifier = Modifier
                         .wrapContentHeight()
                         .fillMaxWidth(),
-                    cells = GridCells.Fixed(3)
+                    columns = GridCells.Fixed(3)
                 ) {
                     items(imagesUriList.size) { item ->
                         val painter = rememberAsyncImagePainter(imagesUriList[item])

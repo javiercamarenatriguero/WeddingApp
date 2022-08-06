@@ -10,9 +10,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import com.akole.weddingapp.ui.screens.home.header.Header
-import com.google.accompanist.pager.ExperimentalPagerApi
 
-@OptIn(ExperimentalPagerApi::class)
 @Composable
 fun HomeScreenContent(
     viewState: HomeViewModel.UiState,

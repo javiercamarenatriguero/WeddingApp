@@ -110,7 +110,7 @@ class ImagesRepositoryImpl @Inject constructor(): ImagesRepository {
                     it.downloadUrl
                         .addOnCompleteListener {
                             index++
-                            list.add(it.result)
+                            it.result?.let { uri -> list.add(uri) }
                             close()
                         }
                         .addOnFailureListener {

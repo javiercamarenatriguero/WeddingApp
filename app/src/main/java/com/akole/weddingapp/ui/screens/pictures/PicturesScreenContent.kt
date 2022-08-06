@@ -3,9 +3,7 @@ package com.akole.weddingapp.ui.screens.pictures
 import androidx.compose.foundation.layout.*
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
-import com.google.accompanist.pager.ExperimentalPagerApi
 
-@OptIn(ExperimentalPagerApi::class)
 @Composable
 fun PicturesScreenContent(
     viewState: PicturesViewModel.UiState,

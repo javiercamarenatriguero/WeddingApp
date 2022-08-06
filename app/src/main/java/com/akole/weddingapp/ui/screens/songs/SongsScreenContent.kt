@@ -6,10 +6,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
 import com.akole.weddingapp.R
 import com.akole.weddingapp.ui.common.CustomDialog
-import com.akole.weddingapp.ui.screens.home.HomeViewModel
-import com.google.accompanist.pager.ExperimentalPagerApi
 
-@OptIn(ExperimentalPagerApi::class)
 @Composable
 fun SongsScreenContent(
     viewState: SongsViewModel.UiState,
