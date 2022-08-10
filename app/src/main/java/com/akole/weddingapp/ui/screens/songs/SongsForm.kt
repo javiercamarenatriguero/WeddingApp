@@ -20,6 +20,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.focus.FocusDirection
 import androidx.compose.ui.focus.FocusRequester
 import androidx.compose.ui.platform.LocalFocusManager
+import androidx.compose.ui.platform.testTag
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.text.font.FontWeight
@@ -57,7 +58,8 @@ fun SongsForm(
             label = stringResource(id = R.string.songs_textfield_song_label),
             modifier = Modifier
                 .fillMaxWidth()
-                .padding(start = 20.dp, end = 20.dp),
+                .padding(start = 20.dp, end = 20.dp)
+                .testTag(SONG_TEXT_FIELD_TEST_TAG),
             onValueChange = { song ->
                 onEventHandler.invoke(SongsViewModel.ViewEvent.SongTextChange(song))
             },
@@ -85,7 +87,8 @@ fun SongsForm(
             label = stringResource(id = R.string.songs_textfield_artist_label),
             modifier = Modifier
                 .fillMaxWidth()
-                .padding(start = 20.dp, end = 20.dp),
+                .padding(start = 20.dp, end = 20.dp)
+                .testTag(ARTIST_TEXT_FIELD_TEST_TAG),
             onValueChange = { artist ->
                 onEventHandler.invoke(SongsViewModel.ViewEvent.ArtistTextChange(artist))
             },
@@ -124,3 +127,6 @@ fun SongsForm(
         }
     }
 }
+
+internal const val SONG_TEXT_FIELD_TEST_TAG = "SongTextFieldTestTag"
+internal const val ARTIST_TEXT_FIELD_TEST_TAG = "ArtistTextFieldTestTag"
