@@ -7,8 +7,8 @@ import com.akole.weddingapp.domain.usecases.SaveImagesResponse
 import com.google.firebase.ktx.Firebase
 import com.google.firebase.storage.ListResult
 import com.google.firebase.storage.ktx.storage
+import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.channels.Channel
 import kotlinx.coroutines.channels.awaitClose
 import kotlinx.coroutines.flow.*
@@ -48,23 +48,19 @@ class ImagesRepositoryImpl @Inject constructor(): ImagesRepository {
         }.flowOn(Dispatchers.IO)
     }
 
-    private fun saveImage(uri: Uri): Flow<SaveImageResponse> {
+    private suspend fun saveImage(uri: Uri): Flow<SaveImageResponse> {
         val fileRef = storageRef.child("images/${uri.lastPathSegment?.substringAfterLast('/')}")
         return callbackFlow {
             val uploadTask = fileRef.putFile(uri)
             uploadTask
                 .addOnFailureListener { exception ->
-                    GlobalScope.launch {
-                        trySend(SaveImageResponse.Error(exception))
-                        close()
-                    }
+                    trySend(SaveImageResponse.Error(exception))
+                    close()
+
                 }
                 .addOnSuccessListener {
-                    // Finish loading images
-                    GlobalScope.launch {
-                        trySend(SaveImageResponse.Success)
-                        close()
-                    }
+                    trySend(SaveImageResponse.Success)
+                    close()
                 }
             awaitClose {
                 close()
@@ -80,7 +76,7 @@ class ImagesRepositoryImpl @Inject constructor(): ImagesRepository {
             )
             listRef.listAll()
                 .addOnSuccessListener { itemList ->
-                    GlobalScope.launch {
+                    CoroutineScope(Dispatchers.IO).launch {
                         trySend(
                             GetImagesResponse.Success(
                                 getImagesUriList(itemList)
