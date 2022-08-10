@@ -59,6 +59,4 @@ class HomeScreenContentTest {
             secondsLeft = MOCK_INITIAL_SECONDS_LEFT
         )
     }
-
-
 }
