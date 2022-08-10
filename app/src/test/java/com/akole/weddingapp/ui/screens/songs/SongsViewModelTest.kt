@@ -8,7 +8,7 @@ import com.akole.weddingapp.domain.usecases.SaveSong
 import com.akole.weddingapp.domain.usecases.SaveSongResponse
 import io.mockk.*
 import kotlinx.coroutines.flow.flowOf
-import kotlinx.coroutines.runBlocking
+import kotlinx.coroutines.test.runTest
 import org.junit.Assert
 import org.junit.Rule
 import org.junit.Test
@@ -21,8 +21,7 @@ class SongsViewModelTest {
 
     @Test
     internal fun `GIVEN a list of songs request WHEN the result is success THEN the ViewState is updated with songs`() {
-
-        runBlocking {
+        runTest {
             val saveSong: SaveSong = mockk()
             val getSongs: GetSongs = mockk()
             coEvery { getSongs() } returns flowOf(GetSongsResponse.Success(MOCK_SUCCESS_SONG_LIST))
@@ -41,8 +40,7 @@ class SongsViewModelTest {
 
     @Test
     internal fun `GIVEN a list of songs request WHEN the result is an exception THEN the ViewState is updated with no songs`() {
-
-        runBlocking {
+        runTest {
             val saveSong: SaveSong = mockk()
             val getSongs: GetSongs = mockk()
             coEvery { getSongs() } returns flowOf(GetSongsResponse.Error(Exception()))
@@ -58,8 +56,7 @@ class SongsViewModelTest {
 
     @Test
     internal fun `GIVEN a list of songs request WHEN the result is as loading THEN the ViewState is updated with no songs and loading state`() {
-
-        runBlocking {
+        runTest {
             val saveSong: SaveSong = mockk()
             val getSongs: GetSongs = mockk()
             coEvery { getSongs() } returns flowOf(GetSongsResponse.Loading)
@@ -75,8 +72,7 @@ class SongsViewModelTest {
 
     @Test
     internal fun `GIVEN a song to upload request WHEN the result is success THEN the ViewState is updated with dialog shown`() {
-
-        runBlocking {
+        runTest {
             val saveSong: SaveSong = mockk()
             val getSongs: GetSongs = mockk()
             coEvery { saveSong(any()) } returns flowOf(SaveSongResponse.Success)
@@ -96,8 +92,7 @@ class SongsViewModelTest {
 
     @Test
     internal fun `GIVEN a song to upload request WHEN the result is as loading THEN the ViewState is updated with loading state as true`() {
-
-        runBlocking {
+        runTest {
             val saveSong: SaveSong = mockk()
             val getSongs: GetSongs = mockk()
             coEvery { saveSong(any()) } returns flowOf(SaveSongResponse.Loading)
@@ -112,8 +107,7 @@ class SongsViewModelTest {
 
     @Test
     internal fun `GIVEN a song to upload request WHEN the result is an exception THEN the ViewState the loading state is false`() {
-
-        runBlocking {
+        runTest {
             val saveSong: SaveSong = mockk()
             val getSongs: GetSongs = mockk()
             coEvery { saveSong(any()) } returns flowOf(SaveSongResponse.Error(Exception()))

@@ -11,6 +11,11 @@ class StringExtTest {
         Assert.assertEquals(TITLE_OUTPUT_2, TITLE_INPUT_2.upperAsTitle())
     }
 
+    @Test
+    internal fun `GIVEN an empty String WHEN upperAsTitle is called THEN returns an empty string` () {
+        Assert.assertEquals("", "".upperAsTitle())
+    }
+
     companion object {
         private const val TITLE_INPUT_1 = "this is an example"
         private const val TITLE_INPUT_2 = "today is the future"
