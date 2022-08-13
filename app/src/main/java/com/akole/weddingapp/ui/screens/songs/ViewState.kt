@@ -2,7 +2,7 @@ package com.akole.weddingapp.ui.screens.songs
 
 import com.akole.weddingapp.domain.models.Song
 
-data class UiState(
+data class ViewState(
     val song: String = "",
     val artist: String? = "",
     val songList: List<Song> = emptyList(),

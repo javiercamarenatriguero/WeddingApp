@@ -10,7 +10,7 @@ import com.akole.weddingapp.Constants.restaurantMarker
 
 class MapViewModel: ViewModel() {
 
-    var state by mutableStateOf(UiState())
+    var state by mutableStateOf(ViewState())
         private set
 
     internal val markers = listOf(councilMarker, cocktelMarker, restaurantMarker)
@@ -33,7 +33,7 @@ class MapViewModel: ViewModel() {
     private fun updateState(
         mapItemPosition: Int = state.mapItemPosition
     ) {
-        state = UiState(
+        state = ViewState(
             mapItemPosition
         )
     }

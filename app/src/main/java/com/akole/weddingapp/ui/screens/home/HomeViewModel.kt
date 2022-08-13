@@ -19,7 +19,7 @@ import java.util.Date
 
 class HomeViewModel: ViewModel() {
 
-    var state by mutableStateOf(UiState())
+    var state by mutableStateOf(ViewState())
         private set
 
     private val _oneShotEvents = Channel<OneShotEvent>(Channel.BUFFERED)
@@ -95,7 +95,7 @@ class HomeViewModel: ViewModel() {
         secondsLeft: Int = state.secondsLeft,
         isWeddingTime: Boolean = state.isWeddingTime
     ) {
-        state = UiState(
+        state = ViewState(
             daysLeft,
             hoursLeft,
             minutesLeft,

@@ -13,7 +13,7 @@ import com.akole.weddingapp.ui.screens.home.header.Header
 
 @Composable
 fun HomeScreenContent(
-    viewState: UiState,
+    viewState: ViewState,
     onEventHandler: (HomeViewModel.ViewEvent) -> Unit,
     modifier: Modifier = Modifier
 ) {

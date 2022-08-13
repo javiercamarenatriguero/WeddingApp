@@ -7,7 +7,7 @@ import androidx.constraintlayout.compose.ConstraintLayout
 
 @Composable
 fun MapScreenContent(
-    viewState: UiState,
+    viewState: ViewState,
     markers: List<LocationUIItem>,
     onViewEvent: (MapViewModel.ViewEvent) -> Unit
 ) {

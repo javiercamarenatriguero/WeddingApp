@@ -13,7 +13,7 @@ import androidx.compose.ui.unit.dp
 
 @Composable
 fun Body(
-    viewState: UiState,
+    viewState: ViewState,
     onEventHandler: (PicturesViewModel.ViewEvent) -> Unit
 ) {
     Box(

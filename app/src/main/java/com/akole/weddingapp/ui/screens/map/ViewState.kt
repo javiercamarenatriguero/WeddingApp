@@ -1,5 +1,5 @@
 package com.akole.weddingapp.ui.screens.map
 
-data class UiState(
+data class ViewState(
     val mapItemPosition: Int = 0
 )

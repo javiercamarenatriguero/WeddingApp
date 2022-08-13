@@ -10,7 +10,7 @@ import com.akole.weddingapp.ui.common.CustomDialog
 
 @Composable
 fun SongsScreenContent(
-    viewState: UiState,
+    viewState: ViewState,
     onEventHandler: (SongsViewModel.ViewEvent) -> Unit,
     modifier: Modifier = Modifier
 ) {

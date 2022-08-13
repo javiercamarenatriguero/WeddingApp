@@ -24,7 +24,7 @@ class SongsViewModel @Inject constructor(
     private val saveSong: SaveSong
 ): ViewModel() {
 
-    var state by mutableStateOf(UiState())
+    var state by mutableStateOf(ViewState())
         private set
 
     private val _oneShotEvents = Channel<OneShotEvent>(Channel.BUFFERED)
@@ -135,7 +135,7 @@ class SongsViewModel @Inject constructor(
         isButtonReady: Boolean = checkSubmitButton(song),
         isDialogShown: Boolean = state.isDialogShown
     ) {
-        state = UiState(
+        state = ViewState(
             song,
             artist,
             songList,

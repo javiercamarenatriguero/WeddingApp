@@ -6,7 +6,7 @@ import androidx.compose.ui.Modifier
 
 @Composable
 fun PicturesScreenContent(
-    viewState: UiState,
+    viewState: ViewState,
     onEventHandler: (PicturesViewModel.ViewEvent) -> Unit
 ) {
     Box(modifier = Modifier.fillMaxWidth()) {

@@ -2,7 +2,7 @@ package com.akole.weddingapp.ui.screens.pictures
 
 import android.net.Uri
 
-data class UiState(
+data class ViewState(
     val isUploadingImagesLoading: Boolean = false,
     val isCollectionLoading: Boolean = false,
     val isCollectionError: Boolean = false,

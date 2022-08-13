@@ -52,7 +52,7 @@ class HomeScreenContentTest {
         private const val MOCK_INITIAL_MINUTES_LEFT = 12
         private const val MOCK_INITIAL_SECONDS_LEFT = 20
 
-        private val MOCK_INITIAL_STATE = UiState(
+        private val MOCK_INITIAL_STATE = ViewState(
             daysLeft = MOCK_INITIAL_DAYS_LEFT,
             hoursLeft = MOCK_INITIAL_HOURS_LEFT,
             minutesLeft = MOCK_INITIAL_MINUTES_LEFT,

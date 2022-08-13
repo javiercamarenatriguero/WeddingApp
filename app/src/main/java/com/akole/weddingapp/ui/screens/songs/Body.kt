@@ -13,7 +13,7 @@ import androidx.compose.ui.unit.dp
 
 @Composable
 fun Body(
-    viewState: UiState,
+    viewState: ViewState,
     onEventHandler: (SongsViewModel.ViewEvent) -> Unit
     ) {
     Box(

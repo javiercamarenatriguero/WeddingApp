@@ -25,7 +25,7 @@ class PicturesViewModel @Inject constructor(
 
 ): ViewModel() {
 
-    var state by mutableStateOf(UiState())
+    var state by mutableStateOf(ViewState())
         private set
 
     private val _oneShotEvents = Channel<OneShotEvent>(Channel.BUFFERED)
@@ -134,7 +134,7 @@ class PicturesViewModel @Inject constructor(
         pictureUri: Uri? = state.pictureUri,
         isPhotoServiceEnabled: Boolean = isPhotoServiceEnabled()
     ) {
-        state = UiState(
+        state = ViewState(
             isUploadingImagesLoading = isLoading,
             uploadingImages = uploadingImages,
             uploadingProgress = uploadingProgress,
