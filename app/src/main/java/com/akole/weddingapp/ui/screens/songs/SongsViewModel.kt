@@ -127,16 +127,6 @@ class SongsViewModel @Inject constructor(
         object ArtistCompleted: ViewEvent
     }
 
-    data class UiState(
-        val song: String = "",
-        val artist: String? = "",
-        val songList: List<Song> = emptyList(),
-        val isLoading: Boolean = false,
-        val isButtonReady: Boolean = false,
-        val isDialogShown: Boolean = false
-
-    )
-
     private fun updateState(
         song: String = state.song,
         artist: String? = state.artist,
