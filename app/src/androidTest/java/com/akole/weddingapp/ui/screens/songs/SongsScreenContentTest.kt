@@ -91,19 +91,19 @@ class SongsScreenContentTest {
         private const val MOCK_SONG_NAME = "Master of Puppets"
         private const val MOCK_SINGER_NAME = "Metallica"
 
-        private val MOCK_INITIAL_STATE = SongsViewModel.UiState()
-        private val MOCK_TEXT_FIELD_COMPLETED_STATE = SongsViewModel.UiState(
+        private val MOCK_INITIAL_STATE = UiState()
+        private val MOCK_TEXT_FIELD_COMPLETED_STATE = UiState(
             song = MOCK_SONG_NAME,
             artist = MOCK_SINGER_NAME,
             isButtonReady = true
         )
-        private val MOCK_SONG_LIST_STATE = SongsViewModel.UiState(
+        private val MOCK_SONG_LIST_STATE = UiState(
             songList = List(5) { Song(MOCK_SONG_NAME) }
         )
-        private val MOCK_LOADING_STATE = SongsViewModel.UiState(
+        private val MOCK_LOADING_STATE = UiState(
             isLoading = true
         )
-        private val MOCK_SUCCESS_DIALOG_STATE = SongsViewModel.UiState(
+        private val MOCK_SUCCESS_DIALOG_STATE = UiState(
             isDialogShown = true
         )
     }

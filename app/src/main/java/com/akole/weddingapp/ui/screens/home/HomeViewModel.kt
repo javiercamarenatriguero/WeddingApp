@@ -88,14 +88,6 @@ class HomeViewModel: ViewModel() {
         object AddCalendarClicked: ViewEvent
     }
 
-    data class UiState(
-        val daysLeft: Int = 0,
-        val hoursLeft: Int = 0,
-        val minutesLeft: Int = 0,
-        val secondsLeft: Int = 0,
-        val isWeddingTime: Boolean = false
-    )
-
     private fun updateState(
         daysLeft: Int = state.daysLeft,
         hoursLeft: Int = state.hoursLeft,
