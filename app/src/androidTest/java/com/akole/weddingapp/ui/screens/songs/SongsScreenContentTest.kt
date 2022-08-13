@@ -41,7 +41,7 @@ class SongsScreenContentTest {
         var wasCalled = false
         setContent {
             SongsScreenContent(
-                viewState = MOCK_TEXTFIELD_COMPLETED_STATE,
+                viewState = MOCK_TEXT_FIELD_COMPLETED_STATE,
                 onEventHandler = { wasCalled = it == SongsViewModel.ViewEvent.AddClicked }
             )
         }
@@ -50,18 +50,61 @@ class SongsScreenContentTest {
         assert(value = wasCalled)
     }
 
+    @Test
+    fun show_a_list_of_songs_and_scroll_to_index(): Unit = with(composeTestRule) {
+        setContent {
+            SongsScreenContent(
+                viewState = MOCK_SONG_LIST_STATE,
+                onEventHandler = {}
+            )
+        }
+        onNodeWithTag(SONGS_COLUMN_TEST_TAG).assertExists()
+        onNodeWithTag(SONGS_COLUMN_TEST_TAG).performScrollToIndex(MOCK_SONG_LIST_STATE.songList.size - 1)
+    }
+
+    @Test
+    fun show_loading_view(): Unit = with(composeTestRule) {
+        setContent {
+            SongsScreenContent(
+                viewState = MOCK_LOADING_STATE,
+                onEventHandler = {}
+            )
+        }
+        onNodeWithTag(LOADING_VIEW_TEST_TAG).assertExists()
+        onNodeWithTag(LOADING_VIEW_TEST_TAG).assertIsDisplayed()
+    }
+
+    @Test
+    fun show_success_dialog(): Unit = with(composeTestRule) {
+        setContent {
+            SongsScreenContent(
+                viewState = MOCK_SUCCESS_DIALOG_STATE,
+                onEventHandler = {}
+            )
+        }
+        onNodeWithTag(SUCCESS_DIALOG_TEST_TAG).assertExists()
+        onNodeWithTag(SUCCESS_DIALOG_TEST_TAG).assertIsDisplayed()
+        onNodeWithText(context.getString(R.string.songs_item_saved_message)).assertIsDisplayed()
+    }
+
     companion object {
         private const val MOCK_SONG_NAME = "Master of Puppets"
         private const val MOCK_SINGER_NAME = "Metallica"
 
         private val MOCK_INITIAL_STATE = SongsViewModel.UiState()
-        private val MOCK_TEXTFIELD_COMPLETED_STATE = SongsViewModel.UiState(
+        private val MOCK_TEXT_FIELD_COMPLETED_STATE = SongsViewModel.UiState(
             song = MOCK_SONG_NAME,
             artist = MOCK_SINGER_NAME,
             isButtonReady = true
         )
         private val MOCK_SONG_LIST_STATE = SongsViewModel.UiState(
             songList = List(5) { Song(MOCK_SONG_NAME) }
+        )
+        private val MOCK_LOADING_STATE = SongsViewModel.UiState(
+            isLoading = true
+        )
+        private val MOCK_SUCCESS_DIALOG_STATE = SongsViewModel.UiState(
+            isDialogShown = true
         )
     }
 }

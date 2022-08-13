@@ -4,6 +4,7 @@ import androidx.compose.material.AlertDialog
 import androidx.compose.material.Button
 import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.unit.sp
 import com.akole.weddingapp.ui.screens.songs.SongsViewModel
@@ -12,9 +13,11 @@ import com.akole.weddingapp.ui.screens.songs.SongsViewModel
 fun CustomDialog(
     message: String,
     buttonText: String,
-    onEventHandler: (SongsViewModel.ViewEvent) -> Unit
+    onEventHandler: (SongsViewModel.ViewEvent) -> Unit,
+    modifier: Modifier = Modifier
     ) {
     AlertDialog(
+        modifier = modifier,
         onDismissRequest = {
             onEventHandler.invoke(SongsViewModel.ViewEvent.DialogClicked)
         },

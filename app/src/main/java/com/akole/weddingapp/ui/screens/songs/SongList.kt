@@ -12,6 +12,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.platform.testTag
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontFamily
 
@@ -31,12 +32,15 @@ fun SongList(
     ){
         SongItemListTitle()
         if (isLoading){
-            CircularProgressIndicator()
+            CircularProgressIndicator(
+                modifier = Modifier.testTag(LOADING_VIEW_TEST_TAG)
+            )
         } else {
             LazyColumn (
                 modifier = Modifier
                     .padding(horizontal = 20.dp, vertical = 5.dp)
                     .background(ExtraLightGray)
+                    .testTag(SONGS_COLUMN_TEST_TAG)
             ) {
                 items(songItemList.size) { index ->
                     SongRow(songItem = songItemList[index])
@@ -65,3 +69,6 @@ private fun SongItemListTitle() {
         fontSize = 18.sp
     )
 }
+
+internal const val SONGS_COLUMN_TEST_TAG = "SongsColumnTestTag"
+internal const val LOADING_VIEW_TEST_TAG = "LoadingViewTestTag"
