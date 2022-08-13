@@ -23,21 +23,20 @@ import androidx.constraintlayout.compose.ConstraintLayout
 import coil.compose.rememberAsyncImagePainter
 import com.akole.weddingapp.ui.theme.DarkPink
 import com.google.accompanist.pager.*
-import kotlinx.coroutines.InternalCoroutinesApi
 import kotlin.math.absoluteValue
 
-@OptIn(ExperimentalPagerApi::class, InternalCoroutinesApi::class)
+@OptIn(ExperimentalPagerApi::class)
 @Composable
 fun Carousel(
     locationUIItems: List<LocationUIItem>,
     modifier: Modifier = Modifier,
-    onEventHandler: (MapViewModel.ViewEvent) -> Unit,
+    onViewEvent: (MapViewModel.ViewEvent) -> Unit,
 ) {
     val pagerState = rememberPagerState()
 
     LaunchedEffect(pagerState) {
         snapshotFlow { pagerState.currentPage }.collect { page ->
-            onEventHandler.invoke(MapViewModel.ViewEvent.PositionChanged(page))
+            onViewEvent.invoke(MapViewModel.ViewEvent.PositionChanged(page))
         }
     }
 
