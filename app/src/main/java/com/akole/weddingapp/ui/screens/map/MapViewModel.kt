@@ -12,10 +12,6 @@ class MapViewModel: ViewModel() {
     var state by mutableStateOf(UiState())
         private set
 
-    data class UiState(
-        val mapItemPosition: Int = 0
-    )
-
     internal val markers = listOf(councilMarker, cocktelMarker, restaurantMarker)
 
     sealed interface ViewEvent {
