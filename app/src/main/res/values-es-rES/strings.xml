@@ -45,6 +45,7 @@
     <string name="calendar_description">Boda Pablo y Rosa en el Ayuntamiento de Bilbao</string>
     <string name="songs_submit_button_text">OK</string>
     <string name="pictures_empty_message">La galería de fotos está vacía. Por favor, introduce nuevas fotos.</string>
-    <string name="pictures_error_message">There is an error loading images.</string>
+    <string name="pictures_error_message">Ha ocurrido un error subiendo la foto. Por favor, inténtelo de nuevo.</string>
+    <string name="picture_photo_dialog">Diálogo de foto</string>
 
 </resources>

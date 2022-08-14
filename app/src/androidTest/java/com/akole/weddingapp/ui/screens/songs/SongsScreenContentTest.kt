@@ -41,7 +41,11 @@ class SongsScreenContentTest {
         var wasCalled = false
         setContent {
             SongsScreenContent(
-                viewState = MOCK_TEXT_FIELD_COMPLETED_STATE,
+                viewState = MOCK_INITIAL_STATE.copy(
+                    song = MOCK_SONG_NAME,
+                    artist = MOCK_SINGER_NAME,
+                    isButtonReady = true
+                ),
                 onEventHandler = { wasCalled = it == SongsViewModel.ViewEvent.AddClicked }
             )
         }
@@ -54,19 +58,23 @@ class SongsScreenContentTest {
     fun show_a_list_of_songs_and_scroll_to_index(): Unit = with(composeTestRule) {
         setContent {
             SongsScreenContent(
-                viewState = MOCK_SONG_LIST_STATE,
+                viewState = MOCK_INITIAL_STATE.copy(
+                    songList = List(MOCK_NUMBER_SONGS) { Song(MOCK_SONG_NAME) }
+                ),
                 onEventHandler = {}
             )
         }
         onNodeWithTag(SONGS_COLUMN_TEST_TAG).assertExists()
-        onNodeWithTag(SONGS_COLUMN_TEST_TAG).performScrollToIndex(MOCK_SONG_LIST_STATE.songList.size - 1)
+        onNodeWithTag(SONGS_COLUMN_TEST_TAG).performScrollToIndex(MOCK_NUMBER_SONGS - 1)
     }
 
     @Test
     fun show_loading_view(): Unit = with(composeTestRule) {
         setContent {
             SongsScreenContent(
-                viewState = MOCK_LOADING_STATE,
+                viewState = MOCK_INITIAL_STATE.copy(
+                    isLoading = true
+                ),
                 onEventHandler = {}
             )
         }
@@ -78,7 +86,9 @@ class SongsScreenContentTest {
     fun show_success_dialog(): Unit = with(composeTestRule) {
         setContent {
             SongsScreenContent(
-                viewState = MOCK_SUCCESS_DIALOG_STATE,
+                viewState = MOCK_INITIAL_STATE.copy(
+                    isDialogShown = true
+                ),
                 onEventHandler = {}
             )
         }
@@ -90,21 +100,8 @@ class SongsScreenContentTest {
     companion object {
         private const val MOCK_SONG_NAME = "Master of Puppets"
         private const val MOCK_SINGER_NAME = "Metallica"
+        private const val MOCK_NUMBER_SONGS = 5
 
         private val MOCK_INITIAL_STATE = ViewState()
-        private val MOCK_TEXT_FIELD_COMPLETED_STATE = ViewState(
-            song = MOCK_SONG_NAME,
-            artist = MOCK_SINGER_NAME,
-            isButtonReady = true
-        )
-        private val MOCK_SONG_LIST_STATE = ViewState(
-            songList = List(5) { Song(MOCK_SONG_NAME) }
-        )
-        private val MOCK_LOADING_STATE = ViewState(
-            isLoading = true
-        )
-        private val MOCK_SUCCESS_DIALOG_STATE = ViewState(
-            isDialogShown = true
-        )
     }
 }

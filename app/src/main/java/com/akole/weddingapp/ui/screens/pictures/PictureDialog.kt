@@ -45,7 +45,7 @@ fun PictureDialogContent(
                 var offsetY by remember { mutableStateOf(0f) }
                 Image(
                     painter = painter,
-                    contentDescription = null,
+                    contentDescription = stringResource(id = R.string.picture_photo_dialog),
                     contentScale = ContentScale.Crop,
                     modifier = Modifier
                         .aspectRatio(1.3f)

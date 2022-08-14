@@ -28,9 +28,6 @@ class MapScreenContentTest {
 
     companion object {
         private val MOCK_INITIAL_STATE = ViewState()
-        private val MOCK_SECOND_ITEM_SELECTED_STATE = ViewState(
-            mapItemPosition = 2
-        )
         private val markers = listOf(
             Constants.councilMarker,
             Constants.cocktelMarker,

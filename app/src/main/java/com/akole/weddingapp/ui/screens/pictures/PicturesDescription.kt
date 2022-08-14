@@ -8,6 +8,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.platform.testTag
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.text.font.FontWeight
@@ -56,12 +57,15 @@ fun PicturesDescription(
         }
 
         if (isUploadingImagesLoading) {
-                LinearProgressIndicator(
+            LinearProgressIndicator(
                 backgroundColor = Color.LightGray,
-                color = Color.Blue
+                color = Color.Blue,
+                modifier = Modifier.testTag(UPLOADING_PHOTO_PROGRESS_TEST_TAG)
             )
             Text(text = stringResource(id = R.string.pictures_uploading_progress_text) + " $progress / $numImages")
             Spacer(modifier = Modifier.height(20.dp))
         }
     }
 }
+
+internal const val UPLOADING_PHOTO_PROGRESS_TEST_TAG = "UploadingPhotoProgressTestTag"

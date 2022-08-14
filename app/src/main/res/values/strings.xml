@@ -46,5 +46,6 @@
     <string name="songs_submit_button_text">OK</string>
     <string name="pictures_empty_message">The gallery is empty. Please add new photos</string>
     <string name="pictures_error_message">There is an error loading images.</string>
+    <string name="picture_photo_dialog">Photo dialog</string>
 
 </resources>

@@ -13,6 +13,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.layout.ContentScale
+import androidx.compose.ui.platform.testTag
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 import coil.compose.rememberAsyncImagePainter
@@ -35,7 +36,9 @@ fun PicturesGallery(
     ) {
         Spacer(modifier = Modifier.height(10.dp))
         if (isCollectionLoading) {
-            CircularProgressIndicator()
+            CircularProgressIndicator(
+                modifier = Modifier.testTag(LOADING_COLLECTION_TEST_TAG)
+            )
         } else if (isCollectionError) {
             Text(
                 text = stringResource(id = R.string.pictures_error_message)
@@ -78,3 +81,5 @@ fun PicturesGallery(
         }
     }
 }
+
+internal const val LOADING_COLLECTION_TEST_TAG = "LoadingCollectionTestTag"
