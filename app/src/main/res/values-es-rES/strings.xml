@@ -5,6 +5,7 @@
     <string name="nav_map_title">Mapa</string>
     <string name="nav_songs_title">Canciones</string>
     <string name="nav_splash_title">Splash</string>
+    <!-- Home-->
     <string name="days">DÍAS</string>
     <string name="seconds">SEGUNDOS</string>
     <string name="minutes">MINUTOS</string>
@@ -14,7 +15,10 @@
     <string name="left_title"> Tiempo restante...</string>
     <string name="description_title">¡Nos casamos!</string>
     <string name="description_text">Queremos que compartáis con nosotros un día muy especial, como es el de nuestra boda . Tu presencia es nuestro regalo. \n \nMediante la aplicación, podréis ver información del evento, detalles sobre la localización de la ceremonia, cocktel y restaurante, ver las fotos de la boda y así como añadir las canciones que más os guste para la noche disco.</string>
-    <string name="songs_description_text">!Añade la música que más te guste para que suene en la noche de disco! \n\nEntre todas las canciones, se hará una selección por parte del jurado.</string>
+    <string name="calendar_title"><![CDATA[Wedding Pablo & Rosa]]></string>
+    <string name="calendar_place">Ayuntamiento de Bilbao</string>
+    <string name="calendar_description">Boda Pablo y Rosa en el Ayuntamiento de Bilbao</string>
+    <!-- Map-->
     <string name="location_title">Ayuntamiento de Bilbao</string>
     <string name="council_title">Ayuntamiento de Bilbao</string>
     <string name="council_snippet">Lugar de ceremonia</string>
@@ -26,6 +30,7 @@
     <string name="cocktel_details">Trav. de Uribitarte, 1, Bilbao \n \nUna vez finalizada la ceremonia y la sesión de fotos, tendrá lugar un cocktel donde poder charlar y compartir momentos.</string>
     <string name="restaurant_details">c/ Izartza Bidea, 48,  Izartza (Sondika) \n\nFinalmente la cena tendrá lugar en Sondika a partir de las 21h00. ¡También nos espera una sesión de disco!</string>
     <!-- Songs-->
+    <string name="songs_description_text">!Añade la música que más te guste para que suene en la noche de disco! \n\nEntre todas las canciones, se hará una selección por parte del jurado.</string>
     <string name="submit_song">Añadir canción</string>
     <string name="add_music_text">¡Añade tus canciones!</string>
     <string name="songs_textfield_song_label">Canción</string>
@@ -34,18 +39,15 @@
     <string name="song_list_title">Lista de canciones</string>
     <string name="songs_item_saved_message">Canción añadida correctamente</string>
     <string name="song_list_order">(En orden alfabético)</string>
+    <string name="songs_submit_button_text">OK</string>
+    <!-- Pictures -->
     <string name="nav_pictures_title">Fotos</string>
     <string name="pictures_gallery_title">Galería de fotos</string>
     <string name="pictures_description_text">Aquí podrás compartir y disfrutar de todas las fotos de la boda. Como invitado, podrás subir las fotos que saques y ver el resto de momentos para que no te pierdas ni uno sólo.\n\nEl servicio se habilitará el día de la boda.</string>
     <string name="submit_photo">Añadir fotos</string>
     <string name="pictures_uploading_progress_text">"Subiendo fotos: "</string>
     <string name="picture_close_button_text">Cerrar</string>
-    <string name="calendar_title"><![CDATA[Wedding Pablo & Rosa]]></string>
-    <string name="calendar_place">Ayuntamiento de Bilbao</string>
-    <string name="calendar_description">Boda Pablo y Rosa en el Ayuntamiento de Bilbao</string>
-    <string name="songs_submit_button_text">OK</string>
     <string name="pictures_empty_message">La galería de fotos está vacía. Por favor, introduce nuevas fotos.</string>
     <string name="pictures_error_message">Ha ocurrido un error subiendo la foto. Por favor, inténtelo de nuevo.</string>
     <string name="picture_photo_dialog">Diálogo de foto</string>
-
 </resources>

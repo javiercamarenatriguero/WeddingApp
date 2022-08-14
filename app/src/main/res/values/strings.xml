@@ -5,6 +5,10 @@
     <string name="nav_map_title">Map</string>
     <string name="nav_songs_title">Songs</string>
     <string name="nav_splash_title">Splash</string>
+    <!-- Home -->
+    <string name="calendar_title"><![CDATA[Wedding Pablo & Rosa]]></string>
+    <string name="calendar_place">Bilbao City Hall</string>
+    <string name="calendar_description">Pablo &amp; Rosa Wedding at Bilbao City Hall</string>
     <string name="days">DAYS</string>
     <string name="seconds">SECONDS</string>
     <string name="minutes">MINUTES</string>
@@ -14,7 +18,7 @@
     <string name="left_title"> Remaining time...</string>
     <string name="description_title">We are getting married!</string>
     <string name="description_text">We want you to share with us a very special day, such as our wedding. Your presence is our gift.\n\nThrough the application, you will be able to see information about the event, details about the location of the ceremony, cocktail and restaurant, see the photos of the wedding and as well as add the songs that you like the most for the disco night.</string>
-    <string name="songs_description_text">Add the music you like the most to play on disco night! \n\nAmong all the songs, a selection will be made by the jury.</string>
+    <!-- Map -->
     <string name="location_title">Bilbao City Hall</string>
     <string name="council_title">Bilbao City Hall</string>
     <string name="council_snippet">Ceremony place</string>
@@ -26,6 +30,7 @@
     <string name="cocktel_details">Trav. de Uribitarte, 1, Bilbao \n \nOnce the ceremony and photo session are over, a cocktail will take place where you can chat and share moments.</string>
     <string name="restaurant_details">c/ Izartza Bidea, 48,  Izartza (Sondika) \n\nFinally, dinner will take place in Sondika starting at 9:00 p.m. A disco session awaits us too!</string>
     <!-- Songs-->
+    <string name="songs_description_text">Add the music you like the most to play on disco night! \n\nAmong all the songs, a selection will be made by the jury.</string>
     <string name="submit_song">Add song</string>
     <string name="add_music_text">Add your songs!</string>
     <string name="songs_textfield_song_label">Song</string>
@@ -34,18 +39,15 @@
     <string name="song_list_title">List of songs</string>
     <string name="songs_item_saved_message">Song added successfully!</string>
     <string name="song_list_order">(Alphabetic order)</string>
+    <string name="songs_submit_button_text">OK</string>
+    <!-- Pictures -->
     <string name="nav_pictures_title">Photos</string>
     <string name="pictures_gallery_title">Photos gallery</string>
     <string name="pictures_description_text">Here you can share and enjoy all the wedding photos. As a guest, you can upload the photos you take and see the rest of the moments so you don\'t miss a single one.\n\nThe service will be enabled on the day of the wedding.</string>
     <string name="submit_photo">Add photos</string>
     <string name="pictures_uploading_progress_text">"Uploading photos: "</string>
     <string name="picture_close_button_text">Close</string>
-    <string name="calendar_title"><![CDATA[Wedding Pablo & Rosa]]></string>
-    <string name="calendar_place">Bilbao City Hall</string>
-    <string name="calendar_description">Pablo &amp; Rosa Wedding at Bilbao City Hall</string>
-    <string name="songs_submit_button_text">OK</string>
     <string name="pictures_empty_message">The gallery is empty. Please add new photos</string>
     <string name="pictures_error_message">There is an error loading images.</string>
     <string name="picture_photo_dialog">Photo dialog</string>
-
 </resources>
