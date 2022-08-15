@@ -26,7 +26,7 @@ import com.akole.weddingapp.R
 import com.akole.weddingapp.ui.screens.home.HomeViewModel
 
 @Composable
-fun Header(
+internal fun Header(
     daysLeft: Int,
     hoursLeft: Int,
     minutesLeft: Int,

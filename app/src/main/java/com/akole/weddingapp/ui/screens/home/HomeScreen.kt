@@ -14,7 +14,7 @@ import com.akole.weddingapp.Constants.CALENDAR_NOTIFICATION_START_TIMESTAMP
 import com.akole.weddingapp.R
 
 @Composable
-fun HomeScreen(viewModel: HomeViewModel = viewModel()){
+internal fun HomeScreen(viewModel: HomeViewModel = viewModel()){
     Box(modifier = Modifier
         .fillMaxSize()
     ){
@@ -33,7 +33,7 @@ fun HomeScreen(viewModel: HomeViewModel = viewModel()){
     }
 }
 
-fun goToCalendar(context: Context) {
+internal fun goToCalendar(context: Context) {
     // Google Calendar event starts hours before
     val eventStartTime = CALENDAR_NOTIFICATION_START_TIMESTAMP
     val insertCalendarIntent = Intent(Intent.ACTION_INSERT)

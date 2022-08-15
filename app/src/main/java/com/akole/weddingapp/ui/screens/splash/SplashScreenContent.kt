@@ -17,7 +17,7 @@ import androidx.compose.ui.unit.dp
 import coil.compose.rememberAsyncImagePainter
 
 @Composable
-fun SplashScreenContent(
+internal fun SplashScreenContent(
     modifier: Modifier = Modifier
 ) {
     val heartTransition = rememberInfiniteTransition()

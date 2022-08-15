@@ -4,7 +4,7 @@ import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.setValue
 import androidx.lifecycle.ViewModel
-import com.akole.weddingapp.Constants.cocktelMarker
+import com.akole.weddingapp.Constants.cocktailMarker
 import com.akole.weddingapp.Constants.councilMarker
 import com.akole.weddingapp.Constants.restaurantMarker
 
@@ -13,7 +13,7 @@ class MapViewModel: ViewModel() {
     var state by mutableStateOf(ViewState())
         private set
 
-    internal val markers = listOf(councilMarker, cocktelMarker, restaurantMarker)
+    internal val markers = listOf(councilMarker, cocktailMarker, restaurantMarker)
 
     sealed interface ViewEvent {
         data class PositionChanged(val position: Int): ViewEvent

@@ -4,13 +4,14 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.runtime.*
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
+import com.akole.weddingapp.ui.screens.map.body.LocationUIItem
 import com.google.android.gms.maps.CameraUpdateFactory
 import com.google.android.gms.maps.model.CameraPosition
 import com.google.maps.android.compose.*
 import kotlinx.coroutines.launch
 
 @Composable
-fun WeddingMap(
+internal fun WeddingMap(
     mapPosition: Int,
     locationUIItems: List<LocationUIItem>,
     modifier: Modifier = Modifier

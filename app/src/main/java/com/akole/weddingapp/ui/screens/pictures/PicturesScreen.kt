@@ -14,7 +14,7 @@ import androidx.compose.ui.graphics.Color
 import androidx.hilt.navigation.compose.hiltViewModel
 
 @Composable
-fun PicturesScreen(
+internal fun PicturesScreen(
     viewModel: PicturesViewModel = hiltViewModel(),
     modifier: Modifier = Modifier
 ){

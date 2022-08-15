@@ -1,4 +1,4 @@
-package com.akole.weddingapp.ui.screens.map
+package com.akole.weddingapp.ui.screens.map.body
 
 import androidx.annotation.DrawableRes
 import androidx.annotation.StringRes

@@ -4,9 +4,12 @@ import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.constraintlayout.compose.ConstraintLayout
+import com.akole.weddingapp.ui.screens.map.body.LocationUIItem
+import com.akole.weddingapp.ui.screens.map.footer.Carousel
+import com.akole.weddingapp.ui.screens.map.header.MapTitle
 
 @Composable
-fun MapScreenContent(
+internal fun MapScreenContent(
     viewState: ViewState,
     markers: List<LocationUIItem>,
     onViewEvent: (MapViewModel.ViewEvent) -> Unit

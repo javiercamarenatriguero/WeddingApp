@@ -1,5 +1,6 @@
-package com.akole.weddingapp.ui.screens.map
+package com.akole.weddingapp.ui.screens.map.header
 
+import androidx.annotation.StringRes
 import androidx.compose.foundation.layout.*
 import androidx.compose.material.MaterialTheme
 import androidx.compose.material.Surface
@@ -17,9 +18,9 @@ import androidx.compose.ui.unit.sp
 import com.akole.weddingapp.ui.theme.LightPink
 
 @Composable
-fun MapTitle(
-    title: Int,
-    details: Int,
+internal fun MapTitle(
+    @StringRes title: Int,
+    @StringRes details: Int,
     modifier: Modifier = Modifier
 ) {
     Box(

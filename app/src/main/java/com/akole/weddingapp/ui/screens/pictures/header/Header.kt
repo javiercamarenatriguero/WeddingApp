@@ -20,7 +20,7 @@ import coil.compose.rememberAsyncImagePainter
 import com.akole.weddingapp.R
 
 @Composable
-fun Header() {
+internal fun Header() {
 
     ConstraintLayout(
         modifier = Modifier

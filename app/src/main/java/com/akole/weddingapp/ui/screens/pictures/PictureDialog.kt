@@ -23,7 +23,7 @@ import kotlin.math.roundToInt
 import kotlin.math.sin
 
 @Composable
-fun PictureDialogContent(
+internal fun PictureDialogContent(
     uri: Uri,
     onEventHandler: (PicturesViewModel.ViewEvent) -> Unit,
 ) {

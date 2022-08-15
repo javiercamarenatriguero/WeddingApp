@@ -1,4 +1,4 @@
-package com.akole.weddingapp.ui.screens.pictures
+package com.akole.weddingapp.ui.screens.pictures.body
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.*
@@ -10,9 +10,11 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.dp
+import com.akole.weddingapp.ui.screens.pictures.PicturesViewModel
+import com.akole.weddingapp.ui.screens.pictures.ViewState
 
 @Composable
-fun Body(
+internal fun Body(
     viewState: ViewState,
     onEventHandler: (PicturesViewModel.ViewEvent) -> Unit
 ) {

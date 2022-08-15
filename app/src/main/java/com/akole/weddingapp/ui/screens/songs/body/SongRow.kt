@@ -1,4 +1,4 @@
-package com.akole.weddingapp.ui.screens.songs
+package com.akole.weddingapp.ui.screens.songs.body
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.*
@@ -21,7 +21,7 @@ import com.akole.weddingapp.domain.models.Song
 import com.akole.weddingapp.ui.theme.DarkPink
 
 @Composable
-fun SongRow(
+internal fun SongRow(
     songItem: Song
 ) {
     Card(

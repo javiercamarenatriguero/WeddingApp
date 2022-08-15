@@ -7,9 +7,11 @@ import androidx.compose.ui.platform.testTag
 import androidx.compose.ui.res.stringResource
 import com.akole.weddingapp.R
 import com.akole.weddingapp.ui.common.CustomDialog
+import com.akole.weddingapp.ui.screens.songs.body.Body
+import com.akole.weddingapp.ui.screens.songs.header.Header
 
 @Composable
-fun SongsScreenContent(
+internal fun SongsScreenContent(
     viewState: ViewState,
     onEventHandler: (SongsViewModel.ViewEvent) -> Unit,
     modifier: Modifier = Modifier

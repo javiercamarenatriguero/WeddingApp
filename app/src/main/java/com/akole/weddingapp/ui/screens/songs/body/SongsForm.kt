@@ -1,4 +1,4 @@
-package com.akole.weddingapp.ui.screens.songs
+package com.akole.weddingapp.ui.screens.songs.body
 
 import androidx.compose.foundation.ExperimentalFoundationApi
 import androidx.compose.foundation.border
@@ -28,12 +28,15 @@ import androidx.compose.ui.text.input.ImeAction
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.akole.weddingapp.R
+import com.akole.weddingapp.ui.common.CustomOutlinedTextField
+import com.akole.weddingapp.ui.screens.songs.SongsScreenTestTags
+import com.akole.weddingapp.ui.screens.songs.SongsViewModel
 import com.akole.weddingapp.ui.theme.DarkPink
 import kotlinx.coroutines.launch
 
 @OptIn(ExperimentalFoundationApi::class)
 @Composable
-fun SongsForm(
+internal fun SongsForm(
     songValue: String = "",
     artistValue: String? = "",
     buttonEnabled: Boolean = false,

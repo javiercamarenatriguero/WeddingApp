@@ -13,7 +13,7 @@ import com.akole.weddingapp.ui.rememberWeddingAppState
     androidx.compose.foundation.ExperimentalFoundationApi::class
 )
 @Composable
-fun WeddingAppContent(appState: WeddingAppState = rememberWeddingAppState()) {
+internal fun WeddingAppContent(appState: WeddingAppState = rememberWeddingAppState()) {
     Scaffold(
         bottomBar = {
             AppBottomNavigation(

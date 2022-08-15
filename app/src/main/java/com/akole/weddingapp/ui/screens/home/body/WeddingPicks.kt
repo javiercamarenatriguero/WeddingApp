@@ -1,4 +1,4 @@
-package com.akole.weddingapp.ui.screens.home
+package com.akole.weddingapp.ui.screens.home.body
 
 import androidx.annotation.DrawableRes
 import androidx.compose.foundation.Image
@@ -15,18 +15,21 @@ import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import coil.compose.rememberAsyncImagePainter
-import com.akole.weddingapp.R
+import com.akole.weddingapp.Constants.CHARACTER_IMAGE_1
+import com.akole.weddingapp.Constants.CHARACTER_IMAGE_2
+import com.akole.weddingapp.Constants.CHARACTER_NAME_1
+import com.akole.weddingapp.Constants.CHARACTER_NAME_2
 import com.akole.weddingapp.ui.theme.DarkPink
 
 @Composable
-fun WeddingPicks() {
+internal fun WeddingPicks() {
     Row (
         Modifier
             .fillMaxWidth(),
         horizontalArrangement = Arrangement.Center
     ) {
-        Pick(R.drawable.profile1, PICTURE_LABEL_1)
-        Pick(R.drawable.profile2, PICTURE_LABEL_2)
+        Pick(CHARACTER_IMAGE_1, CHARACTER_NAME_1)
+        Pick(CHARACTER_IMAGE_2, CHARACTER_NAME_2)
     }
 }
 
@@ -53,6 +56,3 @@ private fun Pick(@DrawableRes imageRes: Int, label: String) {
         )
     }
 }
-
-private const val PICTURE_LABEL_1 = "Pablo"
-private const val PICTURE_LABEL_2 = "Rosa"

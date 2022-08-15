@@ -1,4 +1,4 @@
-package com.akole.weddingapp.ui.screens.pictures
+package com.akole.weddingapp.ui.screens.pictures.body
 
 import android.net.Uri
 import androidx.compose.foundation.*
@@ -18,10 +18,12 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 import coil.compose.rememberAsyncImagePainter
 import com.akole.weddingapp.R
+import com.akole.weddingapp.ui.screens.pictures.PictureScreenTestTags
+import com.akole.weddingapp.ui.screens.pictures.PicturesViewModel
 import com.akole.weddingapp.ui.theme.DarkPink
 
 @Composable
-fun PicturesGallery(
+internal fun PicturesGallery(
     isCollectionLoading: Boolean,
     isCollectionError: Boolean,
     imagesUriList: List<Uri>,

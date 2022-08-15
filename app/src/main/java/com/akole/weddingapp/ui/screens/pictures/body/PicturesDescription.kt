@@ -1,4 +1,4 @@
-package com.akole.weddingapp.ui.screens.pictures
+package com.akole.weddingapp.ui.screens.pictures.body
 
 import androidx.compose.foundation.layout.*
 import androidx.compose.material.Button
@@ -16,9 +16,11 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.akole.weddingapp.R
+import com.akole.weddingapp.ui.screens.pictures.PictureScreenTestTags
+import com.akole.weddingapp.ui.screens.pictures.PicturesViewModel
 
 @Composable
-fun PicturesDescription(
+internal fun PicturesDescription(
     isUploadingImagesLoading: Boolean = false,
     isCollectionLoading: Boolean = false,
     isPhotoServiceEnabled: Boolean = false,

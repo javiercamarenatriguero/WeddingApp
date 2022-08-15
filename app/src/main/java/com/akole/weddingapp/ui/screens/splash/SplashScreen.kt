@@ -7,14 +7,16 @@ import androidx.compose.ui.Modifier
 import kotlinx.coroutines.delay
 
 @Composable
-fun SplashScreen (
+internal fun SplashScreen (
     modifier: Modifier = Modifier.fillMaxSize(),
     onDelayed: () -> Unit
 ) {
     SplashScreenContent(modifier)
 
     LaunchedEffect(key1 = true) {
-        delay(timeMillis = 3000)
+        delay(timeMillis = SPLASH_SCREEN_TIMEOUT)
         onDelayed()
     }
 }
+
+internal const val SPLASH_SCREEN_TIMEOUT = 2000L

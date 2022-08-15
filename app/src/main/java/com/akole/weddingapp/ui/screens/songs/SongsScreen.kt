@@ -13,7 +13,7 @@ import androidx.hilt.navigation.compose.hiltViewModel
 
 @OptIn(ExperimentalComposeUiApi::class)
 @Composable
-fun SongsScreen(
+internal fun SongsScreen(
     viewModel: SongsViewModel = hiltViewModel(),
     modifier: Modifier = Modifier
 ){

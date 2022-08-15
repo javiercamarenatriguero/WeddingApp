@@ -1,4 +1,4 @@
-package com.akole.weddingapp.ui.screens.home
+package com.akole.weddingapp.ui.screens.home.body
 
 import androidx.compose.foundation.layout.*
 import androidx.compose.material.Icon
@@ -18,10 +18,9 @@ import com.akole.weddingapp.Constants.DATETIME_FORMAT
 import com.akole.weddingapp.Constants.WEDDING_TIMESTAMP
 import com.akole.weddingapp.R
 import com.akole.weddingapp.ui.utils.formatTimestamp
-import java.time.format.DateTimeFormatter
 
 @Composable
-fun WeddingDetails() {
+internal fun WeddingDetails() {
     Column (
         Modifier
             .fillMaxWidth()

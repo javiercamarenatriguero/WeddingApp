@@ -57,7 +57,7 @@ class MapScreenContentTest {
         private val MOCK_INITIAL_STATE = ViewState()
         private val markers = listOf(
             Constants.councilMarker,
-            Constants.cocktelMarker,
+            Constants.cocktailMarker,
             Constants.restaurantMarker
         )
     }

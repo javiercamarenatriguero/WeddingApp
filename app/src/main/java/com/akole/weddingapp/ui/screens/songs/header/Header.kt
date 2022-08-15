@@ -1,4 +1,4 @@
-package com.akole.weddingapp.ui.screens.songs
+package com.akole.weddingapp.ui.screens.songs.header
 
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.*
@@ -20,7 +20,7 @@ import coil.compose.rememberAsyncImagePainter
 import com.akole.weddingapp.R
 
 @Composable
-fun Header() {
+internal fun Header() {
 
     ConstraintLayout(
         modifier = Modifier

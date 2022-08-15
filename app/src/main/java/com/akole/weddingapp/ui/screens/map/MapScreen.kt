@@ -8,7 +8,7 @@ import androidx.compose.ui.graphics.Color
 import androidx.lifecycle.viewmodel.compose.viewModel
 
 @Composable
-fun MapScreen(viewModel: MapViewModel = viewModel()){
+internal fun MapScreen(viewModel: MapViewModel = viewModel()){
     Box(modifier = Modifier
         .fillMaxSize()
         .background(Color.White)

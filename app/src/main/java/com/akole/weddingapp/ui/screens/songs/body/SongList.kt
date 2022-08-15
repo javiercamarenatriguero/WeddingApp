@@ -1,4 +1,4 @@
-package com.akole.weddingapp.ui.screens.songs
+package com.akole.weddingapp.ui.screens.songs.body
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Column
@@ -20,10 +20,11 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.akole.weddingapp.R
 import com.akole.weddingapp.domain.models.Song
+import com.akole.weddingapp.ui.screens.songs.SongsScreenTestTags
 import com.akole.weddingapp.ui.theme.ExtraLightGray
 
 @Composable
-fun SongList(
+internal fun SongList(
     songItemList: List<Song>,
     isLoading: Boolean
 ) {

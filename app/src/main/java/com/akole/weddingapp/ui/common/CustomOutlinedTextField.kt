@@ -1,4 +1,4 @@
-package com.akole.weddingapp.ui.screens.songs
+package com.akole.weddingapp.ui.common
 
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Column

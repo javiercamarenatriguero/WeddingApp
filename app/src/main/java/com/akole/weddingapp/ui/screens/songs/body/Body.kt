@@ -1,4 +1,4 @@
-package com.akole.weddingapp.ui.screens.songs
+package com.akole.weddingapp.ui.screens.songs.body
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.*
@@ -10,9 +10,11 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.dp
+import com.akole.weddingapp.ui.screens.songs.SongsViewModel
+import com.akole.weddingapp.ui.screens.songs.ViewState
 
 @Composable
-fun Body(
+internal fun Body(
     viewState: ViewState,
     onEventHandler: (SongsViewModel.ViewEvent) -> Unit
     ) {
