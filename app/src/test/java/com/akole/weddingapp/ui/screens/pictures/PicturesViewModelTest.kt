@@ -4,6 +4,7 @@ import android.net.Uri
 import com.akole.weddingapp.CoroutineTestRule
 import com.akole.weddingapp.domain.usecases.*
 import io.mockk.*
+import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.flow.flowOf
 import kotlinx.coroutines.test.runTest
 import org.junit.Assert
@@ -11,13 +12,14 @@ import org.junit.Rule
 import org.junit.Test
 import java.lang.Exception
 
+@OptIn(ExperimentalCoroutinesApi::class)
 class PicturesViewModelTest {
 
     @get:Rule
     val coroutineRule = CoroutineTestRule()
 
     @Test
-    internal fun `GIVEN a list of images request WHEN the result is success THEN the ViewState is updated with images`() {
+    fun `GIVEN a list of images request WHEN the result is success THEN the ViewState is updated with images`() {
         runTest {
             val saveImages: SaveImages = mockk()
             val getImages: GetImages = mockk()
@@ -34,7 +36,7 @@ class PicturesViewModelTest {
     }
 
     @Test
-    internal fun `GIVEN a list of images request WHEN the result is an exception THEN the ViewState is updated with no images`() {
+    fun `GIVEN a list of images request WHEN the result is an exception THEN the ViewState is updated with no images`() {
         runTest {
             val saveImages: SaveImages = mockk()
             val getImages: GetImages = mockk()
@@ -51,7 +53,7 @@ class PicturesViewModelTest {
     }
 
     @Test
-    internal fun `GIVEN a list of images request WHEN the result is as loading THEN the ViewState is updated with no images and loading state`() {
+    fun `GIVEN a list of images request WHEN the result is as loading THEN the ViewState is updated with no images and loading state`() {
         runTest {
             val saveImages: SaveImages = mockk()
             val getImages: GetImages = mockk()
@@ -68,7 +70,7 @@ class PicturesViewModelTest {
     }
 
     @Test
-    internal fun `GIVEN a list of images to upload request WHEN the result is success THEN the ViewState is updated`() {
+    fun `GIVEN a list of images to upload request WHEN the result is success THEN the ViewState is updated`() {
         runTest {
             val saveImages: SaveImages = mockk()
             val getImages: GetImages = mockk()
@@ -90,7 +92,7 @@ class PicturesViewModelTest {
     }
 
     @Test
-    internal fun `GIVEN a list of images to upload request WHEN the result is as loading THEN the ViewState is updated with loading state as true`() {
+    fun `GIVEN a list of images to upload request WHEN the result is as loading THEN the ViewState is updated with loading state as true`() {
         runTest {
             val saveImages: SaveImages = mockk()
             val getImages: GetImages = mockk()
@@ -110,7 +112,7 @@ class PicturesViewModelTest {
     }
 
     @Test
-    internal fun `GIVEN a list of images to upload request WHEN the result is an exception THEN the ViewState the loading state is false`() {
+    fun `GIVEN a list of images to upload request WHEN the result is an exception THEN the ViewState the loading state is false`() {
         runTest {
             val saveImages: SaveImages = mockk()
             val getImages: GetImages = mockk()

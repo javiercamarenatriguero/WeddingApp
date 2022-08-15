@@ -7,6 +7,7 @@ import com.akole.weddingapp.domain.usecases.GetSongsResponse
 import com.akole.weddingapp.domain.usecases.SaveSong
 import com.akole.weddingapp.domain.usecases.SaveSongResponse
 import io.mockk.*
+import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.flow.flowOf
 import kotlinx.coroutines.test.runTest
 import org.junit.Assert
@@ -14,13 +15,14 @@ import org.junit.Rule
 import org.junit.Test
 import java.lang.Exception
 
+@OptIn(ExperimentalCoroutinesApi::class)
 class SongsViewModelTest {
 
     @get:Rule
     val coroutineRule = CoroutineTestRule()
 
     @Test
-    internal fun `GIVEN a list of songs request WHEN the result is success THEN the ViewState is updated with songs`() {
+    fun `GIVEN a list of songs request WHEN the result is success THEN the ViewState is updated with songs`() {
         runTest {
             val saveSong: SaveSong = mockk()
             val getSongs: GetSongs = mockk()
@@ -39,7 +41,7 @@ class SongsViewModelTest {
     }
 
     @Test
-    internal fun `GIVEN a list of songs request WHEN the result is an exception THEN the ViewState is updated with no songs`() {
+    fun `GIVEN a list of songs request WHEN the result is an exception THEN the ViewState is updated with no songs`() {
         runTest {
             val saveSong: SaveSong = mockk()
             val getSongs: GetSongs = mockk()
@@ -55,7 +57,7 @@ class SongsViewModelTest {
     }
 
     @Test
-    internal fun `GIVEN a list of songs request WHEN the result is as loading THEN the ViewState is updated with no songs and loading state`() {
+    fun `GIVEN a list of songs request WHEN the result is as loading THEN the ViewState is updated with no songs and loading state`() {
         runTest {
             val saveSong: SaveSong = mockk()
             val getSongs: GetSongs = mockk()
@@ -71,7 +73,7 @@ class SongsViewModelTest {
     }
 
     @Test
-    internal fun `GIVEN a song to upload request WHEN the result is success THEN the ViewState is updated with dialog shown`() {
+    fun `GIVEN a song to upload request WHEN the result is success THEN the ViewState is updated with dialog shown`() {
         runTest {
             val saveSong: SaveSong = mockk()
             val getSongs: GetSongs = mockk()
@@ -91,7 +93,7 @@ class SongsViewModelTest {
     }
 
     @Test
-    internal fun `GIVEN a song to upload request WHEN the result is as loading THEN the ViewState is updated with loading state as true`() {
+    fun `GIVEN a song to upload request WHEN the result is as loading THEN the ViewState is updated with loading state as true`() {
         runTest {
             val saveSong: SaveSong = mockk()
             val getSongs: GetSongs = mockk()
@@ -106,7 +108,7 @@ class SongsViewModelTest {
     }
 
     @Test
-    internal fun `GIVEN a song to upload request WHEN the result is an exception THEN the ViewState the loading state is false`() {
+    fun `GIVEN a song to upload request WHEN the result is an exception THEN the ViewState the loading state is false`() {
         runTest {
             val saveSong: SaveSong = mockk()
             val getSongs: GetSongs = mockk()

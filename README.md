@@ -20,13 +20,14 @@ Following are some of the features available on the app:
 * Google Maps for Jetpack Compose  
 * Firebase services:
 
-  * -> Crashlytics
-  * -> Analytics
-  * -> Performance
-  * -> Firestore (images)
-  * -> Realtime database (songs)
+  * Crashlytics
+  * Analytics
+  * Performance
+  * Firestore (images)
+  * Realtime database (songs)
   
 * Uploaded on Play Store (Until 10th of June)
+* Multilingual: EN & ES
 
 ---
 ### Screenshots

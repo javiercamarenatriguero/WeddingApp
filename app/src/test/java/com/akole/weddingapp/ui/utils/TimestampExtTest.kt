@@ -6,14 +6,14 @@ import org.junit.Test
 class TimestampExtTest {
 
     @Test
-    internal fun `GIVEN a timestamp WHEN getDaysLeft is called THEN it returns the quantity of days` () {
+    fun `GIVEN a timestamp WHEN getDaysLeft is called THEN it returns the quantity of days` () {
         Assert.assertEquals(0, ONE_HOUR_MILLISECONDS.toLong().getDaysLeft())
         Assert.assertEquals(3, THREE_DAYS_TIMESTAMP.toLong().getDaysLeft())
         Assert.assertEquals(10, TEN_DAYS_TIMESTAMP.toLong().getDaysLeft())
     }
 
     @Test
-    internal fun `GIVEN a timestamp WHEN getHoursLeft is called THEN it returns the quantity of hours` () {
+    fun `GIVEN a timestamp WHEN getHoursLeft is called THEN it returns the quantity of hours` () {
         Assert.assertEquals(0, THIRTY_MINUTES_MILLISECONDS.toLong().getHoursLeft())
         Assert.assertEquals(1, ONE_HOUR_MILLISECONDS.toLong().getHoursLeft())
         Assert.assertEquals(0, THREE_DAYS_TIMESTAMP.toLong().getHoursLeft())
@@ -22,7 +22,7 @@ class TimestampExtTest {
     }
 
     @Test
-    internal fun `GIVEN a timestamp WHEN getMinutesLeft is called THEN it returns the quantity of minutes` () {
+    fun `GIVEN a timestamp WHEN getMinutesLeft is called THEN it returns the quantity of minutes` () {
         Assert.assertEquals(30, THIRTY_MINUTES_MILLISECONDS.toLong().getMinutesLeft())
         Assert.assertEquals(0, ONE_HOUR_MILLISECONDS.toLong().getMinutesLeft())
         Assert.assertEquals(0, THREE_DAYS_TIMESTAMP.toLong().getMinutesLeft())
@@ -31,13 +31,13 @@ class TimestampExtTest {
     }
 
     @Test
-    internal fun `GIVEN a timestamp WHEN the format string is required THEN return the correct output` () {
+    fun `GIVEN a timestamp WHEN the format string is required THEN return the correct output` () {
         Assert.assertEquals(DATETIME_OUTPUT, DATETIME_TIMESTAMP.formatTimestamp(DATETIME_FORMAT))
         Assert.assertEquals(DATE_OUTPUT, DATETIME_TIMESTAMP.formatTimestamp(DATE_FORMAT))
     }
 
     @Test
-    internal fun `GIVEN a timestamp WHEN getSecondsLeft is called THEN it returns the quantity of seconds` () {
+    fun `GIVEN a timestamp WHEN getSecondsLeft is called THEN it returns the quantity of seconds` () {
         Assert.assertEquals(30, THIRTY_SECONDS_MILLISECONDS.toLong().getSecondsLeft())
         Assert.assertEquals(0, ONE_MINUTE_MILLISECONDS.toLong().getSecondsLeft())
         Assert.assertEquals(0, ONE_HOUR_MILLISECONDS.toLong().getSecondsLeft())

@@ -6,13 +6,13 @@ import org.junit.Test
 class StringExtTest {
 
     @Test
-    internal fun `GIVEN a string WHEN upperAsTitle is called THEN returns a first capital letter string` () {
+    fun `GIVEN a string WHEN upperAsTitle is called THEN returns a first capital letter string` () {
         Assert.assertEquals(TITLE_OUTPUT_1, TITLE_INPUT_1.upperAsTitle())
         Assert.assertEquals(TITLE_OUTPUT_2, TITLE_INPUT_2.upperAsTitle())
     }
 
     @Test
-    internal fun `GIVEN an empty String WHEN upperAsTitle is called THEN returns an empty string` () {
+    fun `GIVEN an empty String WHEN upperAsTitle is called THEN returns an empty string` () {
         Assert.assertEquals("", "".upperAsTitle())
     }
 
