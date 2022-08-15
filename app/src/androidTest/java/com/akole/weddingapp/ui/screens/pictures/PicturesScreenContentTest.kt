@@ -80,8 +80,7 @@ class PicturesScreenContentTest {
                 viewState = MOCK_INITIAL_STATE.copy(
                     isUploadingImagesLoading = true,
                     uploadingImages = 2,
-                    uploadingProgress = 1,
-                    imageUrlList = listOf(Uri.EMPTY, Uri.EMPTY)
+                    uploadingProgress = 1
                 ),
                 onEventHandler = {}
             )
@@ -109,7 +108,23 @@ class PicturesScreenContentTest {
         assert(value = wasCalled)
     }
 
+    @Test
+    fun show_photo_collection_and_scroll_it(): Unit = with(composeTestRule) {
+        setContent {
+            PicturesScreenContent(
+                viewState = MOCK_INITIAL_STATE.copy(
+                    imageUrlList = List(MOCK_PHOTO_NUMBER) { Uri.EMPTY}
+                ),
+                onEventHandler = {}
+            )
+        }
+        onNodeWithTag(COLLECTION_GRID_TEST_TAG).assertIsDisplayed()
+        onNodeWithTag(COLLECTION_GRID_TEST_TAG).assert(hasScrollAction())
+        onNodeWithTag(COLLECTION_GRID_TEST_TAG).performScrollToIndex(MOCK_PHOTO_NUMBER - 1)
+    }
+
     companion object {
         private val MOCK_INITIAL_STATE = ViewState()
+        private const val MOCK_PHOTO_NUMBER = 10
     }
 }

@@ -48,7 +48,8 @@ fun PicturesGallery(
                 LazyVerticalGrid (
                     modifier = Modifier
                         .wrapContentHeight()
-                        .fillMaxWidth(),
+                        .fillMaxWidth()
+                        .testTag(COLLECTION_GRID_TEST_TAG),
                     columns = GridCells.Fixed(3)
                 ) {
                     items(imagesUriList.size) { item ->
@@ -83,3 +84,4 @@ fun PicturesGallery(
 }
 
 internal const val LOADING_COLLECTION_TEST_TAG = "LoadingCollectionTestTag"
+internal const val COLLECTION_GRID_TEST_TAG = "CollectionGridTestTag"
