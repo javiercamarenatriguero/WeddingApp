@@ -16,6 +16,7 @@ import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.graphicsLayer
 import androidx.compose.ui.layout.ContentScale
+import androidx.compose.ui.platform.testTag
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.util.lerp
@@ -51,6 +52,7 @@ fun Carousel(
             modifier = Modifier
                 .fillMaxWidth()
                 .background(color = Color.White.copy(alpha = 0.7f))
+                .testTag(MapScreenTestTags.CAROUSEL)
         ) { page ->
             Card(
                 Modifier
