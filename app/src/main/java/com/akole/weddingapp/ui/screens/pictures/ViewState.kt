@@ -8,7 +8,7 @@ data class ViewState(
     val isCollectionError: Boolean = false,
     val uploadingImages: Int = 0,
     val uploadingProgress: Int = 0,
-    val imageUrlList: List<Uri> = emptyList(),
+    val imageUrlList: List<String> = emptyList(),
     val isShownPictureDialog: Boolean = false,
     val pictureUri: Uri? = null,
     val isPhotoServiceEnabled: Boolean = false

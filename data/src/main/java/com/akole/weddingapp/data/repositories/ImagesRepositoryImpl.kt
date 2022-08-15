@@ -9,6 +9,7 @@ import com.google.firebase.storage.ListResult
 import com.google.firebase.storage.ktx.storage
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.FlowPreview
 import kotlinx.coroutines.channels.Channel
 import kotlinx.coroutines.channels.awaitClose
 import kotlinx.coroutines.flow.*
@@ -21,12 +22,12 @@ class ImagesRepositoryImpl @Inject constructor(): ImagesRepository {
     private val storageRef = storage.reference
 
     override suspend fun saveImages(
-        list: List<Uri>
+        list: List<String>
     ): Flow<SaveImagesResponse> {
          return callbackFlow {
-             list.forEachIndexed { index, uri ->
+             list.forEachIndexed { index, uriString ->
                  trySend(SaveImagesResponse.Loading(index + 1))
-                 saveImage(uri = uri).collect { response ->
+                 saveImage(uriString = uriString).collect { response ->
                      when (response) {
                          is SaveImageResponse.Success -> {
                              // Check if it is the latest image to upload
@@ -48,7 +49,8 @@ class ImagesRepositoryImpl @Inject constructor(): ImagesRepository {
         }.flowOn(Dispatchers.IO)
     }
 
-    private suspend fun saveImage(uri: Uri): Flow<SaveImageResponse> {
+    private suspend fun saveImage(uriString: String): Flow<SaveImageResponse> {
+        val uri = Uri.parse(uriString)
         val fileRef = storageRef.child("images/${uri.lastPathSegment?.substringAfterLast('/')}")
         return callbackFlow {
             val uploadTask = fileRef.putFile(uri)
@@ -97,7 +99,8 @@ class ImagesRepositoryImpl @Inject constructor(): ImagesRepository {
         }.flowOn(Dispatchers.IO)
     }
 
-    private suspend fun getImagesUriList(itemList: ListResult): MutableList<Uri> {
+    @OptIn(FlowPreview::class)
+    private suspend fun getImagesUriList(itemList: ListResult): List<String> {
         val list = mutableListOf<Uri>()
         var index = 0
         itemList.items.asFlow()
@@ -128,7 +131,7 @@ class ImagesRepositoryImpl @Inject constructor(): ImagesRepository {
             .collect { uri ->
                 list.add(uri)
             }
-        return list
+        return list.map { it.toString() }
     }
 }
 

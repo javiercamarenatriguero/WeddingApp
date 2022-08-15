@@ -45,13 +45,13 @@ class PicturesViewModel @Inject constructor(
                     uploadingImages = value.size
                 )
                 viewModelScope.launch {
-                    uploadImages(value)
+                    uploadImages(value.map {it.toString()})
                 }
             }
             is ViewEvent.ShowPictureDialog -> {
                 updateState(
                     isShownPictureDialog = true,
-                    pictureUri = value
+                    pictureUri = Uri.parse(value)
                 )
             }
             ViewEvent.DismissDialog -> updateState(
@@ -76,7 +76,7 @@ class PicturesViewModel @Inject constructor(
         emit(OneShotEvent.GoToImageGallery)
     }
 
-    suspend fun uploadImages(list: List<@JvmSuppressWildcards Uri>) {
+    suspend fun uploadImages(list: List<String>) {
         if (list.isEmpty()) {
             updateState(isLoading = false)
         } else {
@@ -129,7 +129,7 @@ class PicturesViewModel @Inject constructor(
         uploadingProgress: Int = state.uploadingProgress,
         isCollectionLoading: Boolean = state.isCollectionLoading,
         isCollectionError: Boolean = state.isCollectionError,
-        imageUrlList: List<Uri> = state.imageUrlList,
+        imageUrlList: List<String> = state.imageUrlList,
         isShownPictureDialog: Boolean = state.isShownPictureDialog,
         pictureUri: Uri? = state.pictureUri,
         isPhotoServiceEnabled: Boolean = isPhotoServiceEnabled()
@@ -149,7 +149,7 @@ class PicturesViewModel @Inject constructor(
 
     sealed interface ViewEvent {
         class GetImagesResponse(val value: List<@JvmSuppressWildcards Uri>) : ViewEvent
-        class ShowPictureDialog(val value: Uri) : ViewEvent
+        class ShowPictureDialog(val value: String) : ViewEvent
         object AddPhotosClicked: ViewEvent
         object DismissDialog: ViewEvent
     }

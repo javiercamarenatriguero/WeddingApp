@@ -133,8 +133,8 @@ class PicturesViewModelTest {
 
     companion object {
         private val MOCK_SUCCESS_IMAGES_URI_LIST = listOf(
-            Uri.EMPTY,
-            Uri.EMPTY,
+            "",
+            "",
         )
         private const val MOCK_LOADING_IMAGE_INDEX = 2
     }

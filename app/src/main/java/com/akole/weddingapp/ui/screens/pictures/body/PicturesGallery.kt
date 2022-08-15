@@ -26,7 +26,7 @@ import com.akole.weddingapp.ui.theme.DarkPink
 internal fun PicturesGallery(
     isCollectionLoading: Boolean,
     isCollectionError: Boolean,
-    imagesUriList: List<Uri>,
+    imagesUriList: List<String>,
     onEventHandler: (PicturesViewModel.ViewEvent) -> Unit,
 ) {
     Column (

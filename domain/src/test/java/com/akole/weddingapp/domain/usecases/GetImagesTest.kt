@@ -1,6 +1,5 @@
 package com.akole.weddingapp.domain.usecases
 
-import android.net.Uri
 import com.akole.weddingapp.domain.CoroutineTestRule
 import com.akole.weddingapp.domain.repositories.ImagesRepository
 import io.mockk.clearAllMocks
@@ -64,8 +63,8 @@ class GetImagesTest {
 
     companion object {
         private val MOCK_SUCCESS_IMAGES_URI_LIST = listOf(
-            Uri.EMPTY,
-            Uri.EMPTY,
+            "",
+            "",
         )
         private const val MOCK_ERROR_MESSAGE = "Error description"
     }

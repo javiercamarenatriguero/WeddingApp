@@ -1,6 +1,5 @@
 package com.akole.weddingapp.domain.usecases
 
-import android.net.Uri
 import com.akole.weddingapp.domain.repositories.ImagesRepository
 import kotlinx.coroutines.flow.Flow
 import java.lang.Exception
@@ -14,6 +13,6 @@ class GetImages(
 
 sealed class GetImagesResponse {
     object Loading: GetImagesResponse()
-    data class Success(val images: List<Uri>): GetImagesResponse()
+    data class Success(val images: List<String>): GetImagesResponse()
     data class Error(val exception: Exception): GetImagesResponse()
 }
