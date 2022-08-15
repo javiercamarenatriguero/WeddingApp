@@ -64,7 +64,7 @@ Following are some of the features available on the app:
 
 ---
 ### Test
-* Unit & UI Test (pending domain & data modules)
+* Unit & UI Test (pending data module)
 * Emulator (Android SDK 28/31)
 * Xiaomi Note 5 / Realme GT (Android SDK 27/31)
 
