@@ -59,7 +59,7 @@ fun SongsForm(
             modifier = Modifier
                 .fillMaxWidth()
                 .padding(start = 20.dp, end = 20.dp)
-                .testTag(SONG_TEXT_FIELD_TEST_TAG),
+                .testTag(SongsScreenTestTags.SONG_TEXT_FIELD),
             onValueChange = { song ->
                 onEventHandler.invoke(SongsViewModel.ViewEvent.SongTextChange(song))
             },
@@ -88,7 +88,7 @@ fun SongsForm(
             modifier = Modifier
                 .fillMaxWidth()
                 .padding(start = 20.dp, end = 20.dp)
-                .testTag(ARTIST_TEXT_FIELD_TEST_TAG),
+                .testTag(SongsScreenTestTags.ARTIST_TEXT_FIELD),
             onValueChange = { artist ->
                 onEventHandler.invoke(SongsViewModel.ViewEvent.ArtistTextChange(artist))
             },
@@ -127,6 +127,3 @@ fun SongsForm(
         }
     }
 }
-
-internal const val SONG_TEXT_FIELD_TEST_TAG = "SongTextFieldTestTag"
-internal const val ARTIST_TEXT_FIELD_TEST_TAG = "ArtistTextFieldTestTag"

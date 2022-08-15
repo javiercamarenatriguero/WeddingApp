@@ -60,12 +60,10 @@ fun PicturesDescription(
             LinearProgressIndicator(
                 backgroundColor = Color.LightGray,
                 color = Color.Blue,
-                modifier = Modifier.testTag(UPLOADING_PHOTO_PROGRESS_TEST_TAG)
+                modifier = Modifier.testTag(PictureScreenTestTags.UPLOADING_PHOTO_PROGRESS)
             )
             Text(text = stringResource(id = R.string.pictures_uploading_progress_text) + " $progress / $numImages")
             Spacer(modifier = Modifier.height(20.dp))
         }
     }
 }
-
-internal const val UPLOADING_PHOTO_PROGRESS_TEST_TAG = "UploadingPhotoProgressTestTag"

@@ -33,14 +33,14 @@ fun SongList(
         SongItemListTitle()
         if (isLoading){
             CircularProgressIndicator(
-                modifier = Modifier.testTag(LOADING_VIEW_TEST_TAG)
+                modifier = Modifier.testTag(SongsScreenTestTags.LOADING_VIEW)
             )
         } else {
             LazyColumn (
                 modifier = Modifier
                     .padding(horizontal = 20.dp, vertical = 5.dp)
                     .background(ExtraLightGray)
-                    .testTag(SONGS_COLUMN_TEST_TAG)
+                    .testTag(SongsScreenTestTags.SONGS_COLUMN)
             ) {
                 items(songItemList.size) { index ->
                     SongRow(songItem = songItemList[index])
@@ -69,6 +69,3 @@ private fun SongItemListTitle() {
         fontSize = 18.sp
     )
 }
-
-internal const val SONGS_COLUMN_TEST_TAG = "SongsColumnTestTag"
-internal const val LOADING_VIEW_TEST_TAG = "LoadingViewTestTag"

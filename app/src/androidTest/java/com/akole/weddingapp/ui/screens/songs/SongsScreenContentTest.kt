@@ -25,13 +25,13 @@ class SongsScreenContentTest {
                 onEventHandler = {}
             )
         }
-        onNodeWithTag(SONG_TEXT_FIELD_TEST_TAG).assertExists()
-        onNodeWithTag(SONG_TEXT_FIELD_TEST_TAG).assertIsEnabled()
-        onNodeWithTag(SONG_TEXT_FIELD_TEST_TAG).assertTextContains("")
+        onNodeWithTag(SongsScreenTestTags.SONG_TEXT_FIELD).assertExists()
+        onNodeWithTag(SongsScreenTestTags.SONG_TEXT_FIELD).assertIsEnabled()
+        onNodeWithTag(SongsScreenTestTags.SONG_TEXT_FIELD).assertTextContains("")
 
-        onNodeWithTag(ARTIST_TEXT_FIELD_TEST_TAG).assertExists()
-        onNodeWithTag(ARTIST_TEXT_FIELD_TEST_TAG).assertIsEnabled()
-        onNodeWithTag(ARTIST_TEXT_FIELD_TEST_TAG).assertTextContains("")
+        onNodeWithTag(SongsScreenTestTags.ARTIST_TEXT_FIELD).assertExists()
+        onNodeWithTag(SongsScreenTestTags.ARTIST_TEXT_FIELD).assertIsEnabled()
+        onNodeWithTag(SongsScreenTestTags.ARTIST_TEXT_FIELD).assertTextContains("")
 
         onNodeWithText(context.getString(R.string.submit_song)).assertIsNotEnabled()
     }
@@ -64,8 +64,8 @@ class SongsScreenContentTest {
                 onEventHandler = {}
             )
         }
-        onNodeWithTag(SONGS_COLUMN_TEST_TAG).assertExists()
-        onNodeWithTag(SONGS_COLUMN_TEST_TAG).performScrollToIndex(MOCK_NUMBER_SONGS - 1)
+        onNodeWithTag(SongsScreenTestTags.SONGS_COLUMN).assertExists()
+        onNodeWithTag(SongsScreenTestTags.SONGS_COLUMN).performScrollToIndex(MOCK_NUMBER_SONGS - 1)
     }
 
     @Test
@@ -78,8 +78,8 @@ class SongsScreenContentTest {
                 onEventHandler = {}
             )
         }
-        onNodeWithTag(LOADING_VIEW_TEST_TAG).assertExists()
-        onNodeWithTag(LOADING_VIEW_TEST_TAG).assertIsDisplayed()
+        onNodeWithTag(SongsScreenTestTags.LOADING_VIEW).assertExists()
+        onNodeWithTag(SongsScreenTestTags.LOADING_VIEW).assertIsDisplayed()
     }
 
     @Test
@@ -92,8 +92,8 @@ class SongsScreenContentTest {
                 onEventHandler = {}
             )
         }
-        onNodeWithTag(SUCCESS_DIALOG_TEST_TAG).assertExists()
-        onNodeWithTag(SUCCESS_DIALOG_TEST_TAG).assertIsDisplayed()
+        onNodeWithTag(SongsScreenTestTags.SUCCESS_DIALOG).assertExists()
+        onNodeWithTag(SongsScreenTestTags.SUCCESS_DIALOG).assertIsDisplayed()
         onNodeWithText(context.getString(R.string.songs_item_saved_message)).assertIsDisplayed()
     }
 

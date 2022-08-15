@@ -25,10 +25,9 @@ fun SongsScreenContent(
                 message = stringResource(id = R.string.songs_item_saved_message),
                 buttonText = stringResource(id = R.string.songs_submit_button_text),
                 onEventHandler = onEventHandler,
-                modifier = Modifier.testTag(SUCCESS_DIALOG_TEST_TAG)
+                modifier = Modifier.testTag(SongsScreenTestTags.SUCCESS_DIALOG)
             )
         }
     }
 }
 
-internal const val SUCCESS_DIALOG_TEST_TAG = "SuccessDialogTestTag"

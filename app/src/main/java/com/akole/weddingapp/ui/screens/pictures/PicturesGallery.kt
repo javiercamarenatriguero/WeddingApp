@@ -37,7 +37,7 @@ fun PicturesGallery(
         Spacer(modifier = Modifier.height(10.dp))
         if (isCollectionLoading) {
             CircularProgressIndicator(
-                modifier = Modifier.testTag(LOADING_COLLECTION_TEST_TAG)
+                modifier = Modifier.testTag(PictureScreenTestTags.LOADING_COLLECTION)
             )
         } else if (isCollectionError) {
             Text(
@@ -49,7 +49,7 @@ fun PicturesGallery(
                     modifier = Modifier
                         .wrapContentHeight()
                         .fillMaxWidth()
-                        .testTag(COLLECTION_GRID_TEST_TAG),
+                        .testTag(PictureScreenTestTags.COLLECTION_GRID),
                     columns = GridCells.Fixed(3)
                 ) {
                     items(imagesUriList.size) { item ->
@@ -82,6 +82,3 @@ fun PicturesGallery(
         }
     }
 }
-
-internal const val LOADING_COLLECTION_TEST_TAG = "LoadingCollectionTestTag"
-internal const val COLLECTION_GRID_TEST_TAG = "CollectionGridTestTag"

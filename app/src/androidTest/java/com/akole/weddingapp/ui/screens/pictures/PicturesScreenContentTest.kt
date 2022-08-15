@@ -57,7 +57,7 @@ class PicturesScreenContentTest {
                 onEventHandler = {}
             )
         }
-        onNodeWithTag(LOADING_COLLECTION_TEST_TAG).assertIsDisplayed()
+        onNodeWithTag(PictureScreenTestTags.LOADING_COLLECTION).assertIsDisplayed()
     }
 
     @Test
@@ -85,7 +85,7 @@ class PicturesScreenContentTest {
                 onEventHandler = {}
             )
         }
-        onNodeWithTag(UPLOADING_PHOTO_PROGRESS_TEST_TAG).assertIsDisplayed()
+        onNodeWithTag(PictureScreenTestTags.UPLOADING_PHOTO_PROGRESS).assertIsDisplayed()
         onNodeWithText(context.getString(R.string.pictures_uploading_progress_text) + " 1 / 2").assertIsDisplayed()
     }
 
@@ -118,9 +118,9 @@ class PicturesScreenContentTest {
                 onEventHandler = {}
             )
         }
-        onNodeWithTag(COLLECTION_GRID_TEST_TAG).assertIsDisplayed()
-        onNodeWithTag(COLLECTION_GRID_TEST_TAG).assert(hasScrollAction())
-        onNodeWithTag(COLLECTION_GRID_TEST_TAG).performScrollToIndex(MOCK_PHOTO_NUMBER - 1)
+        onNodeWithTag(PictureScreenTestTags.COLLECTION_GRID).assertIsDisplayed()
+        onNodeWithTag(PictureScreenTestTags.COLLECTION_GRID).assert(hasScrollAction())
+        onNodeWithTag(PictureScreenTestTags.COLLECTION_GRID).performScrollToIndex(MOCK_PHOTO_NUMBER - 1)
     }
 
     companion object {
