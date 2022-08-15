@@ -25,7 +25,8 @@ Following are some of the features available on the app:
   * Performance
   * Firestore (images)
   * Realtime database (songs)
-  
+
+* Unit & UI Tests
 * Uploaded on Play Store (Until 10th of June)
 * Multilingual: EN & ES
 
@@ -63,7 +64,7 @@ Following are some of the features available on the app:
 
 ---
 ### Test
-* Unit & Instrumentation Test
+* Unit & UI Test (pending domain & data modules)
 * Emulator (Android SDK 28/31)
 * Xiaomi Note 5 / Realme GT (Android SDK 27/31)
 
