@@ -12,7 +12,7 @@ Following are some of the features available on the app:
 ## Technical details 
 * Clean code architecture
 * Android modules (app, domain, data)
-* MVVM Design patterns & UI State handling
+* MVI Design patterns
 * 100% Kotlin & Jetpack Compose
 * Kotlin Coroutines - Flows  
 * Hilt for Dependency Injection
