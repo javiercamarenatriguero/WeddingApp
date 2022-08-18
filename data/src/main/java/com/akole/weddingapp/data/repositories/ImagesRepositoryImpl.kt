@@ -4,9 +4,8 @@ import android.net.Uri
 import com.akole.weddingapp.domain.usecases.GetImagesResponse
 import com.akole.weddingapp.domain.repositories.ImagesRepository
 import com.akole.weddingapp.domain.usecases.SaveImagesResponse
-import com.google.firebase.ktx.Firebase
+import com.google.firebase.storage.FirebaseStorage
 import com.google.firebase.storage.ListResult
-import com.google.firebase.storage.ktx.storage
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.FlowPreview
@@ -17,8 +16,9 @@ import kotlinx.coroutines.launch
 import java.lang.Exception
 import javax.inject.Inject
 
-class ImagesRepositoryImpl @Inject constructor(): ImagesRepository {
-    private val storage = Firebase.storage
+class ImagesRepositoryImpl @Inject constructor(
+    private val storage: FirebaseStorage
+): ImagesRepository {
     private val storageRef = storage.reference
 
     override suspend fun saveImages(

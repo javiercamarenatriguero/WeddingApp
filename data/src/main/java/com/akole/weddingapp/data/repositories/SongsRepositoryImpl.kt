@@ -4,8 +4,7 @@ import com.akole.weddingapp.domain.models.Song
 import com.akole.weddingapp.domain.repositories.SongsRepository
 import com.akole.weddingapp.domain.usecases.GetSongsResponse
 import com.akole.weddingapp.domain.usecases.SaveSongResponse
-import com.google.firebase.firestore.ktx.firestore
-import com.google.firebase.ktx.Firebase
+import com.google.firebase.firestore.FirebaseFirestore
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.channels.awaitClose
 import kotlinx.coroutines.flow.Flow
@@ -13,9 +12,10 @@ import kotlinx.coroutines.flow.callbackFlow
 import kotlinx.coroutines.flow.flowOn
 import javax.inject.Inject
 
-class SongsRepositoryImpl @Inject constructor(): SongsRepository {
-    private val db = Firebase.firestore
-    private val songsCollection = db.collection("songs")
+class SongsRepositoryImpl @Inject constructor(
+    fireStore: FirebaseFirestore
+): SongsRepository {
+    private val songsCollection = fireStore.collection("songs")
 
     override suspend fun getSongList(): Flow<GetSongsResponse> {
         return callbackFlow {
