@@ -3,6 +3,7 @@ package com.akole.weddingapp.ui.screens.pictures.body
 import androidx.compose.foundation.layout.*
 import androidx.compose.material.Button
 import androidx.compose.material.LinearProgressIndicator
+import androidx.compose.material.MaterialTheme
 import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
@@ -10,11 +11,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.platform.testTag
 import androidx.compose.ui.res.stringResource
-import androidx.compose.ui.text.font.FontFamily
-import androidx.compose.ui.text.font.FontWeight
-import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
-import androidx.compose.ui.unit.sp
 import com.akole.weddingapp.R
 import com.akole.weddingapp.ui.screens.pictures.PictureScreenTestTags
 import com.akole.weddingapp.ui.screens.pictures.PicturesViewModel
@@ -37,10 +34,7 @@ internal fun PicturesDescription(
     ) {
         Text(
             text = stringResource(R.string.pictures_description_text),
-            textAlign = TextAlign.Justify,
-            fontFamily = FontFamily.Cursive,
-            fontWeight = FontWeight.SemiBold,
-            fontSize = 20.sp,
+            style = MaterialTheme.typography.body1,
             modifier = Modifier.padding(8.dp)
         )
 

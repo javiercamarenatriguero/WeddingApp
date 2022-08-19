@@ -1,4 +1,4 @@
-package com.akole.weddingapp.ui.screens.pictures
+package com.akole.weddingapp.ui.screens.pictures.header
 
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.*
@@ -10,11 +10,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.stringResource
-import androidx.compose.ui.text.font.FontFamily
-import androidx.compose.ui.text.font.FontWeight
-import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
-import androidx.compose.ui.unit.sp
 import androidx.constraintlayout.compose.ConstraintLayout
 import coil.compose.rememberAsyncImagePainter
 import com.akole.weddingapp.R
@@ -50,10 +46,7 @@ internal fun Header() {
         ) {
             Text(
                 text = stringResource(id = R.string.pictures_gallery_title),
-                textAlign = TextAlign.Center,
-                fontWeight = FontWeight.ExtraBold,
-                fontFamily = FontFamily.Cursive,
-                fontSize = 24.sp,
+                style = MaterialTheme.typography.h1,
                 color = Color.White,
                 modifier = Modifier
                     .padding(10.dp)

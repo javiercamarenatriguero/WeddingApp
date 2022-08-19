@@ -1,6 +1,5 @@
 package com.akole.weddingapp.ui.screens.pictures.body
 
-import android.net.Uri
 import androidx.compose.foundation.*
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.grid.GridCells

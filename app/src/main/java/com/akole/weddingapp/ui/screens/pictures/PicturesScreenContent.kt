@@ -4,6 +4,7 @@ import androidx.compose.foundation.layout.*
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import com.akole.weddingapp.ui.screens.pictures.body.Body
+import com.akole.weddingapp.ui.screens.pictures.header.Header
 
 @Composable
 internal fun PicturesScreenContent(
