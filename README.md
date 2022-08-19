@@ -26,6 +26,7 @@ Following are some of the features available on the app:
   * Firestore (images)
   * Realtime database (songs)
 
+* Material Theme
 * Unit & UI Tests
 * Uploaded on Play Store (Until 10th of June)
 * Multilingual: EN & ES

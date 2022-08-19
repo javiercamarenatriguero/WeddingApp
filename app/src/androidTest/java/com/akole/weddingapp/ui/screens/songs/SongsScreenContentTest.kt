@@ -7,6 +7,7 @@ import androidx.test.ext.junit.runners.AndroidJUnit4
 import androidx.test.platform.app.InstrumentationRegistry
 import com.akole.weddingapp.R
 import com.akole.weddingapp.domain.models.Song
+import com.akole.weddingapp.ui.theme.WeddingAppTheme
 import org.junit.Rule
 import org.junit.Test
 import org.junit.runner.RunWith
@@ -20,10 +21,12 @@ class SongsScreenContentTest {
     @Test
     fun show_empty_text_fields_and_empty_list_on_initial_state(): Unit = with(composeTestRule) {
         setContent {
-            SongsScreenContent(
-                viewState = MOCK_INITIAL_STATE,
-                onEventHandler = {}
-            )
+            WeddingAppTheme {
+                SongsScreenContent(
+                    viewState = MOCK_INITIAL_STATE,
+                    onEventHandler = {}
+                )
+            }
         }
         onNodeWithTag(SongsScreenTestTags.SONG_TEXT_FIELD).assertExists()
         onNodeWithTag(SongsScreenTestTags.SONG_TEXT_FIELD).assertIsEnabled()
@@ -40,14 +43,16 @@ class SongsScreenContentTest {
     fun show_add_song_button_enable_when_text_fields_are_filled(): Unit = with(composeTestRule) {
         var wasCalled = false
         setContent {
-            SongsScreenContent(
-                viewState = MOCK_INITIAL_STATE.copy(
-                    song = MOCK_SONG_NAME,
-                    artist = MOCK_SINGER_NAME,
-                    isButtonReady = true
-                ),
-                onEventHandler = { wasCalled = it == SongsViewModel.ViewEvent.AddClicked }
-            )
+            WeddingAppTheme {
+                SongsScreenContent(
+                    viewState = MOCK_INITIAL_STATE.copy(
+                        song = MOCK_SONG_NAME,
+                        artist = MOCK_SINGER_NAME,
+                        isButtonReady = true
+                    ),
+                    onEventHandler = { wasCalled = it == SongsViewModel.ViewEvent.AddClicked }
+                )
+            }
         }
         onNodeWithText(context.getString(R.string.submit_song)).assertHasClickAction()
         onNodeWithText(context.getString(R.string.submit_song)).performClick()
@@ -57,12 +62,14 @@ class SongsScreenContentTest {
     @Test
     fun show_a_list_of_songs_and_scroll_to_index(): Unit = with(composeTestRule) {
         setContent {
-            SongsScreenContent(
-                viewState = MOCK_INITIAL_STATE.copy(
-                    songList = List(MOCK_NUMBER_SONGS) { Song(MOCK_SONG_NAME) }
-                ),
-                onEventHandler = {}
-            )
+            WeddingAppTheme {
+                SongsScreenContent(
+                    viewState = MOCK_INITIAL_STATE.copy(
+                        songList = List(MOCK_NUMBER_SONGS) { Song(MOCK_SONG_NAME) }
+                    ),
+                    onEventHandler = {}
+                )
+            }
         }
         onNodeWithTag(SongsScreenTestTags.SONGS_COLUMN).assertExists()
         onNodeWithTag(SongsScreenTestTags.SONGS_COLUMN).performScrollToIndex(MOCK_NUMBER_SONGS - 1)
@@ -71,26 +78,29 @@ class SongsScreenContentTest {
     @Test
     fun show_loading_view(): Unit = with(composeTestRule) {
         setContent {
-            SongsScreenContent(
-                viewState = MOCK_INITIAL_STATE.copy(
-                    isLoading = true
-                ),
-                onEventHandler = {}
-            )
+            WeddingAppTheme {
+                SongsScreenContent(
+                    viewState = MOCK_INITIAL_STATE.copy(
+                        isLoading = true
+                    ),
+                    onEventHandler = {}
+                )
+            }
         }
         onNodeWithTag(SongsScreenTestTags.LOADING_VIEW).assertExists()
-        onNodeWithTag(SongsScreenTestTags.LOADING_VIEW).assertIsDisplayed()
     }
 
     @Test
     fun show_success_dialog(): Unit = with(composeTestRule) {
         setContent {
-            SongsScreenContent(
-                viewState = MOCK_INITIAL_STATE.copy(
-                    isDialogShown = true
-                ),
-                onEventHandler = {}
-            )
+            WeddingAppTheme {
+                SongsScreenContent(
+                    viewState = MOCK_INITIAL_STATE.copy(
+                        isDialogShown = true
+                    ),
+                    onEventHandler = {}
+                )
+            }
         }
         onNodeWithTag(SongsScreenTestTags.SUCCESS_DIALOG).assertExists()
         onNodeWithTag(SongsScreenTestTags.SUCCESS_DIALOG).assertIsDisplayed()

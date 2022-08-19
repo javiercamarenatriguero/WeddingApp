@@ -8,6 +8,7 @@ import androidx.compose.ui.test.performClick
 import androidx.test.ext.junit.runners.AndroidJUnit4
 import androidx.test.platform.app.InstrumentationRegistry
 import com.akole.weddingapp.R
+import com.akole.weddingapp.ui.theme.WeddingAppTheme
 import org.junit.Rule
 import org.junit.Test
 import org.junit.runner.RunWith
@@ -21,10 +22,12 @@ class HomeScreenContentTest {
     @Test
     fun show_initial_values_of_counter_when_loaded(): Unit = with(composeTestRule) {
         setContent {
-            HomeScreenContent(
-                viewState = MOCK_INITIAL_STATE,
-                onEventHandler = {}
-            )
+            WeddingAppTheme {
+                HomeScreenContent(
+                    viewState = MOCK_INITIAL_STATE,
+                    onEventHandler = {}
+                )
+            }
         }
         onNodeWithText(MOCK_INITIAL_DAYS_LEFT.toString()).assertExists()
         onNodeWithText(MOCK_INITIAL_HOURS_LEFT.toString()).assertExists()
@@ -36,10 +39,14 @@ class HomeScreenContentTest {
     fun show_add_calendar_button_and_check_performance(): Unit = with(composeTestRule) {
         var wasCalled = false
         setContent {
-            HomeScreenContent(
-                viewState = MOCK_INITIAL_STATE,
-                onEventHandler = { wasCalled = it == HomeViewModel.ViewEvent.AddCalendarClicked }
-            )
+            WeddingAppTheme {
+                HomeScreenContent(
+                    viewState = MOCK_INITIAL_STATE,
+                    onEventHandler = {
+                        wasCalled = it == HomeViewModel.ViewEvent.AddCalendarClicked
+                    }
+                )
+            }
         }
         onNodeWithText(context.getString(R.string.add_to_calendar)).assertHasClickAction()
         onNodeWithText(context.getString(R.string.add_to_calendar)).performClick()

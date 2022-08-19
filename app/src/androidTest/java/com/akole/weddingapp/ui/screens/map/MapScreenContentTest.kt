@@ -7,6 +7,7 @@ import androidx.compose.ui.test.onNodeWithText
 import androidx.test.ext.junit.runners.AndroidJUnit4
 import androidx.test.platform.app.InstrumentationRegistry
 import com.akole.weddingapp.Constants
+import com.akole.weddingapp.ui.theme.WeddingAppTheme
 import org.junit.Rule
 import org.junit.Test
 import org.junit.runner.RunWith
@@ -20,11 +21,13 @@ class MapScreenContentTest {
     @Test
     fun show_initial_values_of_map_when_loaded(): Unit = with(composeTestRule) {
         setContent {
-            MapScreenContent(
-                viewState = MOCK_INITIAL_STATE,
-                markers = markers,
-                onViewEvent = {}
-            )
+            WeddingAppTheme {
+                MapScreenContent(
+                    viewState = MOCK_INITIAL_STATE,
+                    markers = markers,
+                    onViewEvent = {}
+                )
+            }
         }
         // First item (visible)
         onNodeWithText(context.getString(markers.first().details)).assertIsDisplayed()
@@ -37,13 +40,15 @@ class MapScreenContentTest {
     @Test
     fun show_last_item_when_item_position_is_the_latest_item(): Unit = with(composeTestRule) {
         setContent {
-            MapScreenContent(
-                viewState = MOCK_INITIAL_STATE.copy(
-                    mapItemPosition = markers.size - 1
-                ),
-                markers = markers,
-                onViewEvent = {}
-            )
+            WeddingAppTheme {
+                MapScreenContent(
+                    viewState = MOCK_INITIAL_STATE.copy(
+                        mapItemPosition = markers.size - 1
+                    ),
+                    markers = markers,
+                    onViewEvent = {}
+                )
+            }
         }
         // First item (hidden)
         onNodeWithText(context.getString(markers.first().details)).assertDoesNotExist()
