@@ -14,6 +14,7 @@ import com.akole.weddingapp.ui.utils.upperAsTitle
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.channels.Channel
 import kotlinx.coroutines.flow.Flow
+import kotlinx.coroutines.flow.collectLatest
 import kotlinx.coroutines.flow.receiveAsFlow
 import kotlinx.coroutines.launch
 import javax.inject.Inject
@@ -37,7 +38,7 @@ class SongsViewModel @Inject constructor(
     }
 
     suspend fun loadSongList() {
-        getSongs().collect { response ->
+        getSongs().collectLatest { response ->
             when (response) {
                 is GetSongsResponse.Loading -> {
                     updateState(
@@ -60,7 +61,7 @@ class SongsViewModel @Inject constructor(
     }
 
     suspend fun uploadSong(song: Song) {
-        saveSong(song).collect { response ->
+        saveSong(song).collectLatest { response ->
             when (response) {
                 is SaveSongResponse.Loading -> {
                     updateState(isLoading = true)

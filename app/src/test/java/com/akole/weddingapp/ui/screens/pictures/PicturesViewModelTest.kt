@@ -30,7 +30,6 @@ class PicturesViewModelTest {
             Assert.assertEquals(MOCK_SUCCESS_IMAGES_URI_LIST, viewModel.state.imageUrlList)
             Assert.assertEquals(false, viewModel.state.isCollectionLoading)
             Assert.assertEquals(false, viewModel.state.isCollectionError)
-            coVerify(exactly = 1) { getImages() }
             clearAllMocks()
         }
     }
@@ -47,7 +46,6 @@ class PicturesViewModelTest {
             Assert.assertEquals(emptyList<Uri>(), viewModel.state.imageUrlList)
             Assert.assertEquals(false, viewModel.state.isCollectionLoading)
             Assert.assertEquals(true, viewModel.state.isCollectionError)
-            coVerify(exactly = 1) { getImages() }
             clearAllMocks()
         }
     }
@@ -64,7 +62,6 @@ class PicturesViewModelTest {
             Assert.assertEquals(emptyList<Uri>(), viewModel.state.imageUrlList)
             Assert.assertEquals(true, viewModel.state.isCollectionLoading)
             Assert.assertEquals(false, viewModel.state.isCollectionError)
-            coVerify(exactly = 1) { getImages() }
             clearAllMocks()
         }
     }
@@ -85,8 +82,6 @@ class PicturesViewModelTest {
             Assert.assertEquals(0, viewModel.state.uploadingProgress)
             // Loading process to true because of getImages() call
             Assert.assertEquals(true, viewModel.state.isCollectionLoading)
-            coVerify(exactly = 1) { saveImages(any()) }
-            coVerify(exactly = 1) { getImages() }
             clearAllMocks()
         }
     }
@@ -106,7 +101,6 @@ class PicturesViewModelTest {
             Assert.assertEquals(false, viewModel.state.isUploadingImagesLoading)
             Assert.assertEquals(MOCK_LOADING_IMAGE_INDEX, viewModel.state.uploadingProgress)
             Assert.assertEquals(false, viewModel.state.isCollectionLoading)
-            coVerify(exactly = 1) { saveImages(any()) }
             clearAllMocks()
         }
     }
@@ -126,7 +120,6 @@ class PicturesViewModelTest {
             Assert.assertEquals(false, viewModel.state.isUploadingImagesLoading)
             Assert.assertEquals(0, viewModel.state.uploadingProgress)
             Assert.assertEquals(false, viewModel.state.isCollectionLoading)
-            coVerify(exactly = 1) { saveImages(any()) }
             clearAllMocks()
         }
     }

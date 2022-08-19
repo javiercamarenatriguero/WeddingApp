@@ -35,7 +35,6 @@ class SongsViewModelTest {
             // Check TextFields' values are reset
             Assert.assertEquals("", viewModel.state.song,)
             Assert.assertEquals("", viewModel.state.artist)
-            coVerify(exactly = 1) { getSongs() }
             clearAllMocks()
         }
     }
@@ -51,7 +50,6 @@ class SongsViewModelTest {
             viewModel.loadSongList()
             Assert.assertEquals(emptyList<Song>(), viewModel.state.songList)
             Assert.assertEquals(false, viewModel.state.isLoading)
-            coVerify(exactly = 1) { getSongs() }
             clearAllMocks()
         }
     }
@@ -67,7 +65,6 @@ class SongsViewModelTest {
             viewModel.loadSongList()
             Assert.assertEquals(emptyList<Song>(), viewModel.state.songList)
             Assert.assertEquals(true, viewModel.state.isLoading)
-            coVerify(exactly = 1) { getSongs() }
             clearAllMocks()
         }
     }
@@ -86,8 +83,6 @@ class SongsViewModelTest {
             // Loading process to true because of getSongs() call
             Assert.assertEquals(true, viewModel.state.isLoading)
             Assert.assertEquals(true, viewModel.state.isDialogShown)
-            coVerify(exactly = 1) { saveSong(any()) }
-            coVerify(exactly = 1) { getSongs() }
             clearAllMocks()
         }
     }
@@ -102,7 +97,6 @@ class SongsViewModelTest {
             val viewModel = SongsViewModel(getSongs = getSongs, saveSong = saveSong)
             viewModel.uploadSong(MOCK_UPLOADED_SONG)
             Assert.assertEquals(true, viewModel.state.isLoading)
-            coVerify(exactly = 1) { saveSong(any()) }
             clearAllMocks()
         }
     }
@@ -117,7 +111,6 @@ class SongsViewModelTest {
             val viewModel = SongsViewModel(getSongs = getSongs, saveSong = saveSong)
             viewModel.uploadSong(MOCK_UPLOADED_SONG)
             Assert.assertEquals(false, viewModel.state.isLoading)
-            coVerify(exactly = 1) { saveSong(any()) }
             clearAllMocks()
         }
     }

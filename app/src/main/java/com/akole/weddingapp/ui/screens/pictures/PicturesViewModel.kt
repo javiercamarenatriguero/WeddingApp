@@ -80,7 +80,7 @@ class PicturesViewModel @Inject constructor(
         if (list.isEmpty()) {
             updateState(isLoading = false)
         } else {
-            saveImages(list).collect { response ->
+            saveImages(list).collectLatest { response ->
                 when (response) {
                     is SaveImagesResponse.Loading -> {
                         updateState(uploadingProgress = response.position)
@@ -98,7 +98,7 @@ class PicturesViewModel @Inject constructor(
     }
 
     suspend fun loadImages() {
-        getImages().collect { response ->
+        getImages().collectLatest { response ->
             when (response) {
                 is GetImagesResponse.Loading -> {
                     updateState(
