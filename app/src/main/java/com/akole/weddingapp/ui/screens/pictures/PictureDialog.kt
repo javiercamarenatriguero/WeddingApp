@@ -69,9 +69,11 @@ internal fun PictureDialogContent(
                             )
                         }
                 )
-                Button(onClick = {
-                    onEventHandler.invoke(PicturesViewModel.ViewEvent.DismissDialog)
-                }) {
+                Button(
+                    onClick = {
+                        onEventHandler.invoke(PicturesViewModel.ViewEvent.DismissDialog)
+                    }
+                ) {
                     Text(stringResource(id = R.string.picture_close_button_text))
                 }
             }

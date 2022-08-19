@@ -26,7 +26,6 @@ internal fun WeddingDescription() {
         Text(
             text = stringResource(R.string.description_title),
             textAlign = TextAlign.Center,
-            style = MaterialTheme.typography.body1,
             modifier = Modifier.padding(2.dp)
         )
         Spacer(modifier = Modifier.height(10.dp))

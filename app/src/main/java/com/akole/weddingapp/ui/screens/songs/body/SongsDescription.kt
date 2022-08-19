@@ -1,7 +1,6 @@
 package com.akole.weddingapp.ui.screens.songs.body
 
 import androidx.compose.foundation.layout.*
-import androidx.compose.material.MaterialTheme
 import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
@@ -21,7 +20,6 @@ internal fun SongsDescription() {
         Spacer(modifier = Modifier.height(10.dp))
         Text(
             text = stringResource(R.string.songs_description_text),
-            style = MaterialTheme.typography.body1,
             modifier = Modifier.padding(8.dp)
         )
     }

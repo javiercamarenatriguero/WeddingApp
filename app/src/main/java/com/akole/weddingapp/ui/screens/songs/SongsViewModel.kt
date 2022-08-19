@@ -41,21 +41,18 @@ class SongsViewModel @Inject constructor(
             when (response) {
                 is GetSongsResponse.Loading -> {
                     updateState(
-                        isLoading = true,
-                        isButtonReady = false
+                        isLoading = true
                     )
                 }
                 is GetSongsResponse.Success -> {
                     updateState(
                         isLoading = false,
-                        isButtonReady = true,
                         songList = response.songs
                     )
                 }
                 is GetSongsResponse.Error -> {
                     updateState(
-                        isLoading = false,
-                        isButtonReady = true
+                        isLoading = false
                     )
                 }
             }

@@ -59,7 +59,6 @@ fun CustomOutlinedTextField(
                 focusedIndicatorColor = Color.Black,
                 focusedLabelColor = Color.Black
             ),
-            textStyle = MaterialTheme.typography.body1,
             keyboardOptions = KeyboardOptions(
                 autoCorrect = false,
                 keyboardType = keyboardType,

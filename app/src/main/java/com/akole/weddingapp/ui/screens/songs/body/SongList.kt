@@ -33,7 +33,6 @@ internal fun SongList(
         SongItemListTitle()
         if (isLoading){
             CircularProgressIndicator(
-                color = Color.Black,
                 modifier = Modifier.testTag(SongsScreenTestTags.LOADING_VIEW)
             )
         } else {
