@@ -2,6 +2,7 @@ package com.akole.weddingapp.ui.screens.home.header
 
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material.Button
+import androidx.compose.material.MaterialTheme
 import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
@@ -19,6 +20,8 @@ internal fun AddToCalendarButton(
             onEventHandler.invoke(HomeViewModel.ViewEvent.AddCalendarClicked)
         },
         modifier = Modifier.padding(vertical = 5.dp)) {
-        Text(text = stringResource(id = R.string.add_to_calendar))
+        Text(
+            text = stringResource(id = R.string.add_to_calendar)
+        )
     }
 }

@@ -3,6 +3,7 @@ package com.akole.weddingapp.ui.screens.pictures.body
 import androidx.compose.foundation.layout.*
 import androidx.compose.material.Button
 import androidx.compose.material.LinearProgressIndicator
+import androidx.compose.material.MaterialTheme
 import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
@@ -51,9 +52,6 @@ internal fun PicturesDescription(
             enabled = !isCollectionLoading && !isUploadingImagesLoading && isPhotoServiceEnabled,
             modifier = Modifier.padding(vertical = 5.dp)) {
             Text(
-                fontFamily = FontFamily.Cursive,
-                fontWeight = FontWeight.ExtraBold,
-                fontSize = 18.sp,
                 text = stringResource(id = R.string.submit_photo)
             )
         }

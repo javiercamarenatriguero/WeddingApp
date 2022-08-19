@@ -122,9 +122,6 @@ internal fun SongsForm(
             enabled = buttonEnabled,
             modifier = Modifier.padding(vertical = 5.dp)) {
             Text(
-                fontFamily = FontFamily.Cursive,
-                fontWeight = FontWeight.ExtraBold,
-                fontSize = 18.sp,
                 text = stringResource(id = R.string.submit_song)
             )
         }

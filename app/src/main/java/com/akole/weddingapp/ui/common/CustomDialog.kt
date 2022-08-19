@@ -28,9 +28,7 @@ fun CustomDialog(
                 },
             ) {
                 Text(
-                    text = buttonText,
-                    fontFamily = FontFamily.Cursive,
-                    fontSize = 20.sp
+                    text = buttonText
                 )
             }
         },

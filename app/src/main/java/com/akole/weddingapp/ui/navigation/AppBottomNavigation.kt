@@ -4,6 +4,7 @@ import androidx.compose.material.BottomNavigationItem
 import androidx.compose.material.Icon
 import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.stringResource
 
 @Composable
@@ -24,7 +25,12 @@ fun AppBottomNavigation(
                         contentDescription = stringResource(id = title)
                     )
                 },
-                label = { Text(text = stringResource(id = title) ) }
+                label = {
+                    Text(
+                        text = stringResource(id = title),
+                        color = Color.White
+                    )
+                }
             )
         }
     }
