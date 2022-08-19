@@ -45,14 +45,14 @@ val Typography = Typography(
     body1 = TextStyle(
         fontWeight = FontWeight.SemiBold,
         fontSize = 22.sp,
-        textAlign = TextAlign.Center,
+        textAlign = TextAlign.Justify,
         fontFamily = FontFamily.Cursive,
         color = Color.Black,
     ),
     body2 = TextStyle(
         fontWeight = FontWeight.Normal,
         fontSize = 20.sp,
-        textAlign = TextAlign.Center,
+        textAlign = TextAlign.Justify,
         fontFamily = FontFamily.Cursive,
         color = Color.Black,
     ),

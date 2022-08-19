@@ -7,6 +7,7 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.material.CircularProgressIndicator
 import androidx.compose.material.Divider
+import androidx.compose.material.MaterialTheme
 import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
@@ -14,10 +15,8 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.platform.testTag
 import androidx.compose.ui.res.stringResource
-import androidx.compose.ui.text.font.FontFamily
 
 import androidx.compose.ui.unit.dp
-import androidx.compose.ui.unit.sp
 import com.akole.weddingapp.R
 import com.akole.weddingapp.domain.models.Song
 import com.akole.weddingapp.ui.screens.songs.SongsScreenTestTags
@@ -34,6 +33,7 @@ internal fun SongList(
         SongItemListTitle()
         if (isLoading){
             CircularProgressIndicator(
+                color = Color.Black,
                 modifier = Modifier.testTag(SongsScreenTestTags.LOADING_VIEW)
             )
         } else {
@@ -55,9 +55,8 @@ internal fun SongList(
 private fun SongItemListTitle() {
     Text(
         text = stringResource(id = R.string.song_list_title),
-        modifier = Modifier.padding(horizontal = 20.dp),
-        fontFamily = FontFamily.Cursive,
-        fontSize = 26.sp
+        style = MaterialTheme.typography.h1,
+        modifier = Modifier.padding(horizontal = 20.dp)
     )
     Divider(
         color = Color.LightGray,
@@ -65,8 +64,7 @@ private fun SongItemListTitle() {
     )
     Text(
         text = stringResource(id = R.string.song_list_order),
-        modifier = Modifier.padding(horizontal = 20.dp),
-        fontFamily = FontFamily.Cursive,
-        fontSize = 18.sp
+        style = MaterialTheme.typography.h2,
+        modifier = Modifier.padding(horizontal = 20.dp)
     )
 }
