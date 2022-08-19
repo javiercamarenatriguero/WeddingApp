@@ -5,8 +5,6 @@ import androidx.compose.material.Button
 import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.text.font.FontFamily
-import androidx.compose.ui.unit.sp
 import com.akole.weddingapp.ui.screens.songs.SongsViewModel
 
 @Composable
@@ -34,9 +32,7 @@ fun CustomDialog(
         },
         text = {
             Text(
-                text = message,
-                fontFamily = FontFamily.Cursive,
-                fontSize = 20.sp
+                text = message
             )
         }
     )
