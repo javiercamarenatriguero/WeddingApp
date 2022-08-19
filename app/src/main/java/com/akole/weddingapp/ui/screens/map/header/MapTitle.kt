@@ -10,11 +10,8 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.stringResource
-import androidx.compose.ui.text.font.FontFamily
-import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
-import androidx.compose.ui.unit.sp
 import com.akole.weddingapp.ui.theme.LightPink
 
 @Composable
@@ -36,23 +33,18 @@ internal fun MapTitle(
             ) {
                 Text(
                     text= stringResource(id = title),
+                    style = MaterialTheme.typography.h1,
+                    textAlign = TextAlign.Center,
+                    color = Color.Black,
                     modifier = Modifier
                         .padding(vertical = 2.dp, horizontal = 10.dp),
-                    color = Color.Black,
-                    fontWeight = FontWeight.ExtraBold,
-                    fontFamily = FontFamily.Cursive,
-                    fontSize = 22.sp,
-                    textAlign = TextAlign.Center
                 )
                 Text(
                     text= stringResource(id = details),
+                    style = MaterialTheme.typography.body2,
+                    textAlign = TextAlign.Center,
                     modifier = Modifier
-                        .padding(vertical = 2.dp, horizontal = 10.dp),
-                    color = Color.Black,
-                    fontWeight = FontWeight.Light,
-                    fontFamily = FontFamily.Cursive,
-                    fontSize = 20.sp,
-                    textAlign = TextAlign.Center
+                        .padding(vertical = 2.dp, horizontal = 10.dp)
                 )
             }
         }
